@@ -38,7 +38,7 @@ Go to the browser and see the result - click on the Save button.
 
 We pass a static string to the method call: `Button Clicked!'` But we want to pass the value that the user typed in the input box!
 
-In the next chapter we will learn how to use properties of one element in another element in the same template. Then we'll be able to complete the implementation of the click event of the Save button.   
+In the next chapter we will learn how to use properties of one element in another element in the same template. Then we'll be able to complete the implementation of the click event of the Save button.  
 But now we'll bind a method to an event on the input element: when the user clicks Enter, the method `changeTitle` will be called.
 
 ### 'keyup' event
@@ -95,7 +95,10 @@ changeTitle(event): void {
 }
 ```
 
-Now change the argument you're passing in the template:
+  
+
+
+![](blob:https://www.gitbook.com/909c0ae3-0a60-4870-9a38-6b7588264104) **Playground: **Now change the argument you're passing in the template:
 
 ```html
 <input [value]="title" 
