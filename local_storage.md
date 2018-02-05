@@ -81,7 +81,7 @@ constructor() {
 }
 ```
 
-Wait! Wait! why `JSON.parse`? The answer is simple:
+Wait! Wait! Why `JSON.parse`? The answer is simple:
 As described earlier in this tutorial, local storage stores data in a form of key-value, that means that the values are stored as **strings**.  
 So, if we want to have a real object to deal with, we must parse the strign into a valid object.
 
@@ -102,16 +102,16 @@ export class TodoListStorageService {
     this.todoList = JSON.parse(localStorage.getItem(storageName));
   }
 
-  // get items
+  // Get items
   get() {}
 
-  // add a new item
+  // Add a new item
   post(item) {}
 
-  // update an item
+  // Update an item
   put(item, changes) {}
 
-  // remove an item
+  // Remove an item
   destroy(item) {}
 
 }
@@ -125,7 +125,7 @@ This method will simply return the current state of items stored in the service:
 
 ```
 /**
-   * get items
+   * Get items
    * @returns {any[]}
    */
   get() {
@@ -153,7 +153,7 @@ It accepts one parameter, `item` which will be the item to add:
 ```
 
 Some of you might notice that we just pushed a new item to the array.  
-But what about the local storage? we must also syncornize it with the new array!
+But what about the local storage? We must also syncornize it with the new array!
 
 Lets add a new **private** method in our service, which will be used internaly to update the stored list:
 
@@ -194,7 +194,7 @@ Before that, let's add another helper private method `findItemIndex`, which will
 
 ```
 /**
-   * find the index of an item in the array
+   * Find the index of an item in the array
    * @param item
    * @returns {number}
    */
