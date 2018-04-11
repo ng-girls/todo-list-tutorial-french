@@ -91,13 +91,11 @@ cd the-path-to-your-folder/myProjects
 
 Now, create a new project, called _todo-list_ inside the projects folder, using Angular-CLI, by running the following command:
 ```
-ng new todo-list --prefix=todo
+ng new todo-list
 ```
-This can take a while, since many packages are being downloaded and installed.
-The prefix 'todo' will be used in every component we create. The default prefix (if you don't use the flag `--prefix`) is 'app'.
+This can take a while, since many packages are being downloaded from the web and installed.
 
-
-Now enter the new folder that Angular-CLI created for this project
+Now enter the new folder that Angular-CLI created for this project:
 ```
 cd todo-list
 ```
