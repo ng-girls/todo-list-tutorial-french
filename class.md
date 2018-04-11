@@ -10,11 +10,13 @@ Angular takes care of creating instances of the classes you define - if they are
 
 Each time you use a component in a template, a new instance of it is created. For example, here three instances of the InputComponent class will be created:
 
-```html
+```js
+// src/app/app.component.ts for example
+
 template: `
-  <todo-input></todo-input>
-  <todo-input></todo-input>
-  <todo-input></todo-input>
+  <app-input></app-input>
+  <app-input></app-input>
+  <app-input></app-input>
 `
 ```
 
@@ -43,7 +45,7 @@ You can use this method without explicitly indicating that the class implements 
 
 ### constructor
 
-Another method we haven't seen in the `todo-root` component is the constructor. It is a method that is called by JavaScript when an instance of the class is created. Whatever is inside this method is used to create the instance. So it is called before `ngOnInit`.
+Another method we haven't seen in the `app-root` component is the constructor. It is a method that is called by JavaScript when an instance of the class is created. Whatever is inside this method is used to create the instance. So it is called before `ngOnInit`.
 
 > A strong feature in Angular that uses the constructor is dependency injection. We'll get to that later on, when we'll start using services.
 
@@ -64,20 +66,39 @@ Then you can assign a value at a later stage, for example in the constructor or 
 Try setting a different value for `title` from inside the constructor. See the result in the browser:
 
 ```ts
-title: string = 'my title';
+// src/app/input/input.component.ts
+
+title: string = 'Hello World';
 
 constructor() { 
-  this.title = 'Hello World';
+  this.title = 'I Love Angular';
 }
 ```
 
 Try changing the value of `title` inside the method `ngOnInit`. Which value will be displayed on the screen?
 
+```ts
+// src/app/input/input.component.ts
+
+title: string = 'Hello World';
+
+constructor() { 
+  this.title = 'I Love Angular';
+}
+
+ngOnInit() { 
+  this.title = 'Angular-CLI Rules!';
+}
+```
+
+
 ### Methods
 
-Let's add a method that changes the value of `title` according to the argument we will pass. The method will have one parameter of type `string`. Add it inside the class body \(but not inside another method\):
+Let's add a method that changes the value of `title` according to the argument we will pass. The method will have one parameter of type `string`. Add it **inside the class body** \(but not inside another method\):
 
 ```ts
+// src/app/input/input.component.ts
+
 changeTitle(newTitle: string): void {
   this.title = newTitle;
 }
@@ -96,7 +117,7 @@ This method is not used anywhere. We can call it from another method or from the
 
 ```ts
 constructor() { 
-  this.changeTitle('I love Angular');
+  this.changeTitle('My First Angular App');
 }
 ```
 
@@ -109,7 +130,7 @@ You can always use `console.log(someValue)` inside class methods. Then the value
 ```ts
 constructor() { 
   console.log('in constructor');
-  this.changeTitle('I love Angular');
+  this.changeTitle('My First Angular App');
   console.log(this.title);
 }
 ```
