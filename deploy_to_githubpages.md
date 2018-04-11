@@ -47,3 +47,28 @@ angular-cli-ghpages
 Your app will be available at https://[your-GH-username].github.io/[repo-name]
 
 For more information see https://github.com/angular-buch/angular-cli-ghpages.
+
+## Known Issues
+On (windows) machines you  probably run into an issue like the following:
+```
+An error occurred!
+ Error: Unspecified error (run without silent option for detail)
+    at C:\Users\<myuser>\AppData\Roaming\nvm\v8.9.1\node_modules\angular-cli-ghpages\node_modules\gh-pages\lib\index.js:232:19
+    at _rejected (C:\Users\<myuser>\AppData\Roaming\nvm\v8.9.1\node_modules\angular-cli-ghpages\node_modules\q\q.js:844:24)
+    ...
+```
+
+Try to debug it with ``` angular-cli-ghpages -S ``` . If you get the following error:
+```
+fatal: could not read Username for \'https://github.com\': No error\n',
+```
+
+you can do the following
+
+1. Create a Personal Access Token here: https://github.com/settings/tokens
+
+2. Run the following command and replace your token, organisation (your user), repository, username and email:
+```
+angular-cli-ghpages --repo=https://<personal-access-token>@github.com/organisation/your-repo.git --name="Displayed Username" --email=mail@example.org
+```
+
