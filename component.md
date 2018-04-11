@@ -9,7 +9,7 @@ Helmut Petritsch defines in [Service-Oriented Architecture \(SOA\) vs. Component
 In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic, which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
 
 Here's a diagram of a component in Angular, with the result below.  
-![Angular 2 Component](Angular Component.001.jpeg)
+![Angular Component Diagram](https://github.com/ng-girls/todo-list-tutorial/raw/master/assets/component-diagram.png)
 
 Directives, pipes and services are other building blocks in Angular, which we will discuss later in the tutorial.
 
@@ -82,7 +82,8 @@ The element `todo-root` is not an HTML element. It is the component that was cre
 One last thing, the first line in the component file imports the code that defines the decorator `@Component`. It is needed to use the decorator, which is defined in the imported file \(or actually, in one of its own imports\). Try removing this line, and see the error.
 
 #### Inline Template
-Let's move the template to be **inline** in the component definition. This will help us manage the template while looking at its functionality.
+
+Let's move the template to be **inline** in the component definition. This will help us manage the template while looking at its functionality.  
 In the file `app.component.ts`  replace the line
 
 ```js
@@ -112,10 +113,12 @@ template: `
 It is easier to manage the template when you see its controller at the same time. This is true as long as the template doesn't get too big and the controller doesn't get too complicated. If they do, it's a sign you should refactor your code by breaking it down to child components.
 
 At this point you can delete the file `app.component.html`.
->When generating a new project, you can state that you'd like an inline template for the root component by adding the flag `-it` (or `--inline-template`). Keep this in mind for your next project!
+
+> When generating a new project, you can state that you'd like an inline template for the root component by adding the flag `-it` \(or `--inline-template`\). Keep this in mind for your next project!
 
 The same way we use inline template, we can use also inline styles. But for now we will keep the styles in a separate file.
 
 ### Summary
+
 We have explored the root component that was generated for us by Angular-CLI, and even refactored it. In the next chapter we will create a new component. We will start building the tree of components, which defines the structure of the application.
 

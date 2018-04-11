@@ -25,12 +25,12 @@ Choose the IDE you'd like to work with and follow the installation instructions 
 
 **Visual Studio Code**
 
-If you choose to use VSCode, we recommend to install following Plugins for Angular:
+If you choose to use VS Code, we recommend to install following Plugins for Angular:
 
 * [Angular.ng-template](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
 * [natewallace.angular2-inline](https://marketplace.visualstudio.com/items?itemName=natewallace.angular2-inline)
 
-![image](https://user-images.githubusercontent.com/1223799/30781828-88bf447c-a126-11e7-9128-4c1cdec4002c.png)
+![VS Code Plugins for Angular](https://github.com/ng-girls/todo-list-tutorial/raw/master/assets/VS-Code-Plugins.png)
 
 ### Git
 
