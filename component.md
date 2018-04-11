@@ -127,13 +127,13 @@ You may find it is easier to manage the template when you see its controller at 
 
 At this point you can delete the file `app.component.html`.
 
-**Note: **You can specify that you'd like to use inline-template throughout the project in several ways:
-
+>**Note: **You can specify that you'd like to use inline-template throughout the project in several ways:
+>
 * When generating a project, pass the flag `-it` or `--inline-template` like this: `ng new todo-list -it`
 * After generating a project, add it to the configuration so that components generated from this point on will have an inline template: `ng set defaults.component.inlineTemplate true`. \(From version 6 you'll be able to use the command `config` instead of `set`.\) This adds the line `inlineTemplate: true` in the Angular-CLI configuration file `.angular-cli.json`. You can also edit the file directly. 
 * If you haven't configured to have inline templates as a default, you can specify this per component when you generate it, by passing the flag `-it` or `--inline-template`. For example: `ng generate header -it`.
-
-**In this tutorial we will not use inline templates. **If you would like to use them by default, follow the second option above, and remember: whenever we look at a `*.component.html` file you should look at the component's `*.component.ts` file in the string that is defined as the `template`.
+>
+**In this tutorial we will not use inline templates** except for the root component. If you would like to use them by default, follow the second option above, and remember: whenever we look at a `*.component.html` file you should look at the component's `*.component.ts` file in the string that is defined as the `template`.
 
 The same way we use inline template, we can use also inline styles. But for now we will keep the styles in a separate file.
 
