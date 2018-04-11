@@ -2,7 +2,7 @@
 
 ## What is local storage?
 
-Local storage, as it's name implies, is a tool for storing data locally.  
+Local storage, as its name implies, is a tool for storing data locally.
 As similar to cookies, local storage stores the data on the user's computer, and by that it lets us, as developers, a quick way to access this data for both reading and writing.
 
 ## Browser support
@@ -81,7 +81,7 @@ constructor() {
 }
 ```
 
-Wait! Wait! why `JSON.parse`? The answer is simple:
+Wait! Wait! Why `JSON.parse`? The answer is simple:
 As described earlier in this tutorial, local storage stores data in a form of key-value, that means that the values are stored as **strings**.  
 So, if we want to have a real object to deal with, we must parse the strign into a valid object.
 
@@ -102,16 +102,16 @@ export class TodoListStorageService {
     this.todoList = JSON.parse(localStorage.getItem(storageName));
   }
 
-  // get items
+  // Get items
   get() {}
 
-  // add a new item
+  // Add a new item
   post(item) {}
 
-  // update an item
+  // Update an item
   put(item, changes) {}
 
-  // remove an item
+  // Remove an item
   destroy(item) {}
 
 }
@@ -125,7 +125,7 @@ This method will simply return the current state of items stored in the service:
 
 ```
 /**
-   * get items
+   * Get items
    * @returns {any[]}
    */
   get() {
@@ -153,13 +153,14 @@ It accepts one parameter, `item` which will be the item to add:
 ```
 
 Some of you might notice that we just pushed a new item to the array.  
-But what about the local storage? we must also syncornize it with the new array!
+
+But what about the local storage? We must also synchronize it with the new array!
 
 Lets add a new **private** method in our service, which will be used internaly to update the stored list:
 
 ```
 /**
-   * Syncronize the local storage with the current list
+   * Synchronize the local storage with the current list
    * @returns {any[]}
    */
   private update() {
@@ -173,7 +174,7 @@ Lets explain.
 Here we use the simple method of `setItem`, which takes a key \(first argument\) and a string value \(second argument\) and stores it in the local storage.  
 After we updated the value, we simply return the new list using the `get` method we implemented earlier.
 
-Now we need to modify our `post` function to use `update` so everyhing is syncronized in harmony:
+Now we need to modify our `post` function to use `update` so everyhing is synchronized in harmony:
 
 ```
 /**
@@ -194,7 +195,7 @@ Before that, let's add another helper private method `findItemIndex`, which will
 
 ```
 /**
-   * find the index of an item in the array
+   * Find the index of an item in the array
    * @param item
    * @returns {number}
    */
@@ -222,11 +223,11 @@ So what is going on here?
 `Object.assign` takes a target object \(first argument\) and source objects \(all the rest of the argument\), and copies to the target object.  
 If a property existing on both target and source, this method will replace the old value with the new one.  
 Here we want to update an item in the list, so first we find it's index in the array, and then apply the changes on it.  
-At the end, we want to syncronize the local storage \(`this.update`\) and return the new list.
+At the end, we want to synchronize the local storage \(`this.update`\) and return the new list.
 
 ### destroy
 
-This method will remove an item from the list and then syncronize with local storage:
+This method will remove an item from the list and then synchronize with local storage:
 
 ```
 /**
@@ -323,7 +324,7 @@ Now we have one last modification to make. Open up `list-manager.component.ts`, 
 
 ```
 addItem(title:string) {
-    this.todoList = this.todoListService.addItem({ item:title });
+    this.todoList = this.todoListService.addItem({ title });
 }
 ```
 

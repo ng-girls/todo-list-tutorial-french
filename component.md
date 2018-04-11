@@ -6,7 +6,7 @@ Helmut Petritsch defines in [Service-Oriented Architecture \(SOA\) vs. Component
 
 > A component is a software object, meant to interact with other components, encapsulating certain functionality or a set of functionalities. A component has a clearly defined interface and conforms to a prescribed behaviour common to all components within an architecture.
 
-In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
+In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic, which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
 
 Here's a diagram of a component in Angular, with the result below.  
 ![Angular 2 Component](Angular Component.001.jpeg)
@@ -25,7 +25,7 @@ export class AppComponent {
 
 It has one member called "title". It is a variable to which you can assign a value. The value assigned to it here is the string "todo works!".
 
-Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the  template attached to the component in the :
+Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the template attached to the component in the:
 
 ```html
 <h1>

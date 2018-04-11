@@ -8,7 +8,7 @@ Class is a special programmatic structure. It is defined with **members** which 
 
 Angular takes care of creating instances of the classes you define - if they are recognized as Angular building blocks. The decorators make that connection with Angular.
 
-Each time you use a component in a template, a new instance of it is created. For example, here three instances of the inputComponent class will be created:
+Each time you use a component in a template, a new instance of it is created. For example, here three instances of the InputComponent class will be created:
 
 ```html
 template: `
@@ -18,7 +18,7 @@ template: `
 `
 ```
 
-Let's take a look at the class `inputComponent`.
+Let's take a look at the class `InputComponent`.
 
 ### implements OnInit
 
@@ -39,7 +39,7 @@ ngOnInit() {
 }
 ```
 
-You can use this method without explicitly indicating that the class implements the OnInit interface. But it's useful to use the implementation statement. To see how, delete the `ngOnInit` method. The IDE will tell you there's an error - you must implement `ngOnInit`. How does it know that? Because of `implementing OnInit`.
+You can use this method without explicitly indicating that the class implements the OnInit interface. But it's useful to use the implementation statement. To see how, delete the `ngOnInit` method. The IDE will tell you there's an error - you must implement `ngOnInit`. How does it know that? Because of `implements OnInit`.
 
 ### constructor
 
@@ -75,7 +75,7 @@ Try changing the value of `title` inside the method `ngOnInit`. Which value will
 
 ### Methods
 
-Let's add a method that changes the value of `title` according to the argument we will pass. The method will have one parameter of type `string`. Add inside the class body \(but not inside another method\):
+Let's add a method that changes the value of `title` according to the argument we will pass. The method will have one parameter of type `string`. Add it inside the class body \(but not inside another method\):
 
 ```ts
 changeTitle(newTitle: string): void {
