@@ -28,7 +28,7 @@ export class InputComponent implements OnInit {
 }
 ```
 
-We use interpolation to present to present the value of the `title` property: `{{ title }}`
+We use interpolation to present the value of the `title` property: `{{ title }}`
 
 Angular then presents the value of `title` each time that our todo input component is shown.
 

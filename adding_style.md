@@ -177,7 +177,7 @@ Add the following style to `item.component.css`:
 }
 
 ```
-Note: Don't forget to put the CSS-classes to the templace-code of your specified component like this:
+Note: Don't forget to put the CSS-classes to the template-code of your specified component like this:
 ```ts
  @Component({
     ...

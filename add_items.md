@@ -42,7 +42,7 @@ Now all we need to do is catch the event in the parent component and attach logi
 <todo-input (submit)="addItem($event)"></todo-input>
 ```
 
-Now all is left is to implement the `addItem` method, which receives a string and adds it to the list:
+Now all that left is to implement the `addItem` method, which receives a string and adds it to the list:
 
 ```ts
 addItem(title: string): void {    
