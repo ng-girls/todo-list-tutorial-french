@@ -153,13 +153,13 @@ It accepts one parameter, `item` which will be the item to add:
 ```
 
 Some of you might notice that we just pushed a new item to the array.  
-But what about the local storage? we must also syncornize it with the new array!
+But what about the local storage? We must also synchronize it with the new array!
 
 Lets add a new **private** method in our service, which will be used internaly to update the stored list:
 
 ```
 /**
-   * Syncronize the local storage with the current list
+   * Synchronize the local storage with the current list
    * @returns {any[]}
    */
   private update() {
@@ -173,7 +173,7 @@ Lets explain.
 Here we use the simple method of `setItem`, which takes a key \(first argument\) and a string value \(second argument\) and stores it in the local storage.  
 After we updated the value, we simply return the new list using the `get` method we implemented earlier.
 
-Now we need to modify our `post` function to use `update` so everyhing is syncronized in harmony:
+Now we need to modify our `post` function to use `update` so everyhing is synchronized in harmony:
 
 ```
 /**
@@ -222,11 +222,11 @@ So what is going on here?
 `Object.assign` takes a target object \(first argument\) and source objects \(all the rest of the argument\), and copies to the target object.  
 If a property existing on both target and source, this method will replace the old value with the new one.  
 Here we want to update an item in the list, so first we find it's index in the array, and then apply the changes on it.  
-At the end, we want to syncronize the local storage \(`this.update`\) and return the new list.
+At the end, we want to synchronize the local storage \(`this.update`\) and return the new list.
 
 ### destroy
 
-This method will remove an item from the list and then syncronize with local storage:
+This method will remove an item from the list and then synchronize with local storage:
 
 ```
 /**
