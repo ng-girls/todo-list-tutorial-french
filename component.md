@@ -6,36 +6,40 @@ Helmut Petritsch defines in [Service-Oriented Architecture \(SOA\) vs. Component
 
 > A component is a software object, meant to interact with other components, encapsulating certain functionality or a set of functionalities. A component has a clearly defined interface and conforms to a prescribed behaviour common to all components within an architecture.
 
-In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic, which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
+In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure, and is written in HTML notation. It also has logic, which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
 
 Here's a diagram of a component in Angular, with the result below.  
 ![Angular Component Diagram](https://github.com/ng-girls/todo-list-tutorial/raw/master/assets/component-diagram.png)
 
-Directives, pipes and services are other building blocks in Angular, which we will discuss later in the tutorial.
+Directives, pipes and services are other building blocks in Angular, which can be used in a component \(in the diagram we see only the usage of a pipe\). We will discuss them later in the tutorial.
 
 Let's take a look at the component that was created by Angular-CLI. All the relevant files exist in the folder `src/app`. Open the file `app.component.ts`.
 
 Just like ngModules that we saw in the previous chapter, a component is also defined by a class with a decorator. This is the class definition:
 
 ```js
+// src/app/app.component.ts
+
 export class AppComponent {
-  title = 'todo works!';
+  title = 'app';
 }
 ```
 
-It has one member called "title". It is a variable to which you can assign a value. The value assigned to it here is the string "todo works!".
+It has one member called "title". It is a variable to which you can assign a value. The value assigned to it here is the string "app".
 
-Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the template attached to the component in the:
+Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the template attached to the component in the file `app.component.html`:
 
 ```html
+<!-- src/app/app.component.html -->
+
 <h1>
-  {{ title }}
+  Welcome to {{ title }}!
 </h1>
 ```
 
 The double curly braces and their content are called **Interpolation**. This is one form of ** data binding** in Angular. As we mentioned before, the code in this file is not used as is when the browser renders the component. Angular compiles it to JavaScript code. In one of the compilation steps it looks for Interpolations inside the template. **The content of the Interpolation is an expression, written in JavaScript.** In run time the expression is evaluated, and then you see the result.
 
-Interpolation is one of the strongest, most basic features in Angular. It exists from the very beginning of Angular - in the first version. It makes it really simple to insert dynamic data into the view.
+Interpolation is one of the strongest, most basic features in Angular. It exists from the very beginning of Angular - in the first version \(AngularJS\). It makes it really simple to insert dynamic data into the view.
 
 In this component, the expression is simply the member of the component class, `title`. **Let's try to change it**. Try out the following and see the result in the browser. \(With every change you make in the file, the browser will refresh automatically!\)
 
@@ -50,18 +54,22 @@ This is one way that you can bind members of the component's controller to its t
 Let's go back to the file `app.component.ts` and look at the component's meta-data defined in the decorator `@Component` right above the class definition:
 
 ```js
+// src/app/app.component.ts
+
 @Component({
-  selector: 'todo-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 ```
 
-We pass an object of definitions to the decorator, just like we saw in the previous chapter with ngModule. The second property, `templateUrl` tells Angular where to look for the template attached to the component. There is another option to point to the template, which is better practice: to write the whole template inline here, in the component definition. We will discuss it later.
+We pass an object of definitions to the decorator, just like we saw in the previous chapter with ngModule. The second property, `templateUrl` tells Angular where to look for the template attached to the component. There is another option to point to the template, which some developers prefer: to write the whole template inline here, in the component definition. We will discuss it later.
 
 The third property, `styleUrls` tells Angular where to look for the CSS files that define the style of this component. It can have multiple CSS files. That's why the value of `styleUrls` is an array. You can take a look at the CSS file `app.component.css` - you'll see that it's empty. You can add some CSS style here, for example:
 
 ```css
+/* src/app/app.component.css */
+
 h1 {
   color: red;
 }
@@ -69,21 +77,26 @@ h1 {
 
 We'll add more style later on.
 
+**Note:** Angular-CLI supports css-extension languages out-of-the-box: sass, less, and stylus.
+
 The first property, `selector`, tells Angular what will be the name of the tag that we'll use to call the component. As we saw in the file `src/index.html`, we use the app component inside the body:
 
 ```html
+<!-- src/index.html -->
+
 <body>
-  <todo-root>Loading...</todo-root>
+  <app-root></app-root>
 </body>
 ```
 
-The element `todo-root` is not an HTML element. It is the component that was created with the selector `todo-root`. Try changing the selector. You'll see that if you change it in only one of the files, "Loading..." will be displayed. This is the content that we gave to the tag in `index.html`, and it is rendered as long as the element is not replaced with an Angular component. You can see in the browser's console an error message.
+The element `app-root` is not an HTML element. It is the component that was created with the selector `app-root`. Try changing the selector. You'll see that if you change it in only one of the files \(`index.html` or `app.component.ts`\) , the content will not be rendered, and an error message will appear in the browser's console.
 
-One last thing, the first line in the component file imports the code that defines the decorator `@Component`. It is needed to use the decorator, which is defined in the imported file \(or actually, in one of its own imports\). Try removing this line, and see the error.
+One last thing, the first line in the component file imports the code that defines the decorator `@Component`. It is needed to use the decorator, which is defined in the imported file \(or actually, in one of its own imports\). Try removing this line, and see the error. \(You have encountered a few imports already in the file `app.module.ts`.\)
 
 #### Inline Template
 
-Let's move the template to be **inline** in the component definition. This will help us manage the template while looking at its functionality.  
+As noted before, some developers prefer having inline template. This allows seeing the template in the same file as the controller, which may make it easier to manage. With Angular-CLI you can have inline-templates by default or per generated component \(see note below\). We haven't asked for an inline template, so we'll change this manually for the root component. You can always change it back if you don't like it.
+
 In the file `app.component.ts`  replace the line
 
 ```js
@@ -96,11 +109,11 @@ with
 template: ``,
 ```
 
-Notice the **backticks** - they are used to define Template Literals, which are new in JavaSript \(ES6\). This way you can define multi-line strings. They have another cool ability: to easily use JavaScript variables and expressions within the string \(with no relation to Angular binding expressions in the template\). Read about it in the [MDN documentation](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
+Notice the **backticks** - **\` **- they are used to define Template Literals, which are new in JavaScript \(ES6\). This way you can define multi-line strings. They have another cool ability: to easily use JavaScript variables and expressions within the string \(with no relation to Angular binding expressions in the template\). Read about it in the [MDN documentation](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
 
 Make sure you replace `templateUrl` with `template` and don't forget the comma in the end of the line.
 
-Now copy the entire template from `app.component.html` and paste it between the backticks.  We'll reformat the code a bit to have it easier on the eye:
+Now instead of taking the content from the original template, we'll insert a more simple template which we can work with. When the curser is between the backticks press Enter and insert the HTML template:
 
 ```js
 template: `
@@ -110,11 +123,17 @@ template: `
 `,
 ```
 
-It is easier to manage the template when you see its controller at the same time. This is true as long as the template doesn't get too big and the controller doesn't get too complicated. If they do, it's a sign you should refactor your code by breaking it down to child components.
+You may find it is easier to manage the template when you see its controller at the same time. This is true as long as the template doesn't get too big and the controller doesn't get too complicated. If they do, it's a sign you should refactor your code by breaking it down to child components.
 
 At this point you can delete the file `app.component.html`.
 
-> When generating a new project, you can state that you'd like an inline template for the root component by adding the flag `-it` \(or `--inline-template`\). Keep this in mind for your next project!
+**Note: **You can specify that you'd like to use inline-template throughout the project in several ways:
+
+* When generating a project, pass the flag `-it` or `--inline-template` like this: `ng new todo-list -it`
+* After generating a project, add it to the configuration so that components generated from this point on will have an inline template: `ng set defaults.component.inlineTemplate true`. \(From version 6 you'll be able to use the command `config` instead of `set`.\) This adds the line `inlineTemplate: true` in the Angular-CLI configuration file `.angular-cli.json`. You can also edit the file directly. 
+* If you haven't configured to have inline templates as a default, you can specify this per component when you generate it, by passing the flag `-it` or `--inline-template`. For example: `ng generate header -it`.
+
+**In this tutorial we will not use inline templates. **If you would like to use them by default, follow the second option above, and remember: whenever we look at a `*.component.html` file you should look at the component's `*.component.ts` file in the string that is defined as the `template`.
 
 The same way we use inline template, we can use also inline styles. But for now we will keep the styles in a separate file.
 

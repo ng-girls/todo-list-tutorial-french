@@ -117,7 +117,7 @@ The flag `-o` is a short for `--open`, which will open your browser in the right
 
 You should see the page like this:
 
-![image](https://github.com/ng-girls/todo-list-tutorial/raw/master/assets/initial-app.png)
+![Initial App](https://github.com/ng-girls/todo-list-tutorial/raw/master/assets/initial-app.png)
 
 ### Congratulations!
 
