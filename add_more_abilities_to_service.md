@@ -7,7 +7,7 @@ First, lets open our app's service file which is available at - `app/todo-list.s
 There we'll add a new function to the service, called `addItem`, like so:
 ```javascript
 addItem(item): void { 
-    this.todoList.push({title: item}); 
+    this.todoList.push({ item }); 
 } 
 ```
 
