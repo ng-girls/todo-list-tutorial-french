@@ -1,4 +1,4 @@
-# Installation
+# Installations
 
 Every developer needs a set of tools and libraries to start working. In our case, we'll install all the necessary tools, and once we have our Angular-CLI installed it will take care of additional libraries we'll need the for current and future projects.
 
@@ -10,7 +10,7 @@ Our first tool is the **browser**. We'll use it to see the result of our work an
 
 ### IDE
 
-Our next tool is the **IDE** -  integrated development environment. It's a software that helps you write the code. IDEs can do a lot of amazing things such as:
+Our next tool is the **IDE** - integrated development environment. It's a software that helps you write the code. IDEs can do a lot of amazing things such as:
 
 * paint the code so it's easier to identify expressions
 * suggest completions to what you type
@@ -51,13 +51,13 @@ Another tool which most web developers are using is **NodeJS**. Once installed, 
 
 NodeJS lets you run JavaScript code on your computer. It is used to run a local server which serves the project files to the browser and simulates a real running website.
 
-NPM allows you to easily download and install different libraries from the internet and  manage their versions.
+NPM allows you to easily download and install different libraries from the internet and manage their versions.
 
 Download NodeJS [here](https://nodejs.org/en/).
 
 If you already have NodeJS installed, make sure you check that the version is 6.9.0 or above by running this in your command line / terminal:
 
-```
+```text
 node -v
 ```
 
@@ -67,7 +67,7 @@ If it's lower than required, download the new version from the website and insta
 
 Once installed, you should also have NPM installed. Check its version by running:
 
-```
+```text
 npm -v
 ```
 
@@ -75,7 +75,7 @@ npm -v
 
 [Angular-CLI](https://github.com/angular/angular-cli) is a powerful tool that simplifies a lot of the development process. It also installs libraries you'll use in your current and future projects. Install it by running:
 
-```
+```text
 npm i -g @angular/cli
 ```
 
@@ -89,13 +89,13 @@ Read more about Angular-CLI in the following section.
 
 First, create a folder to store all your projects, for example _myProjects_, and then go into the folder, using a terminal \(command line window\):
 
-```
+```text
 cd the-path-to-your-folder/myProjects
 ```
 
 Now, create a new project, called _todo-list_ inside the projects folder, using Angular-CLI, by running the following command:
 
-```
+```text
 ng new todo-list
 ```
 
@@ -103,13 +103,13 @@ This can take a while, since many packages are being downloaded from the web and
 
 Now enter the new folder that Angular-CLI created for this project:
 
-```
+```text
 cd todo-list
 ```
 
 Once inside the folder of the application, run the application by using the following command:
 
-```
+```text
 ng serve -o
 ```
 

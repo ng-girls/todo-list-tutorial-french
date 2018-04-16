@@ -6,7 +6,7 @@ We can also state general style rules to be used across the application. This is
 
 Angular gives us different style encapsulation methods, but we'll stick to the default.
 
-Angular-CLI has generated a general stylesheet for us at `src/style.css`. Paste the following code into this file: 
+Angular-CLI has generated a general stylesheet for us at `src/style.css`. Paste the following code into this file:
 
 ```css
 html, body, div, span,
@@ -48,28 +48,28 @@ ol, ul {
 .btn:hover {
   background: lightslategrey;
 }
-
 ```
 
->How does the project know to look at this file? In Angular-CLI configuration file `.angular-cli.json` under `apps[0].styles` you can state the files for the build tool to take and add to the project. You can open the browser's dev tools and see the style inside the element: 
-```html
-<html>
-  ...
-  <head>
-    ...
-    <style type="text/css">
-    ...Your style is here
-    </style>
-    ...
-  </head>
-  ...
-</html> 
-```
+> How does the project know to look at this file? In Angular-CLI configuration file `.angular-cli.json` under `apps[0].styles` you can state the files for the build tool to take and add to the project. You can open the browser's dev tools and see the style inside the element:
+>
+> ```markup
+> <html>
+>   ...
+>   <head>
+>     ...
+>     <style type="text/css">
+>     ...Your style is here
+>     </style>
+>     ...
+>   </head>
+>   ...
+> </html>
+> ```
 
-
-Now lets add style specifically to the list-manager component. 
+Now lets add style specifically to the list-manager component.
 
 Open the file `list-manager.component.css` and paste the following style inside:
+
 ```css
 .todo-app {
   position: relative;
@@ -125,10 +125,10 @@ Open the file `list-manager.component.css` and paste the following style inside:
 }
 ```
 
-How does this stylesheet gets attached to the `list-manager` component? 
-Look at the file `list-manager.component.ts`. One of the properties in the object passed to the `@Component` decorator is `styleUrls`. It's a list of stylesheets to be used by Angular, which encapsulates the style within the component. 
+How does this stylesheet gets attached to the `list-manager` component? Look at the file `list-manager.component.ts`. One of the properties in the object passed to the `@Component` decorator is `styleUrls`. It's a list of stylesheets to be used by Angular, which encapsulates the style within the component.
 
 Add the following style to `input.component.css`:
+
 ```css
 .todo-input {
   padding: 4px 10px 4px;
@@ -148,6 +148,7 @@ Add the following style to `input.component.css`:
 ```
 
 Add the following style to `item.component.css`:
+
 ```css
 .todo-item {
   padding: 10px 0;
@@ -175,16 +176,19 @@ Add the following style to `item.component.css`:
 .btn-red:hover {
   background: darkred;
 }
-
 ```
+
 Note: Don't forget to put the CSS-classes to the template-code of your specified component like this:
-```ts
+
+```typescript
  @Component({
     ...
     template: `
           <button class="btn btn-red" (click)="removeItem()">
           `,
 ```
+
 You can change the style as you wish - the size of elements, the colors - however you'd like!
 
-Note: You can use SCSS files in the project, which is a nicer way to write style. It has great features that help the developer. SCSS files are compiled to css when the project is built. 
+Note: You can use SCSS files in the project, which is a nicer way to write style. It has great features that help the developer. SCSS files are compiled to css when the project is built.
+

@@ -9,6 +9,8 @@ Helmut Petritsch defines in [Service-Oriented Architecture \(SOA\) vs. Component
 In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure, and is written in HTML notation. It also has logic, which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
 
 Here's a diagram of a component in Angular, with the result below.  
+
+
 ![Angular Component Diagram](https://github.com/ng-girls/todo-list-tutorial/raw/master/assets/component-diagram.png)
 
 Directives, pipes and services are other building blocks in Angular, which can be used in a component \(in the diagram we see only the usage of a pipe\). We will discuss them later in the tutorial.
@@ -17,7 +19,7 @@ Let's take a look at the component that was created by Angular-CLI. All the rele
 
 Just like ngModules that we saw in the previous chapter, a component is also defined by a class with a decorator. This is the class definition:
 
-```js
+```javascript
 // src/app/app.component.ts
 
 export class AppComponent {
@@ -29,7 +31,7 @@ It has one member called "title". It is a variable to which you can assign a val
 
 Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the template attached to the component in the file `app.component.html`:
 
-```html
+```markup
 <!-- src/app/app.component.html -->
 
 <h1>
@@ -53,7 +55,7 @@ This is one way that you can bind members of the component's controller to its t
 
 Let's go back to the file `app.component.ts` and look at the component's meta-data defined in the decorator `@Component` right above the class definition:
 
-```js
+```javascript
 // src/app/app.component.ts
 
 @Component({
@@ -81,7 +83,7 @@ We'll add more style later on.
 
 The first property, `selector`, tells Angular what will be the name of the tag that we'll use to call the component. As we saw in the file `src/index.html`, we use the app component inside the body:
 
-```html
+```markup
 <!-- src/index.html -->
 
 <body>
@@ -93,19 +95,19 @@ The element `app-root` is not an HTML element. It is the component that was crea
 
 One last thing, the first line in the component file imports the code that defines the decorator `@Component`. It is needed to use the decorator, which is defined in the imported file \(or actually, in one of its own imports\). Try removing this line, and see the error. \(You have encountered a few imports already in the file `app.module.ts`.\)
 
-#### Inline Template
+### Inline Template
 
 As noted before, some developers prefer having inline template. This allows seeing the template in the same file as the controller, which may make it easier to manage. With Angular-CLI you can have inline-templates by default or per generated component \(see note below\). We haven't asked for an inline template, so we'll change this manually for the root component. You can always change it back if you don't like it.
 
-In the file `app.component.ts`  replace the line
+In the file `app.component.ts` replace the line
 
-```js
+```javascript
 templateUrl: './app.component.html',
 ```
 
 with
 
-```js
+```javascript
 template: ``,
 ```
 
@@ -115,7 +117,7 @@ Make sure you replace `templateUrl` with `template` and don't forget the comma i
 
 Now instead of taking the content from the original template, we'll insert a more simple template which we can work with. When the curser is between the backticks press Enter and insert the HTML template:
 
-```html
+```markup
 template: `
   <h1>
     {{ title }}
@@ -127,22 +129,21 @@ You may find it is easier to manage the template when you see its controller at 
 
 At this point you can delete the file `app.component.html`.
 
-**We recommend continuing this tutorial using inline templates in the components.** Especially if you're working on a laptop with a small screen, where there isn't enough space to open two files side-by-side. 
+**We recommend continuing this tutorial using inline templates in the components.** Especially if you're working on a laptop with a small screen, where there isn't enough space to open two files side-by-side.
 
-Let's configure Angular-CLI to give us inline-template as a default. In the terminal run the command: `ng set defaults.component.inlineTemplate true`. Now every component that you'll generate will have an inline template, and an HTML file will not be created. 
+Let's configure Angular-CLI to give us inline-template as a default. In the terminal run the command: `ng set defaults.component.inlineTemplate true`. Now every component that you'll generate will have an inline template, and an HTML file will not be created.
 
 If you wish to continue this tutorial with templates in separate HTML files, do not run this command, and use the generated `.html` files for the templates.
 
->**Note: **You can specify that you'd like to use inline-template throughout the project in several ways:
+> **Note: **You can specify that you'd like to use inline-template throughout the project in several ways:
 >
-* When generating a project, pass the flag `-it` or `--inline-template` like this: `ng new todo-list -it`
-* After generating a project, add it to the configuration so that components generated from this point on will have an inline template: `ng set defaults.component.inlineTemplate true`. \(From version 6 you'll be able to use the command `config` instead of `set`.\) This adds the line `inlineTemplate: true` in the Angular-CLI configuration file `.angular-cli.json`. You can also edit the file directly. 
-* If you haven't configured to have inline templates as a default, you can specify this per component when you generate it, by passing the flag `-it` or `--inline-template`. For example: `ng generate header -it`.
->
+> * When generating a project, pass the flag `-it` or `--inline-template` like this: `ng new todo-list -it`
+> * After generating a project, add it to the configuration so that components generated from this point on will have an inline template: `ng set defaults.component.inlineTemplate true`. \(From version 6 you'll be able to use the command `config` instead of `set`.\) This adds the line `inlineTemplate: true` in the Angular-CLI configuration file `.angular-cli.json`. You can also edit the file directly. 
+> * If you haven't configured to have inline templates as a default, you can specify this per component when you generate it, by passing the flag `-it` or `--inline-template`. For example: `ng generate header -it`.
 
 The same way we use inline template, we can use also inline styles. But for now we will keep the styles in a separate file.
 
-### Summary
+## Summary
 
 We have explored the root component that was generated for us by Angular-CLI, and even refactored it. In the next chapter we will create a new component. We will start building the tree of components, which defines the structure of the application.
 

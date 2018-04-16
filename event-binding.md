@@ -8,7 +8,7 @@ We still don't have a whole list to show, but at the moment we will use another 
 
 First, let's implement `changeTitle`. You can replace `generateTitle` with this new method. It will receive the new title as its argument. The best practice is to have our custom methods written after the lifecycle methods \(\`ngOnInit\` in this case\):
 
-```ts
+```typescript
 // src/app/input-button-unit/input-button-unit.component.ts
 
 changeTitle(newTitle: string) {
@@ -22,7 +22,7 @@ Just like binding to element properties, we can bind to events that are emitted 
 
 Let's try a simple example, where the title is changed when the user clicks on the button. Notice the parenthesis around `click`. \(We also change the binding of the input's value back to `title`.\)
 
-```html
+```markup
 // src/app/input-button-unit/input-button-unit.component.ts
 
 template: `
@@ -34,7 +34,7 @@ template: `
 `,
 ```
 
-The event is called `click` and not `onClick` - in Angular you remove the `on` prefix from the events in the elements. 
+The event is called `click` and not `onClick` - in Angular you remove the `on` prefix from the events in the elements.
 
 Go to the browser and see the result - click on the Save button.
 
@@ -49,7 +49,7 @@ But now we'll bind a method to an event on the input element: when the user clic
 
 When the user types, keyboard events are emitted. For example `keydown` and `keyup`. We will catch the `keyup` event \(when the pressed key is released\) and change the title:
 
-```html
+```markup
 <input [value]="title" (keyup)="changeTitle('Button Clicked!')">
 ```
 
@@ -57,7 +57,7 @@ Now when the user types in the input box, the title is changed to "Button Clicke
 
 **Tip:** When an element becomes long due to its attributes, you should make it easier on the eye by splitting it into several lines:
 
-```html
+```markup
 <input [value]="title" 
        (keyup)="changeTitle('Button Clicked!')">
 ```
@@ -68,7 +68,7 @@ Now we just react when the `keyup` event occurs. Angular allows us to get the ev
 
 The event object emitted on `keyup` events has a reference to the element that emitted the event - the input element. The reference is kept in the event's property `target`. As we've seen before, the input element has a property `value` which holds the current string that's in the input box. We can pass `$event.target.value` to the method:
 
-```html
+```markup
 <input [value]="title" 
        (keyup)="changeTitle($event.target.value)">
 ```
@@ -79,7 +79,7 @@ Check it out in the browser. Now with every key stroke, you can see the title ch
 
 You can limit the change to only a special key stroke, in our case it's the Enter key. Angular makes it really easy for us. The `keyup` event has properties which are more specific events. So just add the name of the key you'd like to listen to:
 
-```html
+```markup
 <input [value]="title" 
        (keyup.enter)="changeTitle($event.target.value)">
 ```
@@ -88,11 +88,13 @@ Now the title will change only when the user hits the Enter key while typing in 
 
 ### Tip - explore the $event
 
-![lab-icon](/assets/lab.jpg) **Playground: **You can change the changeTitle method to log the `$event` object in the console. This way you can explore it and see what properties it has.
+![lab-icon](.gitbook/assets/lab.jpg)
+
+ **Playground: **You can change the changeTitle method to log the `$event` object in the console. This way you can explore it and see what properties it has.
 
 Change the method `changeTitle`:
 
-```ts
+```typescript
 changeTitle(event): void {
   console.log(event);
   this.title = event.target.value; // the original functionality still works
@@ -101,7 +103,7 @@ changeTitle(event): void {
 
 Now change the argument you're passing in the template, to pass the whole `$event`:
 
-```html
+```markup
 <input [value]="title" 
        (keyup.enter)="changeTitle($event)">
 ```

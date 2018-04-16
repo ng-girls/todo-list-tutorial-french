@@ -19,7 +19,7 @@ Angular needs us to define what we want it to compile. For this we define Angula
 
 The last line in the file defines a JavaScript class:
 
-```js
+```javascript
 // src/app/app.module.ts
 
 export class AppModule { }
@@ -45,7 +45,7 @@ What we pass into the decorator function is used by Angular to decorate the clas
 
 How does Angular know that the `AppModule` is the root NgModule? This is defined in the file `main.ts` in the last lines:
 
-```js
+```javascript
 // src/main.ts
 
 platformBrowserDynamic().bootstrapModule(AppModule)

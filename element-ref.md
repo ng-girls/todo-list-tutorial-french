@@ -1,8 +1,8 @@
-# Element ref
+# Element ref - \#
 
 In the last chapter, we ended with our input component that can reflect and change the value of title of our todo item. `input-button-unit.component.ts` should look like this:
 
-```ts
+```typescript
 // src/app/input-button-unit/input-button-unit.component.ts
 
 import { Component, OnInit } from '@angular/core';
@@ -33,13 +33,13 @@ export class InputButtonUnitComponent implements OnInit {
 }
 ```
 
-Now, we want to take the value of the input (that the user typed) and change the title when we press the Save button.
+Now, we want to take the value of the input \(that the user typed\) and change the title when we press the Save button.
 
 We already know how to create a button and react to click on it. We now need to pass to the method some data from a different element. We want to use the input's value from inside the button element.
 
-Angular helps us do exactly that. **We can get a reference to the element we want into a variable with the name we choose, **for example** `inputElement`, using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the click event of the button:
+Angular helps us do exactly that. **We can get a reference to the element we want into a variable with the name we choose, **for example** **`inputElement`**, using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the click event of the button:
 
-```html
+```markup
 // src/app/input-button-unit/input-button-unit.component.ts
 
 template: `                           
@@ -50,8 +50,7 @@ template: `
       Save
     </button>
     <p>The title is: {{ title }}</p>
-  `,  
-
+  `,
 ```
 
 Now we can use the value that the user entered in the input element in the method called when clicking the Save button!
@@ -65,10 +64,14 @@ Instead of hunting down the elements via DOM query \(which is bad practice as we
 Next on, we'll build the list of todo items.
 
 ### Tip - explore the element reference
-Just like we did in the previous chapter, when we logged $event, you can do the same with `#inputElement`. 
-![lab-icon](/assets/lab.jpg) **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
 
-```html
+Just like we did in the previous chapter, when we logged $event, you can do the same with `#inputElement`. 
+
+![lab-icon](.gitbook/assets/lab.jpg)
+
+ **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
+
+```markup
 <input [value]="title"              
        (keyup.enter)="changeTitle(inputElement)"
        #inputElement>
@@ -77,12 +80,12 @@ Just like we did in the previous chapter, when we logged $event, you can do the 
   Save
 </button>
 ```
-```ts
+
+```typescript
 changeTitle(inputElementRef) {
   console.log(inputElementRef);
   this.title = inputElementRef.value;              
 }
-
 ```
 
 ## Resources

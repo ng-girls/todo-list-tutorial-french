@@ -2,8 +2,7 @@
 
 ## What is local storage?
 
-Local storage, as its name implies, is a tool for storing data locally.
-As similar to cookies, local storage stores the data on the user's computer, and by that it lets us, as developers, a quick way to access this data for both reading and writing.
+Local storage, as its name implies, is a tool for storing data locally. As similar to cookies, local storage stores the data on the user's computer, and by that it lets us, as developers, a quick way to access this data for both reading and writing.
 
 ## Browser support
 
@@ -19,7 +18,7 @@ Local storage stores the data in a form of key-value, so the interface is quite-
 
 An example usage:
 
-```
+```text
 localStorage.setItem('name','Mor');
 
 let name = localStorage.getItem('name'); 
@@ -37,13 +36,13 @@ There are a few more wonderful methods you can use, as described [here](https://
 In the following section we will build a local storage service that later on will be used to store our todo list items.  
 As described in earlier tutorials, we will generate the service using `angular-cli`:
 
-```
+```text
 ng g s todo-list-storage
 ```
 
 The new file `todo-list-storage.service.ts`, should be created with the following code:
 
-```
+```text
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -54,15 +53,17 @@ export class TodoListStorageService {
 }
 ```
 
-**If something looks unfamiliar/odd to you, please refer to the [Service tutorial](https://shmool.gitbooks.io/todo-list-tutorial/content/service.html) for more detailed information about services.**
+**If something looks unfamiliar/odd to you, please refer to the **[**Service tutorial**](https://shmool.gitbooks.io/todo-list-tutorial/content/service.html)** for more detailed information about services.**
 
 We need to provide the service in our ngModule. Open `app.module.ts` and in the `providers` list add the new class:
-```ts
+
+```typescript
 providers: [TodoListService, TodoListStorageService],
 ```
-Make sure the class is also imported into the file:
-```ts
 
+Make sure the class is also imported into the file:
+
+```typescript
 import { TodoListStorageService } from './todo-list-storage.service';
 ```
 
@@ -75,20 +76,20 @@ In addition, let's add a constant that will store the name of the key we want to
 `const storageName = 'aah_todo_list';`
 
 Now we want to initiliaze this property with data, by retriving it from localStorage, so within the constructor, add:
-```ts
+
+```typescript
 constructor() {  
     this.todoList = JSON.parse(localStorage.getItem(storageName));  
 }
 ```
 
-Wait! Wait! Why `JSON.parse`? The answer is simple:
-As described earlier in this tutorial, local storage stores data in a form of key-value, that means that the values are stored as **strings**.  
+Wait! Wait! Why `JSON.parse`? The answer is simple: As described earlier in this tutorial, local storage stores data in a form of key-value, that means that the values are stored as **strings**.  
 So, if we want to have a real object to deal with, we must parse the strign into a valid object.
 
 Now lets start doing some real stuff, but first we will declare all the public methods we want to expose in this service, which are **get, post, put**, and **destroy**.  
 Our service should now look similiar to:
 
-```
+```text
 import { Injectable } from '@angular/core';
 
 const storageName = 'aah_todo_list';
@@ -123,7 +124,7 @@ We will now implement them one by one.
 
 This method will simply return the current state of items stored in the service:
 
-```
+```text
 /**
    * Get items
    * @returns {any[]}
@@ -140,7 +141,7 @@ If you are not familiar with the `...` operator, please refer to [this documenta
 This method will be responsible for adding a new item, and returning the new list.  
 It accepts one parameter, `item` which will be the item to add:
 
-```
+```text
 /**
    * Add a new todo item
    * @param item
@@ -152,13 +153,13 @@ It accepts one parameter, `item` which will be the item to add:
   }
 ```
 
-Some of you might notice that we just pushed a new item to the array.  
+Some of you might notice that we just pushed a new item to the array.
 
 But what about the local storage? We must also synchronize it with the new array!
 
 Lets add a new **private** method in our service, which will be used internaly to update the stored list:
 
-```
+```text
 /**
    * Synchronize the local storage with the current list
    * @returns {any[]}
@@ -176,7 +177,7 @@ After we updated the value, we simply return the new list using the `get` method
 
 Now we need to modify our `post` function to use `update` so everyhing is synchronized in harmony:
 
-```
+```text
 /**
    * Add a new todo item
    * @param item
@@ -193,7 +194,7 @@ Now we need to modify our `post` function to use `update` so everyhing is synchr
 Here we want to update an existing item.  
 Before that, let's add another helper private method `findItemIndex`, which will simply return the index of an item with the list array:
 
-```
+```text
 /**
    * Find the index of an item in the array
    * @param item
@@ -206,7 +207,7 @@ Before that, let's add another helper private method `findItemIndex`, which will
 
 Now, we can use `Object.assign` to update an existing item:
 
-```
+```text
 /**
    * Update an existing item
    * @param item
@@ -219,7 +220,7 @@ Now, we can use `Object.assign` to update an existing item:
   }
 ```
 
-So what is going on here?   
+So what is going on here?  
 `Object.assign` takes a target object \(first argument\) and source objects \(all the rest of the argument\), and copies to the target object.  
 If a property existing on both target and source, this method will replace the old value with the new one.  
 Here we want to update an item in the list, so first we find it's index in the array, and then apply the changes on it.  
@@ -229,7 +230,7 @@ At the end, we want to synchronize the local storage \(`this.update`\) and retur
 
 This method will remove an item from the list and then synchronize with local storage:
 
-```
+```text
 /**
    * Remove an item from the list
    * @param item
@@ -247,10 +248,10 @@ In our code, we first find the index of the item to remove, and remove only it \
 
 ## Add some default data
 
-Lets assume we want our todo list always have some default data to start with.   
+Lets assume we want our todo list always have some default data to start with.  
 Then we can add it by modifying our service, by adding in the constants section \(after the imports\):
 
-```
+```text
 const defaultList = [
   { title: 'install NodeJS' },
   { title: 'install Angular CLI' },
@@ -263,7 +264,7 @@ const defaultList = [
 
 And then modify our constructor:
 
-```
+```text
 constructor() {
     this.todoList = JSON.parse(localStorage.getItem(storageName)) || defaultList;
   }
@@ -273,7 +274,7 @@ The above will make sure that if data was not yet set to localStorage, our servi
 
 ## Almost done!
 
-Our service is now ready for work!   
+Our service is now ready for work!  
 But wait, we need to provide it, in order to use it.
 
 Open `app.module.ts` and add `TodoListStorageService` to the `providers` array.  
@@ -287,7 +288,7 @@ First we need to import the new service:
 
 Then, we need to inject it in the constructor so we will have an instance to work with:
 
-```
+```text
 constructor(private storage:TodoListStorageService) {
 }
 ```
@@ -298,7 +299,7 @@ Let's also modify the current methods:
 
 **Before**
 
-```
+```text
 getTodoList() {
     return this.todoList;
 }
@@ -310,7 +311,7 @@ addItem(item) {
 
 **After**
 
-```
+```text
 getTodoList() {
     return this.storage.get();
 }
@@ -322,7 +323,7 @@ addItem(item) {
 
 Now we have one last modification to make. Open up `list-manager.component.ts`, and let's modify `addItem` method this way:
 
-```
+```text
 addItem(title:string) {
     this.todoList = this.todoListService.addItem({ title });
 }
