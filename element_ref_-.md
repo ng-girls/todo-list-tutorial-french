@@ -58,7 +58,7 @@ Now we can use the value that the user entered in the input element in the metho
 
 What is that `#` we used?
 
-Angular lets us define a new local template variable named `inputElement` \(or any name you choose\) that holds a reference to the element we defined it on, and then use it any way we want in the template. In our case, we use it in the button element to access the value property of the input.
+Angular lets us define a new local template variable named `inputElement` \(or any name you choose\) that holds a **reference to the element** we defined it on, and then use it any way we want in the template. In our case, we use it in the button element to access the value property of the input.
 
 Instead of hunting down the elements via DOM query \(which is bad practice as we discussed\), we now can put element references in the template and access each element we want declaratively.
 
@@ -78,9 +78,9 @@ Just like we did in the previous chapter, when we logged $event, you can do the 
 </button>
 ```
 ```ts
-changeTitle(inputElementReference): void {
-  console.log(inputElementReference);
-  this.title = inputElementReference.value;              
+changeTitle(inputElementRef) {
+  console.log(inputElementRef);
+  this.title = inputElementRef.value;              
 }
 
 ```
