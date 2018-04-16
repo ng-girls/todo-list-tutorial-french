@@ -6,10 +6,12 @@ We still don't have a whole list to show, but at the moment we will use another 
 
 ## The Action
 
-First, let's implement `changeTitle`. You can replace `generateTitle` with this new method. It will receive the new title as its argument:
+First, let's implement `changeTitle`. You can replace `generateTitle` with this new method. It will receive the new title as its argument. The best practice is to have our custom methods written after the lifecycle methods \(\`ngOnInit\` in this case\):
 
 ```ts
-changeTitle(newTitle: string): void {
+// src/app/input-button-unit/input-button-unit.component.ts
+
+changeTitle(newTitle: string) {
   this.title = newTitle;
 }
 ```
@@ -21,6 +23,8 @@ Just like binding to element properties, we can bind to events that are emitted 
 Let's try a simple example, where the title is changed when the user clicks on the button. Notice the parenthesis around `click`. \(We also change the binding of the input's value back to `title`.\)
 
 ```html
+// src/app/input-button-unit/input-button-unit.component.ts
+
 template: `
   <input [value]="title">
   <button (click)="changeTitle('Button Clicked!')">
@@ -30,7 +34,7 @@ template: `
 `,
 ```
 
-The event is called `click` and not `onClick` - in Angular you remove the `on` prefix from the events in the elements.
+The event is called `click` and not `onClick` - in Angular you remove the `on` prefix from the events in the elements. 
 
 Go to the browser and see the result - click on the Save button.
 
@@ -49,14 +53,14 @@ When the user types, keyboard events are emitted. For example `keydown` and `key
 <input [value]="title" (keyup)="changeTitle('Button Clicked!')">
 ```
 
-This element becomes large, so to make it easier on the eye we will split it into two lines:
+Now when the user types in the input box, the title is changed to "Button Clicked!". But it's still a static string.
+
+**Tip:** When an element becomes long due to its attributes, you should make it easier on the eye by splitting it into several lines:
 
 ```html
 <input [value]="title" 
        (keyup)="changeTitle('Button Clicked!')">
 ```
-
-Now when the user types in the input box, the title is changed to "Button Clicked!". But it's still a static string.
 
 ### The $event object
 
@@ -84,7 +88,7 @@ Now the title will change only when the user hits the Enter key while typing in 
 
 ### Tip - explore the $event
 
-![](blob:https://www.gitbook.com/909c0ae3-0a60-4870-9a38-6b7588264104) **Playground: **You can change the changeTitle method to log the `$event` object in the console. This way you can explore it and see what properties it has.
+![lab-icon](/assets/lab.jpg) **Playground: **You can change the changeTitle method to log the `$event` object in the console. This way you can explore it and see what properties it has.
 
 Change the method `changeTitle`:
 
@@ -95,10 +99,7 @@ changeTitle(event): void {
 }
 ```
 
-  
-
-
-![](blob:https://www.gitbook.com/909c0ae3-0a60-4870-9a38-6b7588264104) **Playground: **Now change the argument you're passing in the template:
+Now change the argument you're passing in the template, to pass the whole `$event`:
 
 ```html
 <input [value]="title" 
@@ -107,5 +108,5 @@ changeTitle(event): void {
 
 Try it out!
 
-Don't forget to change back the code before we go on \(!\).
+Don't forget to change back the code before we go on!.
 
