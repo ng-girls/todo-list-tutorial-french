@@ -54,9 +54,10 @@ Open the root component file, `app.component.ts` and add the app-input-button-un
 
 ```html
 // src/app/app.component.ts
+
 template: `
   <h1>
-    {{title}}
+    {{ title }}
   </h1>
 
   <app-input-button-unit></app-input-button-unit>
@@ -68,8 +69,10 @@ Check what's new in the browser!
 Let's add some content in our new component. First, add a `title` member which we will use as the todo item's title:
 
 ```ts
+// src/app/input-button-unit/input-button-unit.component.ts
+
 export class InputComponent implements OnInit {
-  title: string = 'Hello World';
+  title = 'Hello World';
   ...
 ```
 
@@ -78,9 +81,13 @@ It will not interfere with the `app-root` component's `title`, since each compon
 Next, add some content and an interpolation of the title member in the template:
 
 ```html
-<!-- src/app/input/input.component.ts -->
+// src/app/input-button-unit/input-button-unit.component.ts 
 
-<p>The title is: {{ title }}</p>
+template: `
+  <p>
+    The title is: {{ title }}
+  </p>
+`
 ```
 
 Check out the result!
