@@ -21,10 +21,10 @@ Now we're ready to start developing!
 ## About the Tools
 
 ### Github
-[Github](https://github.com/) is an online plattform which provides an online management of the version control software **Git**.
+[GitHub](https://github.com/) is a code repository website that integrates with **Git**. It allows you to publish your project on the Web, copy other open source projects, and collaborate. To be able to publish your project, make sure you create a user in GitHub's website (for free, of course).
 
 ### Git
-Git is a tool that helps you manage versions of your code and work in collaboration with team members. There is a lot to know about it, but in this tutorial we will cover only basic usage.
+Git is a tool that helps you manage versions of your code and collaborate with team members. There is a lot to know about it, but in this tutorial we will cover only basic usage.
 
 ### Stackblitz
 Stackblitz is an online editor which provides you all the functionality of an Online-**IDE** called **Visual Studio Code** and the **Angular-CLI**.
@@ -35,15 +35,15 @@ Stackblitz is an online editor which provides you all the functionality of an On
 
 ### IDE
 
-Our next tool is the **IDE** -  integrated development environment. It's a software that helps you write the code. IDEs can do a lot of amazing things such as:
+Our next tool is the **IDE**, or integrated development environment. It's software that helps you write the code. IDEs can do a lot of amazing things, such as:
 
-* paint the code so it's easier to identify expressions
+* highlight the code so it's easier to identify expressions
 * suggest completions to what you type
-* helps navigate easily through the files in your project
+* help you navigate easily through the files in your project
 * and a lot more...
 
 ### Visual Studio Code
-Microsoft [Visual Studio Code](https://code.visualstudio.com/) is a great choice that gains a lot of popularity lately. It is completely free for individuals.
+Microsoft [Visual Studio Code](https://code.visualstudio.com/) is an editor that's gained a lot of popularity lately. It is completely free for individuals.
 
 
 
