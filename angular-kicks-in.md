@@ -19,11 +19,13 @@ Angular needs us to define what we want it to compile. For this we define Angula
 
 The last line in the file defines a JavaScript class:
 
-```javascript
-// src/app/app.module.ts
-
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.module.ts" %}
+```typescript
 export class AppModule { }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 `export` is a reserved word in JavaScript which tells that whatever is defined after it should be exposed to other files which import this one using the `import` statement. You can see examples of classes and functions imported from other files in the first lines in this file. These are used in the file.
 
@@ -45,12 +47,14 @@ What we pass into the decorator function is used by Angular to decorate the clas
 
 How does Angular know that the `AppModule` is the root NgModule? This is defined in the file `main.ts` in the last lines:
 
-```javascript
-// src/main.ts
-
+{% code-tabs %}
+{% code-tabs-item title="src/main.ts" %}
+```typescript
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 We bootstrap our root NgModule to a renderer. This way we tell Angular what NgModule to use as the starting point of our application. And we also choose a renderer: `platformBrowserDynamic`. It knows how to take our code and add the relevant data \(elements, attributes, etc.\) to the browser's DOM.
 

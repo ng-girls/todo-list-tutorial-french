@@ -19,25 +19,29 @@ Let's take a look at the component that was created by Angular-CLI. All the rele
 
 Just like ngModules that we saw in the previous chapter, a component is also defined by a class with a decorator. This is the class definition:
 
-```javascript
-// src/app/app.component.ts
-
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
+```typescript
 export class AppComponent {
   title = 'app';
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 It has one member called "title". It is a variable to which you can assign a value. The value assigned to it here is the string "app".
 
 Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the template attached to the component in the file `app.component.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.html" %}
 ```markup
-<!-- src/app/app.component.html -->
-
 <h1>
   Welcome to {{ title }}!
 </h1>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The double curly braces and their content are called **Interpolation**. This is one form of ** data binding** in Angular. As we mentioned before, the code in this file is not used as is when the browser renders the component. Angular compiles it to JavaScript code. In one of the compilation steps it looks for Interpolations inside the template. **The content of the Interpolation is an expression, written in JavaScript.** In run time the expression is evaluated, and then you see the result.
 
@@ -55,27 +59,31 @@ This is one way that you can bind members of the component's controller to its t
 
 Let's go back to the file `app.component.ts` and look at the component's meta-data defined in the decorator `@Component` right above the class definition:
 
-```javascript
-// src/app/app.component.ts
-
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
+```typescript
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 We pass an object of definitions to the decorator, just like we saw in the previous chapter with ngModule. The second property, `templateUrl` tells Angular where to look for the template attached to the component. There is another option to point to the template, which some developers prefer: to write the whole template inline here, in the component definition. We will discuss it later.
 
 The third property, `styleUrls` tells Angular where to look for the CSS files that define the style of this component. It can have multiple CSS files. That's why the value of `styleUrls` is an array. You can take a look at the CSS file `app.component.css` - you'll see that it's empty. You can add some CSS style here, for example:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.css" %}
 ```css
-/* src/app/app.component.css */
-
 h1 {
   color: red;
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 We'll add more style later on.
 
@@ -83,13 +91,15 @@ We'll add more style later on.
 
 The first property, `selector`, tells Angular what will be the name of the tag that we'll use to call the component. As we saw in the file `src/index.html`, we use the app component inside the body:
 
+{% code-tabs %}
+{% code-tabs-item title="src/index.html" %}
 ```markup
-<!-- src/index.html -->
-
 <body>
   <app-root></app-root>
 </body>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The element `app-root` is not an HTML element. It is the component that was created with the selector `app-root`. Try changing the selector. You'll see that if you change it in only one of the files \(`index.html` or `app.component.ts`\) , the content will not be rendered, and an error message will appear in the browser's console.
 
@@ -101,15 +111,23 @@ As noted before, some developers prefer having inline template. This allows seei
 
 In the file `app.component.ts` replace the line
 
-```javascript
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
+```typescript
 templateUrl: './app.component.html',
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 with
 
-```javascript
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
+```typescript
 template: ``,
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Notice the **backticks** - **\` **- they are used to define Template Literals, which are new in JavaScript \(ES6\). This way you can define multi-line strings. They have another cool ability: to easily use JavaScript variables and expressions within the string \(with no relation to Angular binding expressions in the template\). Read about it in the [MDN documentation](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
 
@@ -117,6 +135,8 @@ Make sure you replace `templateUrl` with `template` and don't forget the comma i
 
 Now instead of taking the content from the original template, we'll insert a more simple template which we can work with. When the curser is between the backticks press Enter and insert the HTML template:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```markup
 template: `
   <h1>
@@ -124,6 +144,8 @@ template: `
   </h1>  
 `,
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 You may find it is easier to manage the template when you see its controller at the same time. This is true as long as the template doesn't get too big and the controller doesn't get too complicated. If they do, it's a sign you should refactor your code by breaking it down to child components.
 

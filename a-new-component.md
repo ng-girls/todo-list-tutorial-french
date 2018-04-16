@@ -29,9 +29,9 @@ It created a new folder called `src/app/input-button-unit`. There are three file
 
 Open the file `input-button-unit.component.ts`. You can see that Angular-CLI has generated the component's configuration for us, including its selector, which is the name we gave preceded by the prefix `app`, and a default template:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
-// src/app/input-button-unit/input-button-unit.component.ts
-
 @Component({
   selector: 'app-input-button-unit',
   template: `
@@ -42,6 +42,8 @@ Open the file `input-button-unit.component.ts`. You can see that Angular-CLI has
   styleUrls: ['./input-button-unit.component.css']
 })
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 > The prefix `app` will be added to the component selector of all the components you will generate. This is to avoid name conflicts with other components and HTML elements. For instance, if you create a component named input it will not conflict with HTML's `<input />` element, since its selector will be `app-input`.
 >
@@ -51,9 +53,9 @@ We can use this component as is and see the result!
 
 Open the root component file, `app.component.ts` and add the app-input-button-unit tag anywhere inside the template \(remember we refactored the root component to have an inline template\):
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```markup
-// src/app/app.component.ts
-
 template: `
   <h1>
     {{ title }}
@@ -62,32 +64,37 @@ template: `
   <app-input-button-unit></app-input-button-unit>
 `,
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Check what's new in the browser!
 
 Let's add some content in our new component. First, add a `title` member which we will use as the todo item's title:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
-// src/app/input-button-unit/input-button-unit.component.ts
-
 export class InputButtonUnitComponent implements OnInit {
   title = 'Hello World';
-  ...
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 It will not interfere with the `app-root` component's `title`, since each component's content is encapsulated within it.
 
 Next, add some content and an interpolation of the title member in the template:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```markup
-// src/app/input-button-unit/input-button-unit.component.ts 
-
 template: `
   <p>
     The title is: {{ title }}
   </p>
 `,
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Check out the result!
 
