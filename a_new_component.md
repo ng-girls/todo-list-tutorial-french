@@ -61,7 +61,7 @@ template: `
   </h1>
 
   <app-input-button-unit></app-input-button-unit>
-`
+`,
 ```
 
 Check what's new in the browser!
@@ -87,7 +87,7 @@ template: `
   <p>
     The title is: {{ title }}
   </p>
-`
+`,
 ```
 
 Check out the result!

@@ -17,7 +17,7 @@ template: `
   <app-input-button-unit></app-input-button-unit>
   <app-input-button-unit></app-input-button-unit>
   <app-input-button-unit></app-input-button-unit>
-`
+`,
 ```
 
 Let's take a look at the class `InputButtonUnitComponent`.
