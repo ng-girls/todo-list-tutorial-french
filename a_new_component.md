@@ -71,7 +71,7 @@ Let's add some content in our new component. First, add a `title` member which w
 ```ts
 // src/app/input-button-unit/input-button-unit.component.ts
 
-export class InputComponent implements OnInit {
+export class InputButtonUnitComponent implements OnInit {
   title = 'Hello World';
   ...
 ```
