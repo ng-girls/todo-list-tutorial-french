@@ -115,7 +115,7 @@ Make sure you replace `templateUrl` with `template` and don't forget the comma i
 
 Now instead of taking the content from the original template, we'll insert a more simple template which we can work with. When the curser is between the backticks press Enter and insert the HTML template:
 
-```js
+```html
 template: `
   <h1>
     {{ title }}
@@ -127,28 +127,7 @@ You may find it is easier to manage the template when you see its controller at 
 
 At this point you can delete the file `app.component.html`.
 
-**We recommend continuing this tutorial using inline templates in the components.** Especially if you're working on a laptop with a small screen, where there isn't enough space to open two files side-by-side. However, **we will put the template code snippets separately as if they were in an HTML file** (and we will note the filename with `.html` extension). This due to the limited support of code highlighting of HTML strings within JavaScript snippets in Markdown (the format this tutorial is written in). You can see the difference between the two code snippets below.
-
-So if you use inline templates, as we recommend, make sure the HTML snippet goes between the backticks preceded by `template:`. For example, the following HTML code snippet:
-
-```html
-<!-- src/app/app.component.html -->
-
-  <h1>
-    {{ title }}
-  </h1>  
-```
-should be inserted in the file `src/app/app.component.ts` like you have just done:
-
-```js
-// src/app/app.component.ts
-
-template: `
-  <h1>
-    {{ title }}
-  </h1>  
-`,
-```
+**We recommend continuing this tutorial using inline templates in the components.** Especially if you're working on a laptop with a small screen, where there isn't enough space to open two files side-by-side. 
 
 Let's configure Angular-CLI to give us inline-template as a default. In the terminal run the command: `ng set defaults.component.inlineTemplate true`. Now every component that you'll generate will have an inline template, and an HTML file will not be created. 
 
