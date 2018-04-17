@@ -12,11 +12,19 @@ You should see a page like this:
 
 ![Initial App](https://github.com/ng-girls/todo-list-tutorial/raw/stackblitz/assets/initial-app-stackblitz.png)
 
+That's how stackblitz works
+
+**important**
+Please use the following sample as your basis. Just click the Fork-Button to create a copy to your account:
+https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01_Installations
+
+
 ### Congratulations!
 
 You have a running Angular application!
 
 Now we're ready to start developing!
+
 
 ## About the Tools
 

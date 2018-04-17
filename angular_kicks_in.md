@@ -1,8 +1,3 @@
-**important**
-Please use the following sample as your basis. Just click the Fork-Button to create a copy to your account:
-https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01_Installations
-
-
 # Angular kicks in
 
 Let's look at the project and how Angular gets in the picture. All the relevant files at this stage on exist inside the `src` folder.
