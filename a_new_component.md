@@ -2,7 +2,7 @@
 
 In this chapter, we will write a whole new component. It will allow us to add an item to the todo list. It will be composed of the HTML elements `input` and `button`.
 
-We'll use the Angular CLI to generate all the needed files and boilerplate for us. Stackblitz make it more easier. Go to the app folder and then select by right click the component option:
+We'll use the Angular CLI to generate all the needed files and boilerplate for us. Stackblitz makes it easier. Go to the app folder and then select by right click the component option:
 
 ![Right click and select new component](assets/create_new_component.png)
 
