@@ -1,12 +1,14 @@
-# Element ref
+# Element ref - \#
 
 In the last chapter, we ended with our input component able to display and change the title of our todo item. `input.component.ts` should look like this:
 
-```ts
+```typescript
+// src/app/input-button-unit/input-button-unit.component.ts
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'todo-input',
+  selector: 'app-input-button-unit',
   template: `
     <input [value]="title"
            (keyup.enter)="changeTitle($event.target.value)">
@@ -14,10 +16,10 @@ import { Component, OnInit } from '@angular/core';
       Save
     </button>
     <p>The title is: {{ title }}</p>
-  `,
-  styleUrls: ['./input.component.css']
-})
-export class InputComponent implements OnInit {
+  `,  
+  styleUrls: ['./input-button-unit.component.css']  
+})    
+export class InputButtonUnitComponent implements OnInit {
   title: string = '';
 
   constructor() { }
@@ -25,26 +27,27 @@ export class InputComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeTitle(newTitle: string): void {
+  changeTitle(newTitle: string) {
     this.title = newTitle;
   }
 }
 ```
 
-Now we want to take the value of the input (that the user typed) and change the title when we press the Save button.
+Now we want to take the value of the input \(that the user typed\) and change the title when we press the Save button.
 
 We already know how to create a button and react to clicking on it. We now need to pass to the method some data from a different element. We want to use the `input` element's value from inside the `button` element.
 
-Angular helps us do exactly that. **We can store a reference to the element we want in a variable with the name we choose, for example `inputElement`, using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the `click` event of the button:
+Angular helps us do exactly that. **We can store a reference to the element we want in a variable with the name we choose,** for example `inputElement`, **using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the `click` event of the button:
 
-```html
-<input [value]="title"
-       (keyup.enter)="changeTitle($event.target.value)"
-       #inputElement>
+```markup
 
-<button (click)="changeTitle(inputElement.value)">
-  Save
-</button>
+    <input [value]="title"
+           (keyup.enter)="changeTitle($event.target.value)"
+           #inputElement>
+    <button (click)="changeTitle(inputElement.value)">
+      Save
+    </button>
+
 ```
 
 Now we can use the value that the user entered in the `input` element in the method called when clicking the Save button!
@@ -59,9 +62,14 @@ Next, we'll build the list of todo items.
 
 ## Tip - explore the element reference
 
-Just like we did in the previous chapter, when we logged `$event`, you can do the same with `#inputElement`. Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
+Just like we did in the previous chapter, when we logged $event, you can do the same with `#inputElement`.
+![lab-icon](/assets/lab.jpg) **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
 
-```html
+![lab-icon](.gitbook/assets/lab%20%281%29.jpg)
+
+ **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
+
+```markup
 <input [value]="title"
        (keyup.enter)="changeTitle(inputElement)"
        #inputElement>
@@ -70,13 +78,11 @@ Just like we did in the previous chapter, when we logged `$event`, you can do th
   Save
 </button>
 ```
-
-```ts
+```typescript
 changeTitle(inputElementReference): void {
   console.log(inputElementReference);
   this.title = inputElementReference.value;
 }
-
 ```
 
 Don't forget to put the code back the way it was after you're finished experimenting!

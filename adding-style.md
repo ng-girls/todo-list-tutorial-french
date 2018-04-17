@@ -50,21 +50,22 @@ ol, ul {
 }
 ```
 
-> How does the project know to look at this file? In the Angular CLI configuration file `.angular-cli.json` under `apps[0].styles`, you can state the files for the build tool to take and add to the project. You can open the browser's dev tools and see the style inside the element:
+>How does the project know to look at this file? In theAngularCLI configuration file `.angular-cli.json` under `apps[0].styles`, you can state the files for the build tool to take and add to the project. You can open the browser's dev tools and see the style inside the element:
+>
+> ```markup
+><html>
+>  ...
+>  <head>
+>    ...
+>    <style type="text/css">
+>    ...Your style is here
+>    </style>
+>    ...
+>  </head>
+>  ...
+></html>
 
-```html
-<html>
-  ...
-  <head>
-    ...
-    <style type="text/css">
-    ...Your style is here
-    </style>
-    ...
-  </head>
-  ...
-</html>
-```
+> ```
 
 Now let's add style specifically to the `todo-list-manager` component.
 
@@ -126,7 +127,7 @@ Open the file `list-manager.component.css` and paste the following style inside:
 ```
 
 How does this stylesheet get attached to the `todo-list-manager` component?
-Look at the file `list-manager.component.ts`. One of the properties in the object passed to the `@Component` decorator is `styleUrls`. It's a list of stylesheets to be used by Angular, which encapsulates the style within the component.
+Look at the file `list-manager.component.ts`. One of the properties in the object passed to the `@Component` decorator is `styleUrls`. It's a list of stylesheets to be used by Angular, which encapsulates the style within the component. 
 
 Add the following style to `input.component.css`:
 
@@ -221,7 +222,5 @@ In `ItemComponent`:
 
 You can change the style as you wish - the size of elements, the colors - however you'd like!
 
-Note: You can use SCSS files in the project, which is a nicer way to write style. It has great features that help the developer. SCSS files are compiled to CSS when the project is built.
-
-[See the results on StackBlitz](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-13_Adding_Style)
+Note: You can use SCSS files in the project, which is a nicer way to write style. It has great features that help the developer. SCSS files are compiled to CSS when the project is built. [See the results on StackBlitz](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-13_Adding_Style)
 

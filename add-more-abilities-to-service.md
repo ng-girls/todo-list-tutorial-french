@@ -5,11 +5,10 @@ In this chapter, we'll improve our service by adding more abilities.
 First, lets open our app's service file, which is available at `app/todo-list.service.ts`.
 
 There we'll add a new method to the service, called `addItem`, like so:
-
 ```ts
 addItem(item): void {
-  this.todoList.push(item);
-}
+    this.todoList.push( item );
+} 
 ```
 
 This will allow us to call the same method from everywhere across the application, thus making our app easier to maintain.

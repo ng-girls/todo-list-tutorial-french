@@ -1,4 +1,4 @@
-# Installation
+# Installations
 
 Every developer needs a set of tools and libraries to start working. In our case, we'll use the online editor [Stackblitz](https://stackblitz.com/).
 
@@ -43,7 +43,7 @@ Stackblitz is an online editor which provides you all the functionality of an On
 
 ### IDE
 
-Our next tool is the **IDE**, or integrated development environment. It's software that helps you write the code. IDEs can do a lot of amazing things, such as:
+Our next tool is the **IDE** , or  integrated development environment. It's  software that helps you write the code. IDEs can do a lot of amazing things, such as:
 
 * highlight the code so it's easier to identify expressions
 * suggest completions to what you type

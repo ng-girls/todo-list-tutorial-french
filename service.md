@@ -4,7 +4,7 @@ In Angular, a service is (typically) a JavaScript class that's responsible for p
 
 ## Create the service
 
-In order to create a new service with the Angular CLI, make sure you're in the root folder of your application, then right click and select service as option. 
+In order to create a new service with the Angular CLI, make sure you're in the root folder of your application, then right click and select service as option.
 
 Name the service ``` ng g s todoList```
 

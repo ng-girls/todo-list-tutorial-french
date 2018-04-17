@@ -35,7 +35,7 @@ There are a few more wonderful methods you can use, as described [here](https://
 ## Angular time \(back to our app\)
 
 In the following section, we will build a local storage service that later on will be used to store our todo list items.
-As in earlier chapters, we will generate the service using the Angular CLI. We will name the new service component 
+As in earlier chapters, we will generate the service using the Angular CLI. We will name the new service component
 ```  todo-list-storage ```
 
 The new file, `todo-list-storage.service.ts`, will be created with the following code:
@@ -55,7 +55,8 @@ export class TodoListStorageService {
 
 We need to provide the service in our ngModule. Open `app.module.ts` and add the new class to the `providers` list:
 
-```ts
+
+```typescript
 providers: [TodoListService, TodoListStorageService],
 ```
 
@@ -79,14 +80,14 @@ const storageName = 'aah_todo_list';
 
 Now we want to initialize this property with data, by retrieving it from `localStorage`, so within the constructor, add:
 
-```ts
+
+```typescript
 constructor() {
   this.todoList = JSON.parse(localStorage.getItem(storageName));
 }
 ```
 
-Wait! Wait! why `JSON.parse`? The answer is simple:
-As described earlier in this tutorial, local storage stores data as key-value pairs, and the values are stored as **strings**.
+Wait! Wait! why `JSON.parse`? The answer is simple: As described earlier in this tutorial, local storage stores data as key-value pairs, and the values are stored as **strings**.
 So, if we want to have a real object to work with, we must parse the string into a valid object.
 
 Now let's start doing some real stuff, but first we will declare all the public methods we want to expose in this service, which are **get, post, put**, and **destroy**.
@@ -193,9 +194,9 @@ Now, we can use `Object.assign` to update an existing item:
   }
 ```
 
-So what is going on here?
-`Object.assign` takes a target object \(the first argument\) and source objects \(all the rest of the arguments\), and copies the source objects to the target object.
-If a property exists on both the target and a source, this method will replace the old value with the new one.
+So what is going on here?   
+`Object.assign` takes a target object \(thefirst argument\) and source objects \(all the rest of the arguments\), and copies the source objectsto the target object.
+If a property exists on both thetarget and asource, this method will replace the old value with the new one.
 Here we want to update an item in the list, so first we find its index in the array, and then apply the changes to it.
 At the end, we want to synchronize the local storage \(`this.update`\) and return the new list.
 
@@ -215,7 +216,7 @@ In our code, we first find the index of the item to remove, and remove only it \
 
 ## Add some default data
 
-Let's assume we want our todo list to always have some default data to start with.
+Let's assume we want our todo list toalways have some default data to start with.
 We can add it by modifying our service, by adding in the constants section \(after the imports\):
 
 ```ts

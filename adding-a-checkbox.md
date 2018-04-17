@@ -11,13 +11,15 @@ We will look at:
 
 Let's go ahead and add a checkbox into our `item.component.ts` file. Place the following code right before `{{ todoItem.title }}`:
 
-```html
+```markup
   <input type="checkbox"/>
 ```
 
 Now, in order for the checkbox to do anything, we need to add a `click` event handler which we will call `completeItem`. Let's do that now:
 
-```html
+Now, in order for the checkbox to do anything we need to add a click event which we will call completeItem\(\). Let's do that now:
+
+```markup
   <input type="checkbox"
           class="todo-checkbox"
           (click)="completeItem()">
@@ -35,7 +37,7 @@ completeItem() {
 
 But wait! How is any of this going to affect the todo title when we're only touching the checkbox? Well, Angular has this wonderful directive called NgClass. This directive applies or removes a CSS class based on a boolean (true or false) expression. There are many ways to use this directive (see the [NgClass directive documentation](https://angular.io/api/common/NgClass)) but we will focus on using it like so:
 
-```html
+```markup
 <some-element [ngClass]="{'first': true, 'second': true, 'third': false}">...</some-element>
 ```
 
@@ -43,7 +45,7 @@ The 'first' and 'second' class will be applied to the element because they are g
 
 Let's wrap the item title in a `<span>`, then use NgClass to apply the styling:
 
-```html
+```markup
 <span class="todo-title" [ngClass]="{'todo-complete': isComplete}">
   {{ todoItem.title }}
 </span>

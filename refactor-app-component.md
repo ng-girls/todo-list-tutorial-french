@@ -5,6 +5,7 @@ We're going to perform a small refactoring. The `todo-root` shouldn't have such 
 * Create a new component called `list-manager` and configure inline-template.
 * Move the code from `AppComponent` to `ListManagerComponent`. (Be careful not to change the list manager component's class name!)
 
+
 * Call the new component from the `AppComponent` template:
 
 ```html
