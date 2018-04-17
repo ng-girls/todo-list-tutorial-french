@@ -11,7 +11,7 @@ Angular takes care of creating instances of the classes you define - if they are
 Each time you use a component in a template, a new instance of it is created. For example, here three instances of the InputButtonUnitComponent class will be created:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/app.component.ts" %}
+{% code-tabs-item, title="src/app/app.component.ts" %}
 ```markup
 // example only
 
@@ -31,7 +31,7 @@ Let's take a look at the class `InputButtonUnitComponent`.
 First, you see something was added to the class declaration:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 export class InputButtonUnitComponent implements OnInit {
   ...
@@ -45,7 +45,7 @@ export class InputButtonUnitComponent implements OnInit {
 Angular-CLI adds this statement to remind us that it's best to initialize things on the component through the `ngOnInit` method. You can see it also added the method in the body of the class:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 ngOnInit() {
 }
@@ -80,7 +80,7 @@ When referencing a member of the class from within a class method you must prefi
 Try setting a different value for `title` from inside the constructor. See the result in the browser:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 title = 'Hello World';
 
@@ -94,7 +94,7 @@ constructor() {
 Try changing the value of `title` inside the method `ngOnInit`. Which value will be displayed on the screen?
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 title: string = 'Hello World';
 
@@ -114,7 +114,7 @@ ngOnInit() {
 Let's add a method that changes the value of `title` according to the argument we will pass. We'll call it `changeTitle`. The method will have one parameter of type `string`. Add it **inside the class body** \(but not inside another method\):
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 changeTitle(newTitle: string) {
   this.title = newTitle;
@@ -137,7 +137,7 @@ console.log(z);
 The method `changeTitle` is not used anywhere yet. We can call it from another method or from the template \(which we will see in the following chapters\). Let's call it from the constructor.
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 constructor() { 
   this.changeTitle('My First Angular App');
@@ -155,7 +155,7 @@ constructor() {
 You can always use `console.log(someValue)` inside class methods. Then the value you passed as an argument will be printed in the browser's console. This way you can see the order of the execution of the methods and the value of the argument you pass \(if it's a variable\). For example:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 constructor() { 
   console.log('in constructor');
