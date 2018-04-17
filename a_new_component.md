@@ -4,11 +4,11 @@ In this chapter, we will write a whole new component. It will allow us to add an
 
 We'll use the Angular CLI to generate all the needed files and boilerplate for us. Stackblitz make it more easier. Go to the app folder and then select by right click the component option:
 
-![Angular Component](assets/create_new_component.png)
+![Right click and select new component](assets/create_new_component.png)
 
-Name the component `input` and also make sure it has inline-template.
+Name the component `input` and also make sure it has an inline-template.
 
-> You can avoid using `-it` each time you generate a components by setting inline templates as a default in the configuration file `.angular-cli.json`.
+> You can avoid manually configuring inline template by setting inline templates as a default in the configuration file `.angular-cli.json`.
 
 > Don't worry about the component name `input`. It will not replace HTML's `input` element. That's thanks to the prefix that the Angular CLI gives to our components. The default prefix is `app`, so the component selector would be `app-input`. If you've created the project stating the prefix of your choice, or changed it afterwards in the file `.angular-cli.json`, this will be the prefix of the selector. When we created the project, we set the prefix to "todo", so the selector should be `todo-input`.
 
