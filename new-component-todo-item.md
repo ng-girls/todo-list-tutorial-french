@@ -13,7 +13,7 @@ You can see a new folder was created - `src/app/todo-item`, with the component f
 Use the new component in the template of `app-root` component - inside the `<li>` element:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/app.component.ts" %}
+{% code-tabs-item, title="src/app/app.component.ts" %}
 ```markup
 <ul>
   <li *ngFor="let item of todoList">
