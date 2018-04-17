@@ -24,7 +24,7 @@ The last line in the file defines a JavaScript class:
 ```typescript
 export class AppModule { }
 ```
-{% endcode-tabs-item %}
+{% endcode-tabs-item %} 
 {% endcode-tabs %}
 
 `export` is a reserved word in JavaScript which tells that whatever is defined after it should be exposed to other files which import this one using the `import` statement. You can see examples of classes and functions imported from other files in the first lines in this file. These are used in the file.
