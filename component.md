@@ -9,7 +9,7 @@ In [Service-Oriented Architecture \(SOA\) vs. Component Based Architecture](http
 In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
 
 Here's a diagram of a component in Angular, with the result below.
-![Angular Component](assets/Angular Component.001.jpeg)
+![Angular Component](assets/Angular_Component.001.jpeg)
 
 Directives, pipes, and services are other building blocks in Angular, which we will discuss later in the tutorial.
 
