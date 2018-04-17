@@ -1,96 +1,81 @@
 # A new component
 
-In this chapter we will write a whole new component. It will allow us adding an item to the todo list. It will be composed of the HTML elements `input` and `button`. We will call it Input-Button-Unit. 
+In this chapter, we will write a whole new component. It will allow us to add an item to the todo list. It will be composed of the HTML elements `input` and `button`.
 
-We'll use Angular-CLI to generate all the needed files and boilerplate for us. Angular-CLI takes commands in a terminal window. This doesn't mean that we have to stop the process `ng serve`. Instead, we can open another terminal window or tab and run the additional commands from there. The changes will be reflected immediately in the browser.
+We'll use the Angular CLI to generate all the needed files and boilerplate for us. Stackblitz make it more easier. Go to the app folder and then select by right click the component option:
 
-Open another terminal tab and run:
+![Angular Component](assets/create_new_component.png)
 
-```cmd
-ng g c input-button-unit
-```
+Name the component `input` and also make sure it has inline-template.
 
-As we've seen before, `ng` is the command for using Angular-CLI. `g` is a shorthand for `generate`. `c` is a shorthand for `component`. `input-button-unit` is the name we give to the component.
+> You can avoid using `-it` each time you generate a components by setting inline templates as a default in the configuration file `.angular-cli.json`.
 
-So the long version of the command is (don't run it):
+> Don't worry about the component name `input`. It will not replace HTML's `input` element. That's thanks to the prefix that the Angular CLI gives to our components. The default prefix is `app`, so the component selector would be `app-input`. If you've created the project stating the prefix of your choice, or changed it afterwards in the file `.angular-cli.json`, this will be the prefix of the selector. When we created the project, we set the prefix to "todo", so the selector should be `todo-input`.
 
-```
-ng generate component input-button-unit
-```
+Let's take a look at what the Angular CLI created for us.
 
-Let's take a look of what Angular-CLI created for us.
+It created a new folder called `src/app/input`. There are three files there:
 
-It created a new folder called `src/app/input-button-unit`. There are three files there (or four if you're not using inline-template):
+* `input.component.css` - this is where the style that's specific to the component will be placed.
+* `input.component.spec.ts` - this is a file for testing the component. We will not deal with it in this tutorial.
+* `input.component.ts` - this is the component file where we will define its template and logic.
 
-* `input-button-unit.component.css` - this is where the style that's specific to the component will be placed.
-* `input-button-unit.component.spec.ts` - this is a file for testing the component. We will not deal with it in this tutorial.
-* `input-button-unit.component.ts` - this is the component file where we will define its logic.
-* `input-button-unit.component.html` - this is the HTML template file, if you're not using inline-template.
-
-
-Open the file `input-button-unit.component.ts`. You can see that Angular-CLI has generated the component's configuration for us, including its selector, which is the name we gave preceded by the prefix `app`, and a default template:
+Open the file `input.component.ts`. You can see that the Angular CLI has generated a default template for us:
 
 ```ts
-// src/app/input-button-unit/input-button-unit.component.ts
-
-@Component({
-  selector: 'app-input-button-unit',
   template: `
     <p>
-      input-button-unit works!
+      input Works!
     </p>
   `,
-  styleUrls: ['./input-button-unit.component.css']
-})
 ```
 
-> The prefix `app` will be added to the component selector of all the components you will generate. This is to avoid name conflicts with other components and HTML elements. For instance, if you create a component named input it will not conflict with HTML's `<input />` element, since its selector will be `app-input`. 
+It has also added the selector according to the name we gave to the component, with the prefix we configured:
 
->`app` is the default prefix, which is good for your main application. However, if you're writing a library of components to be used in other projects, you should choose a different prefix. For example, the [Angular Material](https://material.angular.io/) library uses the prefix `mat`. You can create a project stating the prefix of your choice using the flag `--prefix`, or change it afterwards in the file `.angular-cli.json`.
+```ts
+selector: 'todo-input',
+```
 
-We can use this component as is and see the result!
+We can use this component as-is and see the result!
 
-Open the root component file, `app.component.ts` and add the app-input-button-unit tag anywhere inside the template (remember we refactored the root component to have an inline template):
+Open the root component file `app.component.ts` and add the `todo-input` tag inside the template:
 
-```html
-// src/app/app.component.ts
-
+```ts
 template: `
   <h1>
-    {{ title }}
+    Welcome to {{title}}!
   </h1>
 
-  <app-input-button-unit></app-input-button-unit>
+  <todo-input></todo-input>
 `,
 ```
 
 Check what's new in the browser!
 
-Let's add some content in our new component. First, add a `title` member which we will use as the todo item's title:
+Get back to our `input.component.ts` and add some content. First, add a `title` member which we will use as the todo item title:
 
 ```ts
-// src/app/input-button-unit/input-button-unit.component.ts
-
-export class InputButtonUnitComponent implements OnInit {
-  title = 'Hello World';
+export class InputComponent implements OnInit {
+  title: string = '';
   ...
 ```
 
-It will not interfere with the `app-root` component's `title`, since each component's content is encapsulated within it.
+It will not interfere with the `todo-root` component's `title`, since each component's content is encapsulated within it.
 
-Next, add some content and an interpolation of the title member in the template:
+You can give an initial string to the title, like we did in the `todo-root` component.
 
-```html
-// src/app/input-button-unit/input-button-unit.component.ts 
+Next, replace the default template with an input element, a button, and a binding to the title:
 
+```ts
 template: `
-  <p>
-    The title is: {{ title }}
-  </p>
+  <input>
+  <button>Save</button>
+  <p>The title is: {{ title }}</p>
 `,
 ```
 
 Check out the result!
 
-This component doesn't do much at this point. In the next chapters we will learn about the component class, and then implement the component's logic.
+This component doesn't do much at this point. In the following chapters, we will learn about the component class, and then implement the component's logic.
 
+[See the results on StackBlitz](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-04_A_new_component)
