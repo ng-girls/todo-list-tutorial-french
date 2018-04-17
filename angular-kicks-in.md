@@ -19,11 +19,13 @@ Angular needs us to define what we want it to compile. For this we define Angula
 
 The last line in the file defines a JavaScript class:
 
+{% code-tabs %}
+{% code-tabs-item, title="src/app/app.module.ts" %}
 ```typescript
-// src/app/app.module.ts
-
 export class AppModule { }
 ```
+{% endcode-tabs-item %} 
+{% endcode-tabs %}
 
 `export` is a reserved word in JavaScript which tells that whatever is defined after it should be exposed to other files which import this one using the `import` statement. You can see examples of classes and functions imported from other files in the first lines in this file. These are used in the file.
 
