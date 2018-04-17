@@ -35,7 +35,7 @@ Again, Angular makes it really easy for us, by providing us the `Input` decorato
 Inside the newly generated `TodoItemComponent` class in `todo-item.component.ts` add the line:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
+{% code-tabs-item, title="src/app/todo-item/todo-item.component.ts" %}
 ```typescript
 @Input() itemTitle: string;
 ```
@@ -47,7 +47,7 @@ It tells the component to expect an input of type string and to assign it to the
 The component should look like this now:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
+{% code-tabs-item, title="src/app/todo-item/todo-item.component.ts" %}
 ```typescript
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -74,7 +74,7 @@ export class TodoItemComponent implements OnInit {
 Now we need to pass a string, which is the item's title, where we use the component. Go back to `app-root` component and pass the item title to the `todo-item`:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/app.component.ts" %}
+{% code-tabs-item, title="src/app/app.component.ts" %}
 ```markup
 <ul>
   <li *ngFor="let item of todoList">
@@ -96,7 +96,7 @@ We will refactor our code a bit so we can easily implement more functionality in
 In `todo-item.component.ts` change the interpolation in the template to:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
+{% code-tabs-item, title="src/app/todo-item/todo-item.component.ts" %}
 ```typescript
 template: `
   {{ todoItem.title }}
@@ -108,7 +108,7 @@ template: `
 Rename the Input member and change its type:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
+{% code-tabs-item, title="src/app/todo-item/todo-item.component.ts" %}
 ```typescript
 @Input() todoItem: any;
 ```
@@ -118,7 +118,7 @@ Rename the Input member and change its type:
 Now, in `app.component.ts` , in the component template, rename the bound property and pass the whole item \(remove the `.title`\):
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/app.component.ts" %}
+{% code-tabs-item, title="src/app/app.component.ts" %}
 ```markup
 <ul>
   <li *ngFor="let item of todoList">
