@@ -30,7 +30,7 @@ It created a new folder called `src/app/input-button-unit`. There are three file
 Open the file `input-button-unit.component.ts`. You can see that Angular-CLI has generated the component's configuration for us, including its selector, which is the name we gave preceded by the prefix `app`, and a default template:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 @Component({
   selector: 'app-input-button-unit',
@@ -54,7 +54,7 @@ We can use this component as is and see the result!
 Open the root component file, `app.component.ts` and add the app-input-button-unit tag anywhere inside the template \(remember we refactored the root component to have an inline template\):
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/app.component.ts" %}
+{% code-tabs-item, title="src/app/app.component.ts" %}
 ```markup
 template: `
   <h1>
@@ -72,7 +72,7 @@ Check what's new in the browser!
 Let's add some content in our new component. First, add a `title` member which we will use as the todo item's title:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
 export class InputButtonUnitComponent implements OnInit {
   title = 'Hello World';
@@ -85,7 +85,7 @@ It will not interfere with the `app-root` component's `title`, since each compon
 Next, add some content and an interpolation of the title member in the template:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
+{% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```markup
 template: `
   <p>
