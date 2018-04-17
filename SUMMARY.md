@@ -22,4 +22,5 @@
 * [Adding a checkbox](adding_a_checkbox.md)
 * [Enrich the todo-item component](enrich_the_todo-item_component.md)
 * [Appendix 2: Tutorial Extensions](appendix-2-tutorial-extensions.md)
+* [Appendix 3: StackBlitz links](stackblitz_links.md)
 
