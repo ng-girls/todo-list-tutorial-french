@@ -21,9 +21,11 @@ The last line in the file defines a JavaScript class:
 
 {% code-tabs %}
 {% code-tabs-item, title="src/app/app.module.ts" %}
+{% raw %}
 ```typescript
 export class AppModule { }
 ```
+{% endraw %}
 {% endcode-tabs-item %} 
 {% endcode-tabs %}
 
