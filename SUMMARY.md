@@ -3,24 +3,24 @@
 * [About](README.md)
 * [Introduction](introduction.md)
 * [Installations](installations.md)
-* [Angular kicks in](angular_kicks_in.md)
+* Angular kicks in
 * [Component](component.md)
-* [A new component](a_new_component.md)
+* A new component
 * [Class](class.md)
-* [Property binding](property_binding.md)
-* [Event binding](event_binding.md)
-* [Element ref - \#](element_ref_-.md)
-* [The To Do list](the_list.md)
-* [New component: todo-item](new_component_todo-item.md)
-* [Add items](add_items.md)
-* [Refactor App Component](refactor_app_component.md)
-* [Adding Style](adding_style.md)
+* Property binding
+* Event binding
+* Element ref - \#
+* The To Do list
+* New component: todo-item
+* Add items
+* Refactor App Component
+* Adding Style
 * [Service](service.md)
-* [Add more abilities to service](add_more_abilities_to_service.md)
-* [Local storage](local_storage.md)
-* [Remove item](remove_item.md)
-* [Adding a checkbox](adding_a_checkbox.md)
-* [Enrich the todo-item component](enrich_the_todo-item_component.md)
+* Add more abilities to service
+* Local storage
+* [Remove item](remove-item.md)
+* Adding a checkbox
+* Enrich the todo-item component
 * [Appendix 2: Tutorial Extensions](appendix-2-tutorial-extensions.md)
-* [Appendix 3: StackBlitz links](stackblitz_links.md)
+* [Appendix 3: StackBlitz links](appendix-3-stackblitz-links.md)
 

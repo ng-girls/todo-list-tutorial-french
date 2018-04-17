@@ -14,10 +14,7 @@ You should see a page like this:
 
 That's how stackblitz works
 
-**important**
-Please use the following sample as your basis. Just click the Fork-Button to create a copy to your account:
-https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01_Installations
-
+**important** Please use the following sample as your basis. Just click the Fork-Button to create a copy to your account: [https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01\_Installations](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01_Installations)
 
 ### Congratulations!
 
@@ -25,16 +22,18 @@ You have a running Angular application!
 
 Now we're ready to start developing!
 
-
 ## About the Tools
 
 ### Github
-[GitHub](https://github.com/) is a code repository website that integrates with **Git**. It allows you to publish your project on the Web, copy other open source projects, and collaborate. To be able to publish your project, make sure you create a user in GitHub's website (for free, of course).
+
+[GitHub](https://github.com/) is a code repository website that integrates with **Git**. It allows you to publish your project on the Web, copy other open source projects, and collaborate. To be able to publish your project, make sure you create a user in GitHub's website \(for free, of course\).
 
 ### Git
+
 Git is a tool that helps you manage versions of your code and collaborate with team members. There is a lot to know about it, but in this tutorial we will cover only basic usage.
 
 ### Stackblitz
+
 Stackblitz is an online editor which provides you all the functionality of an Online-**IDE** called **Visual Studio Code** and the **Angular-CLI**.
 
 ### Angular-CLI
@@ -43,7 +42,7 @@ Stackblitz is an online editor which provides you all the functionality of an On
 
 ### IDE
 
-Our next tool is the **IDE** , or  integrated development environment. It's  software that helps you write the code. IDEs can do a lot of amazing things, such as:
+Our next tool is the **IDE** , or integrated development environment. It's software that helps you write the code. IDEs can do a lot of amazing things, such as:
 
 * highlight the code so it's easier to identify expressions
 * suggest completions to what you type
@@ -51,10 +50,6 @@ Our next tool is the **IDE** , or  integrated development environment. It's  sof
 * and a lot more...
 
 ### Visual Studio Code
+
 Microsoft [Visual Studio Code](https://code.visualstudio.com/) is an editor that's gained a lot of popularity lately. It is completely free for individuals.
-
-
-
-
-
 
