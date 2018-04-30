@@ -88,7 +88,7 @@ Now the title will change only when the user hits the Enter key while typing in 
 
 ### Tip - explore the $event
 
-![lab-icon](.gitbook/assets/lab%20%281%29.jpg)
+![lab-icon](.gitbook/assets/lab%20%283%29.jpg)
 
  **Playground: **You can change the changeTitle method to log the `$event` object in the console. This way you can explore it and see what properties it has.
 

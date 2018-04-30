@@ -17,7 +17,7 @@ Let's take a look at the component that was created by the Angular CLI. All the 
 Just like ngModules that we saw in the previous chapter, a component is also defined by a class with a decorator. This is the class definition:
 
 {% code-tabs %}
-{% code-tabs-item, title="src/app/app.component.ts" %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```typescript
 export class AppComponent {
   title = 'app';
@@ -31,7 +31,7 @@ It has one member called "title". It is a property to which you can assign a val
 Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the template attached to the component in the file `app.component.html`. Near the top, you'll see code like this:
 
 {% code-tabs %}
-{% code-tabs-item, title="src/app/app.component.html" %}
+{% code-tabs-item title="src/app/app.component.html" %}
 ```markup
 <h1>
   Welcome to {{ title }}!
@@ -40,7 +40,7 @@ Angular takes care of synchronizing the members of the component with the compon
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-The double curly braces and their content are called **Interpolation**. This is one form of **data binding** in Angular. As we mentioned before, the code in this file is not used as-is when the browser renders the component. Angular compiles it to JavaScript code. In one of the compilation steps, it looks for Interpolations inside the template. The content of the Interpolation is an "Angular template expression" (which is a lot like JavaScript). The expression is evaluated at runtime, and then you see the result.
+The double curly braces and their content are called **Interpolation**. This is one form of **data binding** in Angular. As we mentioned before, the code in this file is not used as-is when the browser renders the component. Angular compiles it to JavaScript code. In one of the compilation steps, it looks for Interpolations inside the template. The content of the Interpolation is an "Angular template expression" \(which is a lot like JavaScript\). The expression is evaluated at runtime, and then you see the result.
 
 Interpolation is one of the strongest, most basic features in Angular. It has existed from the very beginning of Angular - in the first version \(AngularJS\). It makes it really simple to insert dynamic data into the view.
 
@@ -57,7 +57,7 @@ This is one way that you can bind members of the component's controller to its t
 Let's go back to the file `app.component.ts` and look at the component's metadata defined in the decorator `@Component` right above the class definition:
 
 {% code-tabs %}
-{% code-tabs-item, title="src/app/app.component.ts" %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```typescript
 @Component({
   selector: 'app-root',
@@ -73,7 +73,7 @@ We pass an object of definitions to the decorator, just like we saw in the previ
 The third property, `styleUrls`, tells Angular where to look for the CSS files that define the style of this component. It can have multiple CSS files. That's why the value of `styleUrls` is an array. You can take a look at the CSS file `app.component.css` - you'll see that it's empty. You can add some CSS style here, for example:
 
 {% code-tabs %}
-{% code-tabs-item, title="src/app/app.component.css" %}
+{% code-tabs-item title="src/app/app.component.css" %}
 ```css
 h1 {
   color: red;
@@ -89,7 +89,7 @@ We'll add more style later on.
 The first property, `selector`, tells Angular what will be the name of the tag that we'll use to call the component. As we saw in the file `src/index.html`, we use the app component inside the body:
 
 {% code-tabs %}
-{% code-tabs-item, title="src/index.html" %}
+{% code-tabs-item title="src/index.html" %}
 ```markup
 <body>
   <app-root></app-root>
@@ -104,11 +104,10 @@ One last thing: the first line in the component file imports the code that defin
 
 ## Inline Template
 
-Let's move the template to be **inline** in the component definition. This will help us manage the template while looking at its functionality.
-In the file `app.component.ts` replace the line
+Let's move the template to be **inline** in the component definition. This will help us manage the template while looking at its functionality. In the file `app.component.ts` replace the line
 
 {% code-tabs %}
-{% code-tabs-item, title="src/app/app.component.ts" %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```typescript
 templateUrl: './app.component.html',
 ```
@@ -118,7 +117,7 @@ templateUrl: './app.component.html',
 with
 
 {% code-tabs %}
-{% code-tabs-item, title="src/app/app.component.ts" %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```typescript
 template: ``,
 ```
@@ -132,7 +131,7 @@ Make sure you replace `templateUrl` with `template`, and don't forget the comma 
 Now instead of taking the content from the original template, we'll insert a more simple template which we can work with. When the cursor is between the backticks, press Enter and insert the HTML template:
 
 {% code-tabs %}
-{% code-tabs-item, title="src/app/app.component.ts" %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```markup
 template: `
   <h1>

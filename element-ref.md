@@ -67,7 +67,7 @@ Next on, we'll build the list of todo items.
 
 Just like we did in the previous chapter, when we logged $event, you can do the same with `#inputElement`. 
 
-![lab-icon](.gitbook/assets/lab%20%281%29.jpg)
+![lab-icon](.gitbook/assets/lab%20%283%29.jpg)
 
  **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
 

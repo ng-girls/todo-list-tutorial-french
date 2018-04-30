@@ -68,7 +68,7 @@ The expressions that we can bind to in the template are not limited to class pro
 
 ![lab-icon](.gitbook/assets/lab.jpg)
 
- **Playground**: For example, let's bind the input value to a method call that returns a value. First, let's add the method `generateTitle` anywhere inside the class, but not inside any of its methods.
+**Playground**: For example, let's bind the input value to a method call that returns a value. First, let's add the method `generateTitle` anywhere inside the class, but not inside any of its methods.
 
 ```typescript
 generateTitle(): string {
@@ -90,7 +90,7 @@ Angular has a very efficient change detection mechanism. It looks for bindings i
 
 ![lab-icon](.gitbook/assets/lab.jpg)
 
- **Playground**: To show this, let's change the value of the title after a few seconds and see what happens. Call the `setTimeout` function inside `ngOnInit`:
+**Playground**: To show this, let's change the value of the title after a few seconds and see what happens. Call the `setTimeout` function inside `ngOnInit`:
 
 ```typescript
 ngOnInit() {
@@ -114,7 +114,7 @@ The expressions that we can bind to in the template are not limited to class pro
 
 Using regular JavaScript, we can insert the value to the input via its properties. We'll fetch the element from the DOM and assign the value of the member `title` to the element's `value` property.
 
-```ts
+```typescript
 let inputElement = document.getElementById('#my-input');
 inputElement.value = this.title;
 ```
@@ -127,7 +127,5 @@ In JavaScript, we find the `input` element in the DOM by its id, and then set it
 
 Excellent.
 
-However, **this is highly discouraged in Angular. You should never access the DOM directly!**
-That's because you can assign different renderers to Angular and run the application on different platforms. They may be mobile, desktop, or even a robot. And they will not have a `document` object from which you can manipulate the result!
-
+However, **this is highly discouraged in Angular. You should never access the DOM directly!** That's because you can assign different renderers to Angular and run the application on different platforms. They may be mobile, desktop, or even a robot. And they will not have a `document` object from which you can manipulate the result!
 
