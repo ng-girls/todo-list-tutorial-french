@@ -1,10 +1,10 @@
 # Class
 
-## Class Definition
+A class is a special programmatic structure. It is defined with **members** which can be **properties** \(variables\) and **methods** \(functions\). Then instances of the class are created, usually by calling the `new` operator on the class: `let myInstance = new myClass();`. The instance created is an object on which you can call the class methods and get and set the values of its properties. Multiple instances can be created from one class.
 
-Class is a special programmatic structure. It is defined with **members** which can be **properties** \(variables\) and **methods** \(functions\). Then instances of the class are created, usually by calling the `new` operator on the class: `let myInstance = new myClass();`. The instance created is an object on which you can call the class methods and get and set its properties' values. Multiple objects can be created from one class.
 
-### In Angular...
+
+## In Angular...
 
 Angular takes care of creating instances of the classes you define - if they are recognized as Angular building blocks. The decorators make that connection with Angular.
 
@@ -26,7 +26,7 @@ template: `
 
 Let's take a look at the class `InputButtonUnitComponent`.
 
-### implements OnInit
+## implements OnInit
 
 First, you see something was added to the class declaration:
 
@@ -40,9 +40,9 @@ export class InputButtonUnitComponent implements OnInit {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-`OnInit` is an **interface** - a structure defined but not implemented as a class. It defines which properties and/or methods should exist on the class that implements it. In this case, `OnInit` is an interface for Angular Components which implement the method `ngOnInit`. This method is a **component life-cycle method**. Angular will call this method after the instance has been created.
+`OnInit` is an **interface** - a structure defined but not implemented as a class. It defines which properties and/or methods should exist on the class that implements it. In this case, `OnInit` is an interface for Angular Components which implement the method `ngOnInit`. This method is a **component life-cycle method**. Angular will call this method after the component instance has been created.
 
-Angular-CLI adds this statement to remind us that it's best to initialize things on the component through the `ngOnInit` method. You can see it also added the method in the body of the class:
+The Angular CLI adds this statement to remind us that it's best to initialize things on the component through the `ngOnInit` method. You can see it also added the method in the body of the class:
 
 {% code-tabs %}
 {% code-tabs-item, title="src/app/input-button-unit/input-button-unit.component.ts" %}
@@ -53,21 +53,21 @@ ngOnInit() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-You can use this method without explicitly indicating that the class implements the OnInit interface. But it's useful to use the implementation statement. To see how, delete the `ngOnInit` method. The IDE will tell you there's an error - you must implement `ngOnInit`. How does it know that? Because of `implements OnInit`.
+You can use this method without explicitly indicating that the class implements the `OnInit` interface, but it's useful to use the implementation statement. To see why, delete the `ngOnInit` method. The IDE will tell you there's an error - you must implement `ngOnInit`. How does it know that? Because of `implements OnInit`.
 
-### constructor
+## constructor
 
-Another method we haven't seen in the `app-root` component is the constructor. It is a method that is called by JavaScript when an instance of the class is created. Whatever is inside this method is used to create the instance. So it is called before `ngOnInit`.
+Another method we didn't see in the `app-root` component is the constructor. It is a method that is called by JavaScript when an instance of the class is created. Whatever is inside this method is used to create the instance. So it is called before `ngOnInit`.
 
-> A strong feature in Angular that uses the constructor is dependency injection. We'll get to that later on, when we'll start using services.
+> A strong feature in Angular that uses the constructor is dependency injection. We'll get to that later on, when we start using services.
 
-### Properties
+## Properties
 
-The property `title` we added is used to store a value. Each instance of the class will have its own `title` variable, meaning you can change the value of `title` in one instance, but it will remain the same in the other instances.
+The property `title` we added is used to store a value, in our case of type string. Each instance of the class will have its own `title` property, meaning you can change the value of `title` in one instance, but it will remain the same in the other instances.
 
-In TypeScript we must declare members of the class either in the class body outside any method, or pass it to the constructor - as we will see when we will use services.
+In TypeScript, we must declare members of the class either in the class body outside any method, or pass them to the constructor - as we will see when we use services.
 
-You can declare the property without initializing it:
+You can declare a property without initializing it:
 
 ```typescript
 title: string;
@@ -146,9 +146,9 @@ constructor() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-![](.gitbook/assets/lab%20%281%29.jpg) **Playground**: You can try calling the method with different arguments \(the string passed inside the brackets\) from ngOnInit. Try calling it before or after assigning a value directly to title. Try calling it a few times from the same method. See the result in the browser.
+![lab-icon](/assets/lab.jpg) **Playground**: You can try calling the method with different arguments \(the string passed inside the brackets\) from `ngOnInit`. Try calling it before or after assigning a value directly to title. Try calling it a few times from the same method. See the result in the browser.
 
-### Debugging Tip
+## Debugging Tip
 
 You can always use `console.log(someValue)` inside class methods. Then the value you passed as an argument will be printed in the browser's console. This way you can see the order of the execution of the methods and the value of the argument you pass \(if it's a variable\). For example:
 
@@ -169,5 +169,5 @@ changeTitle(newTitle: string) {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-The browser's console is a part of its Dev Tools. See here different ways to open your browser's console: [https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers](https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers)
+The browser's console is a part of its Dev Tools. You can see how to open the console in different browsers here: [https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers](https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers)
 

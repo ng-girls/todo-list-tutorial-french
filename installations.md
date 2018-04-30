@@ -10,16 +10,16 @@ Our first tool is the **browser**. We'll use it to see the result of our work an
 
 ### IDE
 
-Our next tool is the **IDE** - integrated development environment. It's a software that helps you write the code. IDEs can do a lot of amazing things such as:
+Our next tool is the **IDE** , or  integrated development environment. It's  software that helps you write the code. IDEs can do a lot of amazing things, such as:
 
-* paint the code so it's easier to identify expressions
+* highlight the code so it's easier to identify expressions
 * suggest completions to what you type
-* helps navigate easily through the files in your project
+* help you navigate easily through the files in your project
 * and a lot more...
 
 JetBrains [Webstorm](https://www.jetbrains.com/webstorm/download/) is one of the strongest IDE's in the market. You get the first month for free, and a totally free license if you're a student.
 
-Microsoft [Visual Studio Code](https://code.visualstudio.com/) is also a great choice that gains a lot of popularity lately. It is completely free for individuals.
+Microsoft [Visual Studio Code](https://code.visualstudio.com/) is also a great choice that's gained a lot of popularity lately. It is completely free for individuals.
 
 Choose the IDE you'd like to work with and follow the installation instructions in its website.
 
@@ -79,8 +79,8 @@ npm -v
 npm i -g @angular/cli
 ```
 
-This command runs the NPM we recently installed here - it knows where to find the package \(angular-cli\) you're looking for by the name of the package you provide.  
-the 'i' parameter, is a short form of 'install'.  
+This command runs the NPM we recently installed here - it knows where to find the package \(angular-cli\) you're looking for by the name of the package you provide.
+the 'i' parameter, is a short form of 'install'.
 the '-g' parameter, stands for the word 'global' - we'd like to have this tool globally installed on the computer, so that we could use it from any folder to create any future projects.
 
 Read more about Angular-CLI in the following section.
