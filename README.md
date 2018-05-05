@@ -1,8 +1,6 @@
 # About
 
-## Angular Tutorial for Beginners -
-
-## Creating a Todo-List App
+## Angular Tutorial for Beginners - Creating a Todo-List App
 
 This tutorial will take you step by step on how to create your own todo list application using Angular \(version 2 and above\). Through the tutorial, we'll be using the Angular-CLI, save data in the local storage and deploy the code to Github Pages.
 
