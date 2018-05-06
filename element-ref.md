@@ -98,13 +98,13 @@ Just like we did in the previous chapter, when we logged $event, you can do the 
 {% endcode-tabs %}
 
 ```typescript
-changeTitle(inputElementReference): void {
+changeTitle(inputElementReference) {
   console.log(inputElementReference);
   this.title = inputElementReference.value;
 }
 ```
 
-Don't forget to put the code back the way it was after you're finished experimenting!
+Don't forget to put the code back the way it was after you're finished experimenting! It's best to pass to a method exactly the value it needs, instead of the whole object.
 
 ## Resources
 

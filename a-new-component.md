@@ -58,7 +58,7 @@ Open the root component file, `app.component.ts` and add the app-input-button-un
 ```markup
 template: `
   <h1>
-    {{ title }}
+    Welcome to {{ title }}!
   </h1>
 
   <app-input-button-unit></app-input-button-unit>

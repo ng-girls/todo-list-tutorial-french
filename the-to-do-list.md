@@ -30,7 +30,7 @@ Insert the loop right after `<app-input-button-unit></app-input-button-unit>`, t
 ```markup
 template: `
   <h1>
-    {{ title }}
+    Welcome to {{ title }}!
   </h1>
 
   <app-input-button-unit><app-input-button-unit>

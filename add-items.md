@@ -37,7 +37,7 @@ Now, whenever we call `this.submit.emit()`, an event will be emitted to the pare
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit.component.ts" %}
 ```typescript
-changeTitle(newTitle: string): void {
+changeTitle(newTitle: string) {
   this.submit.emit(newTitle);
 }
 ```
@@ -55,7 +55,7 @@ The method name may seem irrelevant right now. Let's change it to something more
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit.component.ts" %}
 ```typescript
-submitValue(newTitle: string): void {
+submitValue(newTitle: string) {
   this.submit.emit(newTitle);
 }
 ```
@@ -100,7 +100,7 @@ Now all that's left is to implement the `addItem` method, which receives a strin
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.component.ts" %}
 ```typescript
-addItem(title: string): void {    
+addItem(title: string) {    
   this.todoList.push({ title });
 }
 ```
@@ -114,7 +114,7 @@ Try it out - enter a new todo item title in the input field and submit it!
 {% code-tabs %}
 {% code-tabs-item title="code for example" %}
 ```typescript
-addItem(value: string): void {    
+addItem(value: string) {    
   this.todoList.push({ title: value });
 }
 ```

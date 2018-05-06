@@ -135,7 +135,7 @@ Now instead of taking the content from the original template, we'll insert a mor
 ```markup
 template: `
   <h1>
-    {{ title }}
+    Welcome to {{ title }}!
   </h1>  
 `,
 ```
