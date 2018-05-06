@@ -2,40 +2,47 @@
 
 In the last chapter, we ended with our input component that can reflect and change the value of title of our todo item. `input-button-unit.component.ts` should look like this:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```typescript
-// src/app/input-button-unit/input-button-unit.component.ts
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-input-button-unit',
-  template: `                           
-    <input [value]="title"              
+  template: `
+    <p>
+      input-button-unit works!
+      The title is: {{ title }}
+    </p>
+    
+    <input [value]="title" 
            (keyup.enter)="changeTitle($event.target.value)">
+       
     <button (click)="changeTitle('Button Clicked!')">
       Save
     </button>
-    <p>The title is: {{ title }}</p>
   `,  
   styleUrls: ['./input-button-unit.component.css']  
 })    
 export class InputButtonUnitComponent implements OnInit {
-  title: string = '';           
+  title = 'Hello World';           
 
   constructor() { }                     
 
   ngOnInit() {
   }
-
+  
   changeTitle(newTitle: string) {
-    this.title = newTitle;              
+    this.title = newTitle;
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-Now, we want to take the value of the input \(that the user typed\) and change the title when we press the Save button.
+Now, we want to take the value of the input \(that the user typed\) and change the title when we press the `Save` button.
 
-We already know how to create a button and react to click on it. We now need to pass to the method some data from a different element. We want to use the input's value from inside the button element.
+We already know how to create a button and react to clicking on it. We now need to pass to the method some data from a different element. We want to use the input's value from inside the button element.
 
 Angular helps us do exactly that. **We can get a reference to the element we want into a variable with the name we choose, **for example** **`inputElement`**, using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the click event of the button:
 
