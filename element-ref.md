@@ -44,49 +44,58 @@ Now we want to take the value of the input \(that the user typed\) and change th
 
 We already know how to create a button and react to clicking on it. We now need to pass to the method some data from a different element. We want to use the `input` element's value from inside the `button` element.
 
-Angular helps us do exactly that. **We can store a reference to the element we want in a variable with the name we choose,** for example `inputElement`, **using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the `click` event of the button:
+Angular helps us do exactly that. **We can store a reference to the element we want in a variable with the name we choose,** for example `inputElementRef`, **using a simple syntax - a hash.** Add `#inputElementRef` to the `input` element, and use it in the `click` event of the button:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```markup
+template: `
+  <p>
+    input-button-unit works!
+    The title is: {{ title }}
+  </p>
 
-template: `                           
-    <input [value]="title"              
-           (keyup.enter)="changeTitle($event.target.value)"
-           #inputElement>
-    <button (click)="changeTitle(inputElement.value)">
-      Save
-    </button>
-    <p>The title is: {{ title }}</p>
-  `,
+  <input #inputElementRef
+         [value]="title"
+         (keyup.enter)="changeTitle($event.target.value)">
+
+  <button (click)="changeTitle('Button Clicked!')">
+    Save
+  </button>
+`,
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now we can use the value that the user entered in the `input` element in the method called when clicking the Save button!
 
 What is that `#` we see?
 
-Angular lets us define a new local variable named `inputElement` \(or any name you choose\) that holds a reference to the element we defined it on, and then use it any way we want. In our case, we use it to access the `value` property of the `input`.
+Angular lets us define a new local variable named `inputElementRef` \(or any name you choose\) that holds a reference to the element we defined it on, and then use it any way we want. In our case, we use it to access the `value` property of the `input`.
 
 Instead of hunting down the elements via a DOM query \(which is bad practice, as we discussed\), we now can put element references in the template and access each element we want declaratively.
 
 Next, we'll build the list of todo items.
 
-## Tip - explore the element reference
+## Explore the element reference
 
-Just like we did in the previous chapter, when we logged $event, you can do the same with `#inputElement`.
-![lab-icon](/assets/lab.jpg) **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
+Just like we did in the previous chapter, when we logged $event, you can do the same with `#inputElementRef`. 
 
-![lab-icon](.gitbook/assets/lab%20%281%29.jpg)
+![lab-icon](.gitbook/assets/lab%20%283%29.jpg) **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
 
- **Playground:** Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
-
+{% code-tabs %}
+{% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```markup
-<input [value]="title"              
-       (keyup.enter)="changeTitle(inputElement)"
-       #inputElement>
+<input #inputElementRef
+       [value]="title"              
+       (keyup.enter)="changeTitle(inputElementRef)">
 
-<button (click)="changeTitle(inputElement)">
+<button (click)="changeTitle(inputElementRef)">
   Save
 </button>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ```typescript
 changeTitle(inputElementReference): void {
@@ -100,3 +109,4 @@ Don't forget to put the code back the way it was after you're finished experimen
 ## Resources
 
 [Angular Template Reference Variables](https://angular.io/guide/template-syntax#template-reference-variables--var-)
+
