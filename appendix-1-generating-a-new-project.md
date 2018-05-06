@@ -4,15 +4,15 @@ In every project there are different ways to start, most of them concern scaffol
 Other ways to start are using starter kits, are also called seed projects, which contain all you need to start the project.  
 Unlike scaffolding tools, starter kits are relevant only for the initial project. After installation you probably won't use that kit again \(if it's a good starter kit maybe you'll go back to read the documentation\).
 
-Regarding Angular, the most easy way to start is the Angular-CLI which is a scaffolding tool. we will cover its use in this tutorial.
+Regarding Angular, the most easy way to start with is the Angular CLI which is a scaffolding tool. we will cover its use in this tutorial.
 
-In this chapter we show all the files and folders that are created by Angular-CLI when you create a new project. We'll start with one important action: changing the application prefix.
+In this chapter we show all the files and folders that are created by the Angular CLI when you create a new project. We'll start with one important action: changing the application prefix.
 
 ## Application prefix
 
 The prefix is used to differentiate the components that you create in your application from components you use from other sources, and from HTML components. You can give your initials as the prefix if it's a personal project. If you're collaborating or working for a client, you can have the initials of the project name as the prefix. In this tutorial, the prefix will simply be `todo`.
 
-Angular-CLI generated a configuration file for its own use: `angular-cli.json`. Open this file, find the `prefix` property and change its value from `app` to `todo`. From now on, each component and directive you will create using Angular-CLI will have this prefix in its selector.
+The Angular CLI generated a configuration file for its own use: `angular-cli.json`. Open this file, find the `prefix` property and change its value from `app` to `todo`. From now on, each component and directive you will create using Angular-CLI will have this prefix in its selector.
 
 We could have defined the prefix when we created the project, by adding `--prefix <prefix>`. Then even the root component that is generated would have this prefix. But we're fine with its current selector, `app-root`, and we will not change it at this moment.
 
@@ -20,13 +20,13 @@ We could have defined the prefix when we created the project, by adding `--prefi
 
 the first thing to start with when you work with the cli is scaffold the initial project.  
 to do so you can simply create a folder and write `ng init`  
-from that point angular-cli will download all the dependencies and install them.  
-other way to scaffold the initial project is writing `ng new <project-name>` and angular-cli will create the folder for you and `ng init` in that folder.
+from that point the Angular CLI will download all the dependencies and install them.
+other way to scaffold the initial project is writing `ng new <project-name>` and the Angular CLI will create the folder for you and `ng init` in that folder.
 
 after we created the project we will get file in this format
 
 ```text
-├── angular-cli.json // angular cli configuration
+├── angular-cli.json // Angular CLI configuration
 ├── e2e // end to end testing
 ├── karma.conf.js // testing configuration file
 ├── package.json // package configuration file
@@ -59,7 +59,7 @@ lets skip all the configurations files for now and jump right to the folder stru
 the app is the main component of the application from that point we start our app.  
 we will cover components in more depth in later tutorial but the main idea of the project is that we create a components and connect them to each other until we have an application.
 
-with angular-cli we can generate components and some other files which can help us in the future.  
+with the Angular CLI we can generate components and some other files which can help us in the future.
 to do so we should write `ng generate component <component name>` for components and `ng generate route <route path>` for routes and many more which can be review in [angular cli docs](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
 
 now you probably ask how do you see and review your application?  

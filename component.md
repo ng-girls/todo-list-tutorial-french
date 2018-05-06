@@ -84,7 +84,7 @@ h1 {
 
 We'll add more style later on.
 
-**Note:** Angular-CLI supports css-extension languages out-of-the-box: sass, less, and stylus.
+**Note:** the Angular CLI supports css-extension languages out-of-the-box: sass, less, and stylus.
 
 The first property, `selector`, tells Angular what will be the name of the tag that we'll use to call the component. As we saw in the file `src/index.html`, we use the app component inside the body:
 
@@ -148,14 +148,14 @@ At this point you can delete the file `app.component.html`.
 
 **We recommend continuing this tutorial using inline templates in the components.** Especially if you're working on a laptop with a small screen, where there isn't enough space to open two files side-by-side.
 
-Let's configure Angular-CLI to give us inline-template as a default. In the terminal run the command: `ng set defaults.component.inlineTemplate true`. Now every component that you'll generate will have an inline template, and an HTML file will not be created.
+Let's configure the Angular CLI to give us inline-template as a default. In the terminal run the command: `ng set defaults.component.inlineTemplate true`. Now every component that you'll generate will have an inline template, and an HTML file will not be created.
 
 If you wish to continue this tutorial with templates in separate HTML files, do not run this command, and use the generated `.html` files for the templates.
 
 > **Note: **You can specify that you'd like to use inline-template throughout the project in several ways:
 >
 > * When generating a project, pass the flag `-it` or `--inline-template` like this: `ng new todo-list -it`
-> * After generating a project, add it to the configuration so that components generated from this point on will have an inline template: `ng set defaults.component.inlineTemplate true`. \(From version 6 you'll be able to use the command `config` instead of `set`.\) This adds the line `inlineTemplate: true` in the Angular-CLI configuration file `.angular-cli.json`. You can also edit the file directly.
+> * After generating a project, add it to the configuration so that components generated from this point on will have an inline template: `ng set defaults.component.inlineTemplate true`. \(From version 6 you'll be able to use the command `config` instead of `set`.\) This adds the line `inlineTemplate: true` in the Angular CLI configuration file `.angular-cli.json`. You can also edit the file directly.
 > * If you haven't configured to have inline templates as a default, you can specify this per component when you generate it, by passing the flag `-it` or `--inline-template`. For example: `ng generate header -it`.
 
 The same way we use inline template, we can use also inline styles. But for now we will keep the styles in a separate file.

@@ -10,7 +10,7 @@ Open another terminal tab and run:
 ng g c input-button-unit
 ```
 
-As we've seen before, `ng` is the command for using Angular-CLI. `g` is a shorthand for `generate`. `c` is a shorthand for `component`. `input-button-unit` is the name we give to the component.
+As we've seen before, `ng` is the command for using the Angular CLI. `g` is a shorthand for `generate`. `c` is a shorthand for `component`. `input-button-unit` is the name we give to the component.
 
 So the long version of the command is \(don't run it\):
 
@@ -27,7 +27,7 @@ It created a new folder called `src/app/input-button-unit`. There are three file
 * `input-button-unit.component.ts` - this is the component file where we will define its logic.
 * `input-button-unit.component.html` - this is the HTML template file, if you're not using inline-template.
 
-Open the file `input-button-unit.component.ts`. You can see that Angular-CLI has generated the component's configuration for us, including its selector, which is the name we gave preceded by the prefix `app`, and a default template:
+Open the file `input-button-unit.component.ts`. You can see that the Angular CLI has generated the component's configuration for us, including its selector, which is the name we gave preceded by the prefix `app`, and a default template:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}

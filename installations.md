@@ -34,7 +34,7 @@ Plugins help the IDE understand the code. Webstorm ships with the necessary plug
 
 ## NodeJS and NPM
 
-**Please check the **[**Angular-CLI docs**](https://github.com/angular/angular-cli#prerequisites)** for the up-to-date prerequisites \(NodeJS and NPM versions\)!**
+**Please check the **[**Angular CLI docs**](https://github.com/angular/angular-cli#prerequisites)** for the up-to-date prerequisites \(NodeJS and NPM versions\)!**
 
 Another tool which most web developers are using is **NodeJS**. Once installed, it comes with another tool called **NPM** \(Node Package Manager\).
 
@@ -71,9 +71,9 @@ When asked if you'd like to install **git bash**, say yes.
 
 [GitHub](https://github.com/) is a code repository website, which integrates with Git. It allows you to publish your project on the Web, copy \(fork and clone\) other open source projects and collaborate. To be able to publish your project, make sure you create a user on GitHub \(for free, of course\).
 
-## Angular-CLI
+## Angular CLI
 
-[Angular-CLI](https://github.com/angular/angular-cli) is a powerful tool that simplifies a lot of the development process. It also installs libraries you'll use in your current and future projects. Install it by running:
+The [Angular CLI](https://github.com/angular/angular-cli) is a powerful tool that simplifies a lot of the development process. It also installs libraries you'll use in your current and future projects. Install it by running:
 
 ```text
 npm i -g @angular/cli
@@ -81,7 +81,7 @@ npm i -g @angular/cli
 
 This command runs the NPM we recently installed here - it knows where to find the package \(angular-cli\) you're looking for by the name of the package you provide. the 'i' parameter, is a short form of 'install'. the '-g' parameter, stands for the word 'global' - we'd like to have this tool globally installed on the computer, so that we could use it from any folder to create any future projects.
 
-Read more about Angular-CLI in the following section.
+Read more about the Angular CLI in the following section.
 
 ### Creating a Project
 
@@ -91,7 +91,7 @@ First, create a folder to store all your projects, for example _myProjects_, and
 cd the-path-to-your-folder/myProjects
 ```
 
-Now, create a new project, called _todo-list_ inside the projects folder, using Angular-CLI, by running the following command:
+Now, create a new project, called _todo-list_ inside the projects folder, using the Angular CLI, by running the following command:
 
 ```text
 ng new todo-list
@@ -99,7 +99,7 @@ ng new todo-list
 
 This can take a while, since many packages are being downloaded from the web and installed.
 
-Now enter the new folder that Angular-CLI created for this project:
+Now enter the new folder that the Angular CLI created for this project:
 
 ```text
 cd todo-list

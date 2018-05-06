@@ -101,7 +101,7 @@ constructor() {
 }
 
 ngOnInit() { 
-  this.title = 'Angular-CLI Rules!';
+  this.title = 'Angular CLI Rules!';
 }
 ```
 {% endcode-tabs-item %}
