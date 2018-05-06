@@ -12,7 +12,7 @@ The tutorial is used in the [ngGirls](http://ng-girls.org) workshops. You are we
 
 ![](.gitbook/assets/nggirls-banner-transparent%20%281%29.png)
 
-![](.gitbook/assets/slogen%20%281%29.png)
+![](.gitbook/assets/slogen%20%282%29.png)
 
 **About the lead author:** Shmuela Jacobs is a senior front-end developer and consultant mastering Angular. During her academic studies \(M.Sc. in Information Management Engineering and B.Sc. in Physics\) she has combined her passions of coding and teaching as a software developer, teaching assistant, science museum guide, and researcher. Today she continues to enjoy these activities as a full-time front end developer, sharing her knowledge and experience in meetups and conferences. Shmuela is the founder of ngGirls and the organizer of Angular AfterHours meetup group.
 
