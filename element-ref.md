@@ -59,7 +59,7 @@ template: `
          [value]="title"
          (keyup.enter)="changeTitle($event.target.value)">
 
-  <button (click)="changeTitle('Button Clicked!')">
+  <button (click)="changeTitle(inputElementRef.value)">
     Save
   </button>
 `,
@@ -67,9 +67,9 @@ template: `
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now we can use the value that the user entered in the `input` element in the method called when clicking the Save button!
+Now we can use the value that the user entered in the `input` element in the method called when clicking the `Save` button!
 
-What is that `#` we see?
+### What is that `#` we see?
 
 Angular lets us define a new local variable named `inputElementRef` \(or any name you choose\) that holds a reference to the element we defined it on, and then use it any way we want. In our case, we use it to access the `value` property of the `input`.
 
