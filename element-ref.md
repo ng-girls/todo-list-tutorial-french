@@ -1,8 +1,8 @@
-# Element ref
+# Element ref - \#
 
 In the last chapter, we ended with our input component able to display and change the title of our todo item. `input.component.ts` should look like this:
 
-```ts
+```typescript
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -31,13 +31,13 @@ export class InputComponent implements OnInit {
 }
 ```
 
-Now we want to take the value of the input (that the user typed) and change the title when we press the Save button.
+Now we want to take the value of the input \(that the user typed\) and change the title when we press the Save button.
 
 We already know how to create a button and react to clicking on it. We now need to pass to the method some data from a different element. We want to use the `input` element's value from inside the `button` element.
 
-Angular helps us do exactly that. **We can store a reference to the element we want in a variable with the name we choose, for example `inputElement`, using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the `click` event of the button:
+Angular helps us do exactly that. **We can store a reference to the element we want in a variable with the name we choose, for example **`inputElement`**, using a simple syntax - a hash.** Add `#inputElement` to the `input` element, and use it in the `click` event of the button:
 
-```html
+```markup
 <input [value]="title"
        (keyup.enter)="changeTitle($event.target.value)"
        #inputElement>
@@ -61,7 +61,7 @@ Next, we'll build the list of todo items.
 
 Just like we did in the previous chapter, when we logged `$event`, you can do the same with `#inputElement`. Change the method `changeTitle` so it will receive the whole element reference and log it to the console:
 
-```html
+```markup
 <input [value]="title"
        (keyup.enter)="changeTitle(inputElement)"
        #inputElement>
@@ -71,12 +71,11 @@ Just like we did in the previous chapter, when we logged `$event`, you can do th
 </button>
 ```
 
-```ts
+```typescript
 changeTitle(inputElementReference): void {
   console.log(inputElementReference);
   this.title = inputElementReference.value;
 }
-
 ```
 
 Don't forget to put the code back the way it was after you're finished experimenting!

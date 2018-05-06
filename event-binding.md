@@ -8,13 +8,13 @@ We still don't have a whole list to show, but at the moment we will use another 
 
 First, make sure you've implemented the `changeTitle` method inside the `InputComponent` class. It will receive the new title as its argument:
 
-```ts
+```typescript
 changeTitle(newTitle: string): void {
   this.title = newTitle;
 }
 ```
 
-(You can also delete the `generateTitle` method, if you created it during the previous chapter.)
+\(You can also delete the `generateTitle` method, if you created it during the previous chapter.\)
 
 ## Binding to Events
 
@@ -22,7 +22,7 @@ Just like binding to element properties, we can bind to events that are emitted 
 
 Let's try a simple example, where the title is changed when the user clicks on the button. Notice the parentheses around `click`. \(We also change the binding of the input's value back to `title`.\)
 
-```html
+```markup
 template: `
   <input [value]="title">
   <button (click)="changeTitle('Button Clicked!')">
@@ -40,20 +40,19 @@ Go to the browser and see the result - click on the Save button.
 
 We pass a static string to the method call: `Button Clicked!` But we want to pass the value that the user typed in the input box!
 
-In the next chapter, we will learn how to use properties of one element in another element in the same template. Then we'll be able to complete the implementation of the `click` event of the Save button.
-But now we'll bind a method to an event on the `input` element: when the user presses Enter, the `changeTitle` method will be called.
+In the next chapter, we will learn how to use properties of one element in another element in the same template. Then we'll be able to complete the implementation of the `click` event of the Save button. But now we'll bind a method to an event on the `input` element: when the user presses Enter, the `changeTitle` method will be called.
 
 ### 'keyup' event
 
 When the user types, keyboard events are emitted, like `keydown` and `keyup`. We will catch the `keyup` event \(when the pressed key is released\) and change the title:
 
-```html
+```markup
 <input [value]="title" (keyup)="changeTitle('Button Clicked!')">
 ```
 
 This element becomes large, so to make it easier on the eye we will split it into two lines:
 
-```html
+```markup
 <input [value]="title"
        (keyup)="changeTitle('Button Clicked!')">
 ```
@@ -66,7 +65,7 @@ Now we just react when the `keyup` event occurs. Angular allows us to get the ev
 
 The event object emitted on `keyup` events has a reference to the element that emitted the event - the `input` element. The reference is kept in the event `target` property. As we've seen before, the `input` element has a `value` property which holds the current string that's in the input box. We can pass `$event.target.value` to the method:
 
-```html
+```markup
 <input [value]="title"
        (keyup)="changeTitle($event.target.value)">
 ```
@@ -77,7 +76,7 @@ Check it out in the browser. Now with every keystroke, you can see the title cha
 
 You can limit the change to only a special keystroke; in our case, it's the Enter key. Angular makes it really easy for us. The `keyup` event has properties which are more specific events. Just add the name of the key you'd like to listen to:
 
-```html
+```markup
 <input [value]="title"
        (keyup.enter)="changeTitle($event.target.value)">
 ```
@@ -86,20 +85,24 @@ Now the title will change only when the user hits the Enter key while typing in 
 
 ### Tip - explore the $event
 
-![](/assets/lab.jpg) **Playground:** You can change the `changeTitle` method to log the `$event` object in the console. This way you can explore it and see what properties it has.
+![](.gitbook/assets/lab%20%282%29.jpg)
+
+ **Playground:** You can change the `changeTitle` method to log the `$event` object in the console. This way you can explore it and see what properties it has.
 
 Change the method `changeTitle`:
 
-```ts
+```typescript
 changeTitle(event): void {
   console.log(event);
   this.title = event.target.value; // the original functionality still works
 }
 ```
 
-![](/assets/lab.jpg) **Playground:** Now change the argument you're passing in the template:
+![](.gitbook/assets/lab%20%282%29.jpg)
 
-```html
+ **Playground:** Now change the argument you're passing in the template:
+
+```markup
 <input [value]="title"
        (keyup.enter)="changeTitle($event)">
 ```

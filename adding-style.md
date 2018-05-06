@@ -52,7 +52,7 @@ ol, ul {
 
 > How does the project know to look at this file? In the Angular CLI configuration file `.angular-cli.json` under `apps[0].styles`, you can state the files for the build tool to take and add to the project. You can open the browser's dev tools and see the style inside the element:
 
-```html
+```markup
 <html>
   ...
   <head>
@@ -125,8 +125,7 @@ Open the file `list-manager.component.css` and paste the following style inside:
 }
 ```
 
-How does this stylesheet get attached to the `todo-list-manager` component?
-Look at the file `list-manager.component.ts`. One of the properties in the object passed to the `@Component` decorator is `styleUrls`. It's a list of stylesheets to be used by Angular, which encapsulates the style within the component.
+How does this stylesheet get attached to the `todo-list-manager` component? Look at the file `list-manager.component.ts`. One of the properties in the object passed to the `@Component` decorator is `styleUrls`. It's a list of stylesheets to be used by Angular, which encapsulates the style within the component.
 
 Add the following style to `input.component.css`:
 
@@ -183,7 +182,7 @@ Now you'll want to update your component templates to use all the CSS classes yo
 
 In `ListManagerComponent`:
 
-```html
+```markup
 <div class="todo-app">
   <h1>
     {{ title }}
@@ -201,7 +200,7 @@ In `ListManagerComponent`:
 
 In `InputComponent`:
 
-```html
+```markup
 <input class="todo-input"
       [value]="title"
       (keyup.enter)="changeTitle($event.target.value)"
@@ -213,7 +212,7 @@ In `InputComponent`:
 
 In `ItemComponent`:
 
-```html
+```markup
 <div class="todo-item">
   {{ todoItem.title }}
 </div>

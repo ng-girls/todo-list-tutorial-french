@@ -11,13 +11,13 @@ We will look at:
 
 Let's go ahead and add a checkbox into our `item.component.ts` file. Place the following code right before `{{ todoItem.title }}`:
 
-```html
+```markup
   <input type="checkbox"/>
 ```
 
 Now, in order for the checkbox to do anything, we need to add a `click` event handler which we will call `completeItem`. Let's do that now:
 
-```html
+```markup
   <input type="checkbox"
           class="todo-checkbox"
           (click)="completeItem()">
@@ -25,7 +25,7 @@ Now, in order for the checkbox to do anything, we need to add a `click` event ha
 
 When we click on the checkbox, it will run the `completeItem` method. Let's talk about what this method needs to accomplish. We want to be able to toggle some CSS styling on the todo title so that when the checkbox is checked, it will have a line through it, and no strikethrough line when unchecked. In order to achieve this, we will toggle a variable to be either true or false to represent checked or unchecked states. Add the following code to the `ItemComponent` class:
 
-```ts
+```typescript
 isComplete: boolean = false;
 
 completeItem() {
@@ -33,9 +33,9 @@ completeItem() {
 }
 ```
 
-But wait! How is any of this going to affect the todo title when we're only touching the checkbox? Well, Angular has this wonderful directive called NgClass. This directive applies or removes a CSS class based on a boolean (true or false) expression. There are many ways to use this directive (see the [NgClass directive documentation](https://angular.io/api/common/NgClass)) but we will focus on using it like so:
+But wait! How is any of this going to affect the todo title when we're only touching the checkbox? Well, Angular has this wonderful directive called NgClass. This directive applies or removes a CSS class based on a boolean \(true or false\) expression. There are many ways to use this directive \(see the [NgClass directive documentation](https://angular.io/api/common/NgClass)\) but we will focus on using it like so:
 
-```html
+```markup
 <some-element [ngClass]="{'first': true, 'second': true, 'third': false}">...</some-element>
 ```
 
@@ -43,7 +43,7 @@ The 'first' and 'second' class will be applied to the element because they are g
 
 Let's wrap the item title in a `<span>`, then use NgClass to apply the styling:
 
-```html
+```markup
 <span class="todo-title" [ngClass]="{'todo-complete': isComplete}">
   {{ todoItem.title }}
 </span>
@@ -60,3 +60,4 @@ And finally, add the CSS to our `item.component.css` file:
 Voila! Checking the checkbox should apply a line through the todo title, and unchecking the checkbox should remove the line.
 
 [See the results on StackBlitz](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-18_Adding_a_checkbox)
+

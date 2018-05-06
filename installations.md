@@ -1,4 +1,4 @@
-# Installation
+# Installations
 
 Every developer needs a set of tools and libraries to start working. In our case, we'll use the online editor [StackBlitz](https://stackblitz.com/).
 
@@ -14,10 +14,7 @@ You should see a page like this:
 
 That's how StackBlitz works
 
-**important**
-Please use the following sample as your basis. Just click the Fork-Button to create a copy to your account:
-https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01_Installations
-
+**important** Please use the following sample as your basis. Just click the Fork-Button to create a copy to your account: [https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01\_Installations](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01_Installations)
 
 ### Congratulations!
 
@@ -25,12 +22,11 @@ You have a running Angular application!
 
 Now we're ready to start developing!
 
-
 ## About the Tools
 
 ### GitHub
 
-[GitHub](https://github.com/) is a code repository website that integrates with **Git**. It allows you to publish your project on the Web, copy other open source projects, and collaborate. To be able to publish your project, make sure you create a user in GitHub's website (for free, of course).
+[GitHub](https://github.com/) is a code repository website that integrates with **Git**. It allows you to publish your project on the Web, copy other open source projects, and collaborate. To be able to publish your project, make sure you create a user in GitHub's website \(for free, of course\).
 
 ### Git
 
@@ -54,10 +50,6 @@ Our next tool is the **IDE**, or integrated development environment. It's softwa
 * and a lot more...
 
 ### Visual Studio Code
+
 Microsoft [Visual Studio Code](https://code.visualstudio.com/) is an editor that's gained a lot of popularity lately. It is completely free for individuals.
-
-
-
-
-
 

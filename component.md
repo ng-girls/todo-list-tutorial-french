@@ -8,8 +8,9 @@ In [Service-Oriented Architecture \(SOA\) vs. Component Based Architecture](http
 
 In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
 
-Here's a diagram of a component in Angular, with the result below.
-![Angular Component](assets/Angular_Component.001.jpeg)
+Here's a diagram of a component in Angular, with the result below. 
+
+![Angular Component](.gitbook/assets/angular_component.001.jpeg)
 
 Directives, pipes, and services are other building blocks in Angular, which we will discuss later in the tutorial.
 
@@ -17,7 +18,7 @@ Let's take a look at the component that was created by the Angular CLI. All the 
 
 Just like ngModules that we saw in the previous chapter, a component is also defined by a class with a decorator. This is the class definition:
 
-```ts
+```typescript
 export class AppComponent {
   title = 'todo';
 }
@@ -27,13 +28,13 @@ It has one member called "title". It is a property to which you can assign a val
 
 Angular takes care of synchronizing the members of the component with the component template. So we can easily use the member `title` in the template. Take a look at the template attached to the component in the file `app.component.html`. Near the top, you'll see code like this:
 
-```html
+```markup
 <h1>
   Welcome to {{ title }}!
 </h1>
 ```
 
-The double curly braces and their content are called **Interpolation**. This is one form of **data binding** in Angular. As we mentioned before, the code in this file is not used as-is when the browser renders the component. Angular compiles it to JavaScript code. In one of the compilation steps, it looks for Interpolations inside the template. The content of the Interpolation is an "Angular template expression" (which is a lot like JavaScript). The expression is evaluated at runtime, and then you see the result.
+The double curly braces and their content are called **Interpolation**. This is one form of **data binding** in Angular. As we mentioned before, the code in this file is not used as-is when the browser renders the component. Angular compiles it to JavaScript code. In one of the compilation steps, it looks for Interpolations inside the template. The content of the Interpolation is an "Angular template expression" \(which is a lot like JavaScript\). The expression is evaluated at runtime, and then you see the result.
 
 Interpolation is one of the strongest, most basic features in Angular. It has existed from the very beginning of Angular - in the first version. It makes it really simple to insert dynamic data into the view.
 
@@ -49,7 +50,7 @@ This is one way that you can bind members of the component's controller to its t
 
 Let's go back to the file `app.component.ts` and look at the component's metadata defined in the decorator `@Component` right above the class definition:
 
-```ts
+```typescript
 @Component({
   selector: 'todo-root',
   templateUrl: './app.component.html',
@@ -71,7 +72,7 @@ We'll add more style later on.
 
 The first property, `selector`, tells Angular what will be the name of the tag that we'll use to call the component. As we saw in the file `src/index.html`, we use the app component inside the body:
 
-```html
+```markup
 <body>
   <todo-root></todo-root>
 </body>
@@ -83,16 +84,15 @@ One last thing: the first line in the component file imports the code that defin
 
 ## Inline Template
 
-Let's move the template to be **inline** in the component definition. This will help us manage the template while looking at its functionality.
-In the file `app.component.ts` replace the line
+Let's move the template to be **inline** in the component definition. This will help us manage the template while looking at its functionality. In the file `app.component.ts` replace the line
 
-```ts
+```typescript
 templateUrl: './app.component.html',
 ```
 
 with
 
-```ts
+```typescript
 template: ``,
 ```
 
@@ -100,9 +100,9 @@ Notice the **backticks** - they are used to define Template Literals, which are 
 
 Make sure you replace `templateUrl` with `template`, and don't forget the comma at the end of the line.
 
-Now copy the entire template from `app.component.html` and paste it between the backticks.  We'll reformat the code a bit to have it easier on the eye:
+Now copy the entire template from `app.component.html` and paste it between the backticks. We'll reformat the code a bit to have it easier on the eye:
 
-```ts
+```typescript
 template: `
   <!--The content below is only a placeholder and can be replaced.-->
   <div style="text-align:center">
@@ -130,7 +130,7 @@ It is easier to manage the template when you see its controller at the same time
 
 In fact, there's a lot of stuff we don't need in this template, so let's get rid of most of it:
 
-```ts
+```typescript
 template: `
   <h1>
     Welcome to {{ title }}!

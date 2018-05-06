@@ -6,9 +6,9 @@ The user should be able to remove any item, whether it's still active or complet
 
 First, we need to add the button to the item, so we'll work on the file `item.component.ts`.
 
-Add a "remove" button to the item template, with a `click` event handler that calls a `removeItem` method (which we'll create in a moment):
+Add a "remove" button to the item template, with a `click` event handler that calls a `removeItem` method \(which we'll create in a moment\):
 
-```ts
+```typescript
 template: `
   <div class="todo-item">
     {{ todoItem.title }}
@@ -22,19 +22,19 @@ template: `
 
 Add a new output to the `ItemComponent` class, which will be emitted to the list manager when a user presses the remove button for a specific item:
 
-```ts
+```typescript
 @Output() remove:EventEmitter<any> = new EventEmitter();
 ```
 
 Make sure to import both `EventEmitter` and `Output`:
 
-```ts
+```typescript
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 ```
 
 Add a method to the `ItemComponent` class to actually emit the event. This method will be called when the user clicks the "remove" button:
 
-```ts
+```typescript
 removeItem() {
   this.remove.emit(this.todoItem);
 }
@@ -46,13 +46,13 @@ Now that each todo item can emit its own removal, let's make sure that the list 
 
 We need to respond to the `remove` event. Let's add it to the template, inside the `<todo-item>` tag:
 
-```html
+```markup
 <todo-item [todoItem]="item" (remove)="removeItem($event)"></todo-item>
 ```
 
 Now we just need to add the method `removeItem()` to the `ListManagerComponent` class:
 
-```ts
+```typescript
 removeItem(item) {
   this.todoList = this.todoListService.removeItem(item);
 }
@@ -62,7 +62,7 @@ removeItem(item) {
 
 Removing the item is handled in the service. Open `todo-list.service.ts` and add a method called `removeItem` to the `TodoListService` class:
 
-```ts
+```typescript
 removeItem(item) {
   return this.storage.destroy(item);
 }

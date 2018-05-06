@@ -1,4 +1,4 @@
-# StackBlitz links
+# Appendix 3: StackBlitz links
 
 [Installations](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-01_Installations)
 
@@ -35,3 +35,4 @@
 [Remove item](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-17_Remove_item)
 
 [Adding a checkbox](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-18_Adding_a_checkbox)
+

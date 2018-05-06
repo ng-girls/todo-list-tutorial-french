@@ -1,8 +1,8 @@
-# The list
+# The To Do list
 
 Now you are going to add the todo-list itself to the component `todo-root`. Open the file `src/app/app.component.ts`. Add the list of items inside the `AppComponent` class as an array of objects for each item. At this stage, each item only contains a title:
 
-```ts
+```typescript
 todoList = [
   {title: 'install NodeJS'},
   {title: 'install Angular CLI'},
@@ -15,11 +15,11 @@ todoList = [
 
 > Putting info \(resources\) right inside your code is called hardcoding and is considered an especially bad practice. Eventually we'll get the list from an external source, but even if not, it's best to place mock data in their own files. But let's advance step-by-step, so defining items this way is okay for now.
 
-Now you have to tell the browser to display those items. For this, you will use the **Angular built-in directive, `*ngFor`**. It works like an enhanced loop in Java. The `*` notation causes Angular to use the current element as a template when rendering the list.
+Now you have to tell the browser to display those items. For this, you will use the **Angular built-in directive, **`*ngFor`. It works like an enhanced loop in Java. The `*` notation causes Angular to use the current element as a template when rendering the list.
 
 Insert the loop right after `<todo-input></todo-input>`, this way:
 
-```html
+```markup
 <todo-input></todo-input>
 <ul>
   <li *ngFor="let item of todoList">
@@ -30,13 +30,13 @@ Insert the loop right after `<todo-input></todo-input>`, this way:
 
 This means "go over all items of the todoList array, and print out an unnumbered list which contains the items' titles". While looping over the `todoList`, each item is assigned to the variable `item`, and we can use this variable inside the `li` element and its children.
 
-### Angular directives
+## Angular directives
 
 Directives are pieces of logic \(written as classes\) that can be attached to elements and components. They are used to change the display or the behavior of the element. Angular comes with some built-in directives.
 
 As we saw, the `ngFor` directive modifies the template at runtime by repeating the element it's called on and its content. Another directive, for example, is `ngIf`, which receives a Boolean expression. Angular will only render the element and its content if the expression is true. It also needs the `*` prefix because it uses the target element as a template, similar to the `*ngFor` directive. For example:
 
-```html
+```markup
 <h1 *ngIf="userLoggedIn">Welcome!</h1>
 ```
 

@@ -4,8 +4,7 @@ Let's look at the project and how Angular gets in the picture. All the relevant 
 
 Open the file `index.html`. The content that is rendered in the browser's window is everything you see inside the `<body>` element. All you can see there now is another, non-HTML element: `<todo-root>`. This element is a actually an Angular Component, defined in the file `app/app.component.ts` with the class named **AppComponent**. \(We'll take a look at it in the next chapter\).
 
-**Note:** StackBlitz is creating the project by default without a prefix. Then the element you'll see will be `<app-root>`. `app` is the default prefix for the project's component selectors. You can change the configuration in the file `.angular-cli.json`.
-Our starting point use the prefix `todo-`.
+**Note:** StackBlitz is creating the project by default without a prefix. Then the element you'll see will be `<app-root>`. `app` is the default prefix for the project's component selectors. You can change the configuration in the file `.angular-cli.json`. Our starting point use the prefix `todo-`.
 
 Angular can be defined in many ways. One of them is JavaScript code which runs when the application is presented in the browser. All the code you will write - components, modules, services, etc. - will be recognized by Angular. Angular will perform actions accordingly. For example, components you will write and use will be compiled to JavaScript functions. These functions insert the component content into the DOM - the Document Object Model - which the browser uses to show the application. That's how you'll see the component you created on the screen.
 
@@ -17,7 +16,7 @@ Angular needs us to define what we want it to compile. For this we define Angula
 
 The last line in the file defines a JavaScript class:
 
-```ts
+```typescript
 export class AppModule { }
 ```
 
@@ -25,7 +24,7 @@ export class AppModule { }
 
 The class `AppModule` is empty. It will get its functionality from Angular, which will identify its role by the code preceding this line, starting with `@NgModule({`.
 
-Every entity in Angular (ngModules, components, services, directives, and pipes) is just a **class with a decorator**. The decorator tells Angular the role of this class.
+Every entity in Angular \(ngModules, components, services, directives, and pipes\) is just a **class with a decorator**. The decorator tells Angular the role of this class.
 
 `@NgModule({...})` is a decorator. A decorator is just a function. When using it, we put `@` before its name. This way it becomes a decorator: it looks at what is written right after the function call and receives it as an argument. Decorators usually do something with what they decorate. In this case, for example, `NgModule` receives the `AppModule` class and adds methods and members to it that later on will be used by Angular. This way, Angular will recognize that this class represents an ngModule.
 
@@ -35,13 +34,13 @@ What we pass into the decorator function is used by Angular to decorate the clas
 
 **imports**: a list of other ngModules which are needed for this module. For example, we may use things from `FormsModule` - directives and services, inside the `AppComponent`.
 
-**providers**: a list of services which will be provided at the application root. A service is also a class, and by providing it, a single instance (singleton) is created for the whole application. We will talk about services later on.
+**providers**: a list of services which will be provided at the application root. A service is also a class, and by providing it, a single instance \(singleton\) is created for the whole application. We will talk about services later on.
 
-**bootstrap**: this member is relevant only to the root ngModule. You will not find it in the modules in the imports list, for example. It tells Angular which component should be used as the root component of the application. Every component can use other components in its template. We have one root component that starts the whole structure. So we actually get a **tree structure** of the components that build our application. In this case, the root component is `AppComponent` (with the selector `todo-root`). We saw it used in `index.html` as the only component inside the `<body>`.
+**bootstrap**: this member is relevant only to the root ngModule. You will not find it in the modules in the imports list, for example. It tells Angular which component should be used as the root component of the application. Every component can use other components in its template. We have one root component that starts the whole structure. So we actually get a **tree structure** of the components that build our application. In this case, the root component is `AppComponent` \(with the selector `todo-root`\). We saw it used in `index.html` as the only component inside the `<body>`.
 
 How does Angular know that the `AppModule` is the root ngModule? This is defined in the file `main.ts`:
 
-```ts
+```typescript
 platformBrowserDynamic().bootstrapModule(AppModule)
 ```
 
@@ -56,3 +55,4 @@ We've seen how we tell Angular where and how to start its work, how we define th
 In the next chapter, we'll see how a component is defined in Angular.
 
 [See the results on StackBlitz](https://stackblitz.com/github/angularbootcamp/todo-list-tutorial-steps/tree/step-02_Angular_kicks_in)
+
