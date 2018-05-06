@@ -20,7 +20,7 @@
 * [Local storage](local-storage.md)
 * [Remove item](remove-item.md)
 * [Adding a checkbox](adding-a-checkbox.md)
-* [Deploy to GithubPages](deploy-to-githubpages.md)
+* [Deploy to GitHub Pages](deploy-to-githubpages.md)
 * [Enrich the todo-item component](enrich-the-todo-item-component.md)
 * [Appendix 1: Generating a new project](appendix-1-generating-a-new-project.md)
 * [Appendix 2: Tutorial Extensions](appendix-2-tutorial-extensions.md)

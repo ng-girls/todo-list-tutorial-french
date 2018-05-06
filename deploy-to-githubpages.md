@@ -1,19 +1,19 @@
-# Deploy to GithubPages
+# Deploy to GitHub Pages
 
-To deploy our changes to Github pages we will use the angular-cli-ghpages package [https://github.com/angular-buch/angular-cli-ghpages](https://github.com/angular-buch/angular-cli-ghpages)
+To deploy our changes to GitHub pages we will use the angular-cli-ghpages package [https://github.com/angular-buch/angular-cli-ghpages](https://github.com/angular-buch/angular-cli-ghpages)
 
-* You need to have a Github user
+* You need to have a GitHub user
 * You need to create a repostiroy for your project.
 * You need to commit all the changes you made in the project
 * You need to install angular-cli-ghpages
 
-## Creating a Github user
+## Creating a GitHub user
 
-If you already have a Github user you can skip this step. To Create a Github user go to Github: [https://github.com/](https://github.com/) Fill the regetration form and make sure to validate your email address.
+If you already have a GitHub user you can skip this step. To Create a GitHub user go to GitHub: [https://github.com/](https://github.com/) Fill the regetration form and make sure to validate your email address.
 
 ## Create your App repository
 
-After logging in to Github. Click on the `Start a project` button, and name the repository `ng-girls-todo` or any other name you like.
+After logging in to GitHub. Click on the `Start a project` button, and name the repository `ng-girls-todo` or any other name you like.
 
 ## Connecting your repository
 
@@ -30,7 +30,7 @@ git remote add origin https://github.com/{YOUR_USERNAME}/{YOUR_REPO}.git
 git push -u origin master
 ```
 
-## Deploying to Github Pages
+## Deploying to GitHub Pages
 
 First install angular-cli-ghpages.
 
