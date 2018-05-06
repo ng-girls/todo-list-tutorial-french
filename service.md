@@ -8,11 +8,11 @@ In Angular, a service is \(typically\) a JavaScript class that's responsible for
 ng g s todoList
 ```
 
-This command will generate the service and put it under src/app/todo-list.service.ts
+This command will generate the service and put it under `src/app/todo-list.service.ts`.
 
 ## Make the service a provider
 
-To start using the service, we first need to _provide_ it in an ngModule. Start by adding this code in `/src/app/app.module.ts`:
+To start using the service, we first need to *provide* it in an ngModule. Start by adding this code in `/src/app/app.module.ts`:
 
 ```typescript
 import { TodoListService } from './todo-list.service';
