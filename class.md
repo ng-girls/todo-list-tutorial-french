@@ -123,6 +123,8 @@ changeTitle(newTitle: string) {
 
 **Note:** Functions and Methods can return a value that can be used when the method is called. For example:
 
+{% code-tabs %}
+{% code-tabs-item title="code for example" %}
 ```typescript
 function multiply (x: number, y: number) {
   return x * y;
@@ -131,6 +133,8 @@ function multiply (x: number, y: number) {
 let z = multiptly(4, 5);
 console.log(z);
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The method `changeTitle` is not used anywhere yet. We can call it from another method or from the template \(which we will see in the following chapters\). Let's call it from the constructor.
 

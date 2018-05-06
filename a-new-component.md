@@ -82,13 +82,14 @@ export class InputButtonUnitComponent implements OnInit {
 
 It will not interfere with the `app-root` component's `title`, since each component's content is encapsulated within it.
 
-Next, add some content and an interpolation of the title member in the template:
+Next, add an interpolation of the title member in the template:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```markup
 template: `
   <p>
+    input-button-unit works!
     The title is: {{ title }}
   </p>
 `,
