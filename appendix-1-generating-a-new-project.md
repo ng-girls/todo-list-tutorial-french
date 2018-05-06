@@ -20,8 +20,7 @@ We could have defined the prefix when we created the project, by adding `--prefi
 
 the first thing to start with when you work with the cli is scaffold the initial project.  
 to do so you can simply create a folder and write `ng init`  
-from that point the Angular CLI will download all the dependencies and install them.
-other way to scaffold the initial project is writing `ng new <project-name>` and the Angular CLI will create the folder for you and `ng init` in that folder.
+from that point the Angular CLI will download all the dependencies and install them. other way to scaffold the initial project is writing `ng new <project-name>` and the Angular CLI will create the folder for you and `ng init` in that folder.
 
 after we created the project we will get file in this format
 
@@ -59,8 +58,7 @@ lets skip all the configurations files for now and jump right to the folder stru
 the app is the main component of the application from that point we start our app.  
 we will cover components in more depth in later tutorial but the main idea of the project is that we create a components and connect them to each other until we have an application.
 
-with the Angular CLI we can generate components and some other files which can help us in the future.
-to do so we should write `ng generate component <component name>` for components and `ng generate route <route path>` for routes and many more which can be review in [angular cli docs](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
+with the Angular CLI we can generate components and some other files which can help us in the future. to do so we should write `ng generate component <component name>` for components and `ng generate route <route path>` for routes and many more which can be review in [angular cli docs](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
 
 now you probably ask how do you see and review your application?  
 your command for that would be `ng serve` and you'll be able to access you app in `http://localhost:4200`  

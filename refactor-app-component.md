@@ -6,10 +6,10 @@ We're going to perform a small refactoring. The `app-root` shouldn't have such a
 
 `ng g c list-manager`
 
-* Move all the code from `app-root` to `list-manager`. (Be careful not to change the list manager component's class name!)
+* Move all the code from `app-root` to `list-manager`. \(Be careful not to change the list manager component's class name!\)
 * Call the new component from the `app-root` template:
 
-```html
+```markup
   template: `
     <app-list-manager></app-list-manager>
   `,

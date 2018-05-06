@@ -33,7 +33,7 @@ completeItem() {
 }
 ```
 
-But wait! How is any of this going to affect the todo title when we're only touching the checkbox? Well, Angular has this wonderful directive called NgClass. This directive applies or removes a CSS class based on a boolean (true or false) expression. There are many ways to use this directive (see the [NgClass directive documentation](https://angular.io/api/common/NgClass)) but we will focus on using it like so:
+But wait! How is any of this going to affect the todo title when we're only touching the checkbox? Well, Angular has this wonderful directive called NgClass. This directive applies or removes a CSS class based on a boolean \(true or false\) expression. There are many ways to use this directive \(see the [NgClass directive documentation](https://angular.io/api/common/NgClass)\) but we will focus on using it like so:
 
 ```markup
 <some-element [ngClass]="{'first': true, 'second': true, 'third': false}">...</some-element>

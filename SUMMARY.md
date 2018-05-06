@@ -12,6 +12,7 @@
 * [Element ref - \#](element-ref.md)
 * [The To Do list](the-to-do-list.md)
 * [New component: todo-item](new-component-todo-item.md)
+* [Interface](interface.md)
 * [Add items](add-items.md)
 * [Refactor App Component](refactor-app-component.md)
 * [Adding Style](adding-style.md)

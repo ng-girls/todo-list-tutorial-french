@@ -5,7 +5,8 @@ In this chapter, we'll improve our service by adding more abilities.
 First, lets open our app's service file, which is available at `app/todo-list.service.ts`.
 
 There we'll add a new method to the service, called `addItem`, like so:
-```ts
+
+```typescript
 addItem(item): void { 
     this.todoList.push( item );
 }
@@ -21,6 +22,6 @@ addItem(item): void {
 }
 ```
 
-- There may be additional logic when calling these methods, i.e. saving the changes in a database (which we'll implement later).
-- A better way to handle data is using *immutable objects*, but that's a bigger topic than we can cover in this tutorial at the moment.
+* There may be additional logic when calling these methods, i.e. saving the changes in a database \(which we'll implement later\).
+* A better way to handle data is using _immutable objects_, but that's a bigger topic than we can cover in this tutorial at the moment.
 

@@ -1,10 +1,10 @@
-# The list
+# The To Do list
 
-Now you are going to add the todo-list itself to the component `app-root`. Open the file `src/app/app.component.ts`. Add the list of items inside the `AppComponent` class as an array of objects for each item. At this stage, each item only contains a title:
+Now you are going to add the to do list itself to the component `app-root`. Open the file `src/app/app.component.ts`. Add the list of items inside the `AppComponent` class as an array of objects for each item. At this stage, each item only contains a title:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```typescript
-//src/app/app.component.ts
-
 export class AppComponent {
 title = 'app';
 todoList = [
@@ -16,6 +16,8 @@ todoList = [
   {title: 'deploy app'},
 ];
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 > Putting info \(resources\) right inside your code is called hardcoding and is considered an especially bad practice. Eventually we'll get the list from an external source, but even if not, it's best to place mock data in their own files. But let's advance step-by-step, so defining items this way is okay for now.
 
@@ -23,9 +25,9 @@ Now you have to tell the browser to display those items. For this, you will use 
 
 Insert the loop right after `<app-input-button-unit></app-input-button-unit>`, this way:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.component.ts" %}
 ```markup
-// src/app/app.component.ts
-
 template: `
   <h1>
     {{ title }}
@@ -34,14 +36,16 @@ template: `
   <app-input-button-unit><app-input-button-unit>
 
   <ul>
-    <li *ngFor="let item of todoList">
-      {{ item.title }}
+    <li *ngFor="let todoItem of todoList">
+      {{ todoItem.title }}
     </li>
   </ul>
 `,
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-This means "go over all items of todoList array defined in the class, and print out a list which contains the items' titles". While looping over the `todoList`, each item is assigned to the template variable `item`, and we can use this variable inside the element in which we define it \(in this case the `li` element\) and its children.
+This means "go over all items of todoList array defined in the class, and print out a list which contains the items' titles". While looping over the `todoList`, each item is assigned to the template variable `todoItem`, and we can use this variable inside the element in which we define it \(in this case the `li` element\) and its children.
 
 ## Angular directives
 
@@ -49,10 +53,15 @@ Directives are pieces of logic \(written as classes\) that can be attached to el
 
 As we saw, the `ngFor` directive modifies the template at runtime by repeating the element it's called on and its content. Another directive, for example, is `ngIf`, which receives a Boolean expression. Angular will only render the element and its content if the expression is true. It also needs the `*` prefix because it uses the target element as a template, similar to the `*ngFor` directive. For example:
 
+{% code-tabs %}
+{% code-tabs-item title="code for example" %}
 ```markup
 <h1 *ngIf="userLoggedIn">Welcome!</h1>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 In this example, `userLoggedIn` should be a member of the component, and have a true or false value. If it's true, the `h1` element will be displayed. If false, the element will not exist in the DOM.
 
 There are other directives in Angular which are not structural \(and are used without the `*`\). For example `ngStyle` and `ngClass`, with which you can dynamically apply style and classes to the element.
+
