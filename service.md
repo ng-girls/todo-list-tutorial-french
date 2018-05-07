@@ -1,4 +1,4 @@
-# Service
+# Creating a Service
 
 In Angular, a service is \(typically\) a JavaScript class that's responsible for performing a specific task needed by your application. In our todo-list application, we'll create a service that will be responsible for saving and managing all the tasks, and we'll use it by injecting it into the components.
 
@@ -27,10 +27,10 @@ export class TodoListService {
 
 ## Provide the service
 
-To start using the service, we first need to _provide_ it in an `NgModule`. We have only one `NgModule` in our app - the `AppModule` located in `/src/app/app.module.ts`. It's an empty class preceded by the `@NgModule` decorator to which we pass a configuration object. One of the properties of this object is a `providers` list which is currently empty. We'll add our new service to the list. n`/src/app/app.module.ts`:
+To start using the service, we first need to _provide_ it in an `NgModule`. We have only one `NgModule` in our app - the `AppModule` located in `/src/app/app.module.ts`. It's an empty class preceded by the `@NgModule` decorator to which we pass a configuration object. One of the properties of this object is a `providers` list which is currently empty. We'll add our new service to the list. 
 
 {% code-tabs %}
-{% code-tabs-item title="/src/app/app.module.ts" %}
+{% code-tabs-item title="src/app/app.module.ts" %}
 ```typescript
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ The `providers` array tells Angular how to provide a service we're looking for \
 Make sure that the service is imported:
 
 {% code-tabs %}
-{% code-tabs-item title="/src/app/app.module.ts" %}
+{% code-tabs-item title="src/app/app.module.ts" %}
 ```typescript
 import { TodoListService } from './services/todo-list.service';
 ```

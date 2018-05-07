@@ -1,6 +1,6 @@
-# Add more abilities to service
+# Add Items Using the Service
 
-Let's improve our service by adding more abilities that will be used by our components.
+Let's improve our service by adding more abilities that will be used by our components. First - we'll implement adding an item to the list.
 
 ## Adding an item
 
@@ -16,10 +16,10 @@ addItem(item: TodoItem) {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now we can change our code in `app/list-manager/list-manager.component.ts` to call the `addItem` method directly from the service:
+Now we can change our `list-manager` component to call the `addItem` method directly from the service:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/list-manager/list-manager.component.css" %}
+{% code-tabs-item title="src/app/list-manager/list-manager.component.ts" %}
 ```typescript
 addItem(title: string) {
     this.todoListService.addItem({ title });

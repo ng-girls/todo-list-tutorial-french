@@ -1,5 +1,7 @@
 # Local storage
 
+We would like to persist the todo list on our computer, so that when accessing or reloading the app we'll see the list with the changes we've made. Ideally the list would be saved in a database, but we will implement a simple version using the browser's own storage. 
+
 ## What is local storage?
 
 Local storage, as its name implies, is a tool for storing data locally. Similar to cookies, local storage stores the data on the user's computer, and gives us, as developers, a quick way to access this data for both reading and writing.
@@ -15,55 +17,81 @@ First, in order to use local storage, we can simply access a `localStorage` inst
 
 Local storage stores data as keys and values, and the interface is quite simple. It has two main methods: `getItem` and `setItem`. Here's an example of using them:
 
+{% code-tabs %}
+{% code-tabs-item title="code for example" %}
 ```typescript
-localStorage.setItem('name','Mor');
+localStorage.setItem('name', 'Angular');
 
 let name = localStorage.getItem('name'); 
-alert('Hello '+name+'!');
+alert(`Hello ${ name }!`);
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Another useful method is `clear`. It's used to clear all the data from local storage:
 
+{% code-tabs %}
+{% code-tabs-item title="code for example" %}
 ```typescript
 localStorage.clear();
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-There are a few more wonderful methods you can use, as described [here](https://developer.mozilla.org/en-US/docs/Web/API/Storage).
+There are a few more wonderful methods you can use, as described in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Storage).
 
 ## Angular time \(back to our app\)
 
-In the following section, we will build a local storage service that later on will be used to store our todo list items. As in earlier chapters, we will generate the service using the Angular CLI. We will name the new service component `todo-list-storage`
+In the following section, we will build a local storage service that will be used to store our todo list items. It will be a generic service to which we'll need to tell what data we're looking for, so we can use it to store other data as well. We'll call the data we want `item`, not to be confused with the `todo-item`. In our case, the `item` will actually be the whole list of todo items.
 
-```text
-ng g s todo-list-storage
+As in earlier chapters, we will generate the service using the Angular CLI. We will name the new service  `storage`
+
+```bash
+ng g s services/storage
 ```
 
-The new file, `todo-list-storage.service.ts`, will be created with the following code:
+The new file, `storage.service.ts`, will be created with the following code:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/storage.service.ts" %}
 ```typescript
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class TodoListStorageService {
+export class StorageService {
 
   constructor() { }
 
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-**If something looks unfamiliar/odd to you, please refer to the **[**Service chapter**](service.md)** for more detailed information about services.**
+If something looks unfamiliar/odd to you, please refer to the [Creating a Service chapter](service.md) for more detailed information about services.
 
-We need to provide the service in our ngModule. Open `app.module.ts` and add the new class to the `providers` list:
+We need to provide the service in our NgModule. Open `app.module.ts` and add the new class to the `providers` list:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.module.ts" %}
 ```typescript
-providers: [TodoListService, TodoListStorageService],
+providers: [TodoListService, StorageService],
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Make sure the class is also imported into the file:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/app.module.ts" %}
 ```typescript
-import { TodoListStorageService } from './todo-list-storage.service';
+import { StorageService } from './services/storage.service';
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+## Remove
+
+
 
 Lets start by adding a private property to our service `todoList` which will hold the list items.
 
@@ -85,62 +113,60 @@ constructor() {
 }
 ```
 
-Wait! Wait! why `JSON.parse`? The answer is simple: As described earlier in this tutorial, local storage stores data as key-value pairs, and the values are stored as **strings**. So, if we want to have a real object to work with, we must parse the string into a valid object.
 
-Now let's start doing some real stuff, but first we will declare all the public methods we want to expose in this service, which are **get, post, put**, and **destroy**. Our service should now look similar to:
 
-```text
+Let's declare all the public methods we want to expose in this service, which are **get, post, put**, and **destroy**. To each method we'll pass the key \(name\) of the data we want. 
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/storage.ts" %}
+```typescript
 import { Injectable } from '@angular/core';
 
-const storageName = 'aah_todo_list';
-
 @Injectable()
-export class TodoListStorageService {
+export class StorageService {
 
-  private todoList;
-
-  constructor() {
-    this.todoList = JSON.parse(localStorage.getItem(storageName));
-  }
+  constructor() { }
 
   // get items
-  get() {}
+  get(key) {}
 
   // add a new item
-  post(item) {}
+  post(key, item) {}
 
   // update an item
-  put(item, changes) {}
+  put(key, item, changes) {}
 
   // remove an item
-  destroy(item) {}
+  destroy(key, item) {}
 
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 We will now implement them one by one.
 
 ### get
 
-This method will simply return the current state of items stored in the service:
+This method will get the simply return the current state of items stored in the service:
 
 ```typescript
-  get() {
-    return [...this.todoList];
+  get(key) {
+    return JSON.parse(localStorage.getItem(key));  
   }
 ```
 
-If you are not familiar with the spread operator `...`, please refer to [this documentation](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator) for more information.
+Wait! Wait! why `JSON.parse`? The answer is simple: As described earlier in this tutorial, local storage stores data as key-value pairs, and the values are stored as **strings**. So, if we want to have a real object to work with, we must parse the string into a valid object.
 
 ### post
 
 This method will be responsible for adding a new item, and returning the new list.  
-It accepts one parameter, `item`, which will be the item to add:
+It accepts the parameter `item`, which will be the item to add:
 
 ```typescript
-  post(item) {
-    this.todoList.push(item);
-    return this.get();
+  post(key, item) {
+    localStorage.setItem(key, JSON.stringify(this.todoList));
+    return this.get(key);
   }
 ```
 
