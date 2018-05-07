@@ -4,39 +4,51 @@ The user should be able to remove any item, whether it's still active or complet
 
 ## Add the "remove" button
 
-First, we need to add the button to the item, so we'll work on the file `item.component.ts`.
+First, we need to add the button to the item, so we'll work on the file `todo-item.component.ts`.
 
 Add a "remove" button to the item template, with a `click` event handler that calls a `removeItem` method \(which we'll create in a moment\):
 
-```typescript
+{% code-tabs %}
+{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
+```markup
 template: `
   <div class="todo-item">
-    {{ todoItem.title }}
+    {{ item.title }}
 
     <button class="btn btn-red" (click)="removeItem()">
-  remove
-</button>
+      remove
+    </button>
   </div>
 `,
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-Add a new output to the `ItemComponent` class, which will be emitted to the list manager when a user presses the remove button for a specific item:
+Add a new output to the `TodoItemComponent` class, which will emit the removed item to the list manager when a user presses its remove button:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
 ```typescript
-@Output() remove:EventEmitter<any> = new EventEmitter();
+@Output() remove: EventEmitter<TodoItem> = new EventEmitter();
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Make sure to import both `EventEmitter` and `Output`:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
 ```typescript
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Add a method to the `ItemComponent` class to actually emit the event. This method will be called when the user clicks the "remove" button:
 
 ```typescript
 removeItem() {
-  this.remove.emit(this.todoItem);
+  this.remove.emit(this.item);
 }
 ```
 
@@ -46,27 +58,26 @@ Now that each todo item can emit its own removal, let's make sure that the list 
 
 We need to respond to the `remove` event. Let's add it to the template, inside the `<todo-item>` tag:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/list-manager/list-manager.component.ts" %}
 ```markup
-<todo-item [todoItem]="item" (remove)="removeItem($event)"></todo-item>
+<app-todo-item [item]="todoItem"
+               (remove)="removeItem($event)"></app-todo-item>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-Now we just need to add the method `removeItem()` to the `ListManagerComponent` class:
+Now we just need to add the method `removeItem()` to the `ListManagerComponent` class, and use the `todoListService` 's method `deleteItem` which will remove the item from the list and update the local storage:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/list-manager/list-manager.component.ts" %}
 ```typescript
 removeItem(item) {
-  this.todoList = this.todoListService.removeItem(item);
+  this.todoListService.deleteItem(item);
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-## Remove the todo item from local storage
 
-Removing the item is handled in the service. Open `todo-list.service.ts` and add a method called `removeItem` to the `TodoListService` class:
-
-```typescript
-removeItem(item) {
-  return this.storage.destroy(item);
-}
-```
-
-This method calls the `destroy` method we already created in `todo-list-storage.service.ts` earlier.
 

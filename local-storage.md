@@ -201,7 +201,7 @@ Here we want to update an existing item. We'll assume that we hold the original 
 {% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
 updateItem(item: TodoItem, changes) {
-  const index = this.todoList.findIndex(item);
+  const index = this.todoList.indexOf(item);
   this.todoList[index] = { ...item, ...changes };
   this.storageService.setData(todoListStorageKey, this.todoList);
 }
@@ -246,7 +246,7 @@ This method will remove an item from the list. We look for the item in the list,
 {% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
 deleteItem(item: TodoItem) {
-  const index = this.todoList.findIndex(item);
+  const index = this.todoList.indexOf(item);
   this.todoList.splice(index, 1);
   this.saveList();
 }
@@ -297,13 +297,13 @@ export class TodoListService {
   }
   
   updateItem(item, changes) {
-    const index = this.todoList.findIndex(item);
+    const index = this.todoList.indexOf(item);
     this.todoList[index] = { ...item, ...changes };
     this.storageService.setData(todoListStorageKey, this.todoList);
   }
   
   deleteItem(item) {
-    const index = this.todoList.findIndex(item);
+    const index = this.todoList.indexOf(item);
     this.todoList.splice(index, 1);
     this.saveList();
   }
