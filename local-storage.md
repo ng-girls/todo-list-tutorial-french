@@ -44,15 +44,15 @@ There are a few more wonderful methods you can use, as described in the [MDN Web
 
 ## Angular time \(back to our app\)
 
-In the following section, we will build a local storage service that will be used to store our todo list items. It will be a generic service for lists of objects. We'll need to tell it what data we're looking for, so we can use it to store other lists as well. 
+In the following section, we will build a local storage service that will be used to store our todo list items. It will be a generic service for lists of objects. We'll need to tell it the name of data we're looking for \(a key\), so we can use it to store other lists as well. 
 
 As in earlier chapters, we will generate the service using the Angular CLI. We will name the new service  `storage`
 
 ```bash
-ng g s services/list-storage
+ng g s services/storage
 ```
 
-The new file, `list-storage.service.ts`, will be created with the following code:
+The new file, `storage.service.ts`, will be created with the following code:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/list-storage.service.ts" %}
@@ -60,7 +60,7 @@ The new file, `list-storage.service.ts`, will be created with the following code
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ListStorageService {
+export class StorageService {
 
   constructor() { }
 
@@ -69,7 +69,7 @@ export class ListStorageService {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-If something looks unfamiliar/odd to you, please refer to the [Creating a Service chapter](service.md) for more detailed information about services.
+If something looks unfamiliar or odd to you, please refer to the [Creating a Service chapter](service.md) for more detailed information about services.
 
 We need to provide the service in our NgModule. Open `app.module.ts` and add the new class to the `providers` list:
 
@@ -78,7 +78,7 @@ We need to provide the service in our NgModule. Open `app.module.ts` and add the
 ```typescript
 providers: [
   TodoListService, 
-  ListStorageService
+  StorageService
 ],
 ```
 {% endcode-tabs-item %}
@@ -89,46 +89,21 @@ Make sure the class is also imported into the file:
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.module.ts" %}
 ```typescript
-import { ListStorageService } from './services/list-storage.service';
+import { StorageService } from './services/storage.service';
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Let's declare all the public methods we want to expose in this service.  which are **get, post, put**, and **destroy**. To each method we'll pass the key \(name\) of the data we want. 
+Since we cannot access an item on the list directly in the local storage, we'll implement only two methods: getting the data and setting the data. Changing the list will be done by the TodoListService. To each method we'll pass the key \(name\) of the data we want. 
+
+### getData
+
+This method will get and return the data \(object, list, etc.\) stored in the service under the given key:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
-import { Injectable } from '@angular/core';
-
-@Injectable()
-export class ListStorageService {
-
-  constructor() { }
-
-  getList(key) {}
-
-  pushItem(key, item) {}
-
-  updateItem(key, index, changes) {}
-
-  deleteItem(key, item) {}
-
-}
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-We will now implement them one by one.
-
-### getList
-
-This method will get and return the list stored in the service under the given key:
-
-{% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
-```typescript
-  getList(key) {
+  getData(key: string): any {
     return JSON.parse(localStorage.getItem(key));  
   }
 ```
@@ -137,22 +112,27 @@ This method will get and return the list stored in the service under the given k
 
 Wait! Wait! why `JSON.parse`? The answer is simple: As described above, local storage stores data as key-value pairs, and the values are stored as **strings**. So, if we want to have a real object \(or list\) to work with, we must parse the string into a valid JavaScript object.
 
-### pushItem
+### setData
 
-This method will be responsible for adding a new item to the list.  
-It accepts the parameter `item`, which will be the item to add:
+This method will save the given data \(object, list, etc.\) under the given key. 
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
-  pushItem(key, item) {
-    const list = this.getList(key);
-    list.push(item);
-    localStorage.setItem(key, JSON.stringify(list));
+  setData(key: string, data: any) {
+    localStorage.setItem(key, JSON.stringify(data));
   }
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+That's it! Let's use this service in our `ToDoListService`.
+
+> As mentioned above, this service could have a wider API with more robust methods. When you write a service for accessing a database you will have other methods for adding, modifying and deleting specific items.
+
+
+
+
 
 Here we use the `localStorage` method `setItem`, which takes a key \(the first argument\) and a string value \(the second argument\) and stores it in local storage. First we fetch the list we have in storage. It's already parsed in the method `getList`. We push an item to the list. Then we replace the list we had in the storage with the modified one.
 
