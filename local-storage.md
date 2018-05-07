@@ -76,7 +76,10 @@ We need to provide the service in our NgModule. Open `app.module.ts` and add the
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.module.ts" %}
 ```typescript
-providers: [TodoListService, ListStorageService],
+providers: [
+  TodoListService, 
+  ListStorageService
+],
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -91,7 +94,7 @@ import { ListStorageService } from './services/list-storage.service';
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Let's declare all the public methods we want to expose in this service, which are **get, post, put**, and **destroy**. To each method we'll pass the key \(name\) of the data we want. 
+Let's declare all the public methods we want to expose in this service.  which are **get, post, put**, and **destroy**. To each method we'll pass the key \(name\) of the data we want. 
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/list-storage.service.ts" %}
@@ -234,21 +237,21 @@ export class ListStorageService {
   constructor() {
   }
 
-  getList(key: string): object[] {
+  getList(key: string): any[] {
     return JSON.parse(localStorage.getItem(key));
   }
+  
+  setList(key: string, list: any[]) {
+    localStorage.setItem(key, JSON.stringify(list));
+  }
 
-  pushItem(key: string, item: object) {
+  pushItem(key: string, item: any) {
     const list = this.getList(key);
     list.push(item);
     this.setList(key, list);
   }
 
-  private setList(key: string, list: object[]) {
-    localStorage.setItem(key, JSON.stringify(list));
-  }
-
-  updateItem(key: string, index: number, changes: object) {
+  updateItem(key: string, index: number, changes: any) {
     const list = this.getList(key);
     list[index] = { ...list[index], ...changes };
     localStorage.setItem(key, JSON.stringify(list));
@@ -262,7 +265,7 @@ export class ListStorageService {
 
 ## Use the ListStorageService
 
-We'd like to use the newly created service from within `TodoListService`. First we'll inject the `ListStorageService` into the `TodoListService`, just like we injected the latter into `ListManagerComponent`. We'll ask for an instance in the constructor, and make sure the Class is imported. Well also add a constant with the key of our storage.
+We'd like to use the newly created service from within `TodoListService`. First we'll inject the `ListStorageService` into the `TodoListService`, just like we injected the latter into `ListManagerComponent`. We'll ask for an instance in the constructor, and make sure the Class is imported. We'll move the default todo list outside the class. We'll also add a constant with the key of our storage.
 
 > A better practice is to use the environments files for storing keys. This way you can manage different keys for each environment - development, production, staging, etc.
 
@@ -275,42 +278,35 @@ import { ListStorageService } from './list-storage.service';
 
 const todoListStorageKey = 'Todo_List';
 
+const defaultTodoList = [
+  {title: 'install NodeJS'},
+  {title: 'install Angular CLI'},
+  {title: 'create new app'},
+  {title: 'serve app'},
+  {title: 'develop app'},
+  {title: 'deploy app'},
+];
+
 @Injectable()
 export class TodoListService {
-  todoList: TodoItem[] = [
-    {title: 'install NodeJS'},
-    {title: 'install Angular CLI'},
-    {title: 'create new app'},
-    {title: 'serve app'},
-    {title: 'develop app'},
-    {title: 'deploy app'},
-  ];
+  todoList: TodoItem[];
 
   constructor(private listStorageService: ListStorageService) { }
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Let's assume we want our todo list to always have some default data to start with. We can add it by modifying our service, by adding in the constants section \(after the imports\):
+We'll keep a runtime version of the todo list in the service to help us manage it in the app - the todoList property. We'll initialize it in the constructor with either the list in the local storage, if exists, or the default one.
 
-```typescript
-const defaultList = [
-  { title: 'install NodeJS' },
-  { title: 'install Angular CLI' },
-  { title: 'create new app' },
-  { title: 'serve app' },
-  { title: 'develop app' },
-  { title: 'deploy app' },
-];
-```
-
-And then modify our constructor:
-
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
 constructor() {
     this.todoList = JSON.parse(localStorage.getItem(storageName)) || defaultList;
   }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The above will make sure that if data was not yet stored in `localStorage`, our service will still have some default data to return. This also means you can completely remove the `todoList` array from `TodoListService`, since now the default list is handled here.
 
