@@ -55,7 +55,7 @@ ng g s services/storage
 The new file, `storage.service.ts`, will be created with the following code:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
+{% code-tabs-item title="src/app/services/storage.service.ts" %}
 ```typescript
 import { Injectable } from '@angular/core';
 
@@ -101,7 +101,7 @@ Since we cannot access an item on the list directly in the local storage, we'll 
 This method will get and return the data \(object, list, etc.\) stored in the service under the given key:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
+{% code-tabs-item title="src/app/services/storage.service.ts" %}
 ```typescript
   getData(key: string): any {
     return JSON.parse(localStorage.getItem(key));  
@@ -117,7 +117,7 @@ Wait! Wait! why `JSON.parse`? The answer is simple: As described above, local st
 This method will save the given data \(object, list, etc.\) under the given key. 
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
+{% code-tabs-item title="src/app/services/storage.service.ts" %}
 ```typescript
   setData(key: string, data: any) {
     localStorage.setItem(key, JSON.stringify(data));
@@ -130,122 +130,9 @@ That's it! Let's use this service in our `ToDoListService`.
 
 > As mentioned above, this service could have a wider API with more robust methods. When you write a service for accessing a database you will have other methods for adding, modifying and deleting specific items.
 
-
-
-
-
-Here we use the `localStorage` method `setItem`, which takes a key \(the first argument\) and a string value \(the second argument\) and stores it in local storage. First we fetch the list we have in storage. It's already parsed in the method `getList`. We push an item to the list. Then we replace the list we had in the storage with the modified one.
-
-### updateItem
-
-Here we want to update an existing item. We'll assume that we know the index of the item. \(Other implementations may use an item ID to search the list.\)
-
-{% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
-```typescript
-  updateItem(key, index, changes) {
-    const list = this.getList(key);
-    const item = list[index];
-    const newItem = {...item, ...changes};
-    list[index] = newItem;
-    localStorage.setItem(key, JSON.stringify(list));
-  }
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-So what is going on here?  
-Once again, we fetch the current list from the local storage. We modify the item located in the `index` with the `changes`. The spread operator is used here within an object. A new object is constructed, composed of the original set of keys and values \(`...item`\) which are overridden by the keys and values of `changes`. \(If a key in the `changes` object doesn't exist in `item`, it is added.\)
-
-### DRY - Don't Repeat Yourself
-
-You may have noticed that we have the same line of code both in `pushItem` and in `updateItem`:
-
-{% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
-```typescript
-localStorage.setItem(key, JSON.stringify(list));
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-We'd like to reduce code repetition, and extract the repeated code into a method:
-
-{% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
-```typescript
-setList(key, list) {
-    localStorage.setItem(key, JSON.stringify(list));
-}
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-We can use this method from within the service and from outside. Refactor the `pushItem` and `updateItem` methods to use `setList`.
-
-### deleteItem
-
-This method will remove an item from the list. Again, we assume we know the item's index:
-
-{% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
-```typescript
-  deleteItem(key, index) {
-    const list = this.getList(key);
-    this.todoList.splice(index, 1);
-    this.setList(key, list);
-  }
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-`splice(i, n)` removes `n` items starting from index `i`.  
-In our code, we remove only one item \(that's why we use 1 as the second parameter\).
-
-### Final result
-
-After refactoring, reducing some more lines of code \(in updateItem\) and adding parameters types, the service should look like this:
-
-{% code-tabs %}
-{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
-```typescript
-import { Injectable } from '@angular/core';
-
-@Injectable()
-export class ListStorageService {
-
-  constructor() {
-  }
-
-  getList(key: string): any[] {
-    return JSON.parse(localStorage.getItem(key));
-  }
-  
-  setList(key: string, list: any[]) {
-    localStorage.setItem(key, JSON.stringify(list));
-  }
-
-  pushItem(key: string, item: any) {
-    const list = this.getList(key);
-    list.push(item);
-    this.setList(key, list);
-  }
-
-  updateItem(key: string, index: number, changes: any) {
-    const list = this.getList(key);
-    list[index] = { ...list[index], ...changes };
-    localStorage.setItem(key, JSON.stringify(list));
-  }
-
-}
-
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
 ## Use the ListStorageService
 
-We'd like to use the newly created service from within `TodoListService`. First we'll inject the `ListStorageService` into the `TodoListService`, just like we injected the latter into `ListManagerComponent`. We'll ask for an instance in the constructor, and make sure the Class is imported. We'll move the default todo list outside the class. We'll also add a constant with the key of our storage.
+We'd like to use the newly created service from within `TodoListService`. First we'll inject the `StorageService` into the `TodoListService`, just like we injected the latter into `ListManagerComponent`. We'll ask for an instance of the service in the constructor, and make sure its class is imported. We'll move the default todo list outside the class. We'll also add a constant with the key of our storage.
 
 > A better practice is to use the environments files for storing keys. This way you can manage different keys for each environment - development, production, staging, etc.
 
@@ -254,7 +141,7 @@ We'd like to use the newly created service from within `TodoListService`. First 
 ```typescript
 import { Injectable } from '@angular/core';
 import { TodoItem } from '../interfaces/todo-item';
-import { ListStorageService } from './list-storage.service';
+import { StorageService } from './storage.service';
 
 const todoListStorageKey = 'Todo_List';
 
@@ -271,24 +158,163 @@ const defaultTodoList = [
 export class TodoListService {
   todoList: TodoItem[];
 
-  constructor(private listStorageService: ListStorageService) { }
+  constructor(private storageService: StorageService) { }
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-We'll keep a runtime version of the todo list in the service to help us manage it in the app - the todoList property. We'll initialize it in the constructor with either the list in the local storage, if exists, or the default one.
+We'll keep a runtime version of the todo list in the service to help us manage it in the app - the `todoList` property. We'll initialize it in the constructor with either the list in the local storage, if exists, or the default one.
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
-constructor() {
-    this.todoList = JSON.parse(localStorage.getItem(storageName)) || defaultList;
-  }
+constructor(private storageService: StorageService) {
+  this.todoList = 
+    storageService.getData(todoListStorageKey) || defaultTodoList;
+}
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-The above will make sure that if data was not yet stored in `localStorage`, our service will still have some default data to return. This also means you can completely remove the `todoList` array from `TodoListService`, since now the default list is handled here.
+Now we'll implement the methods for managing our list.
+
+### addItem
+
+We'll push an item to the todoList \(same as before\) and then update the storage.
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
+```typescript
+addItem(item: TodoItem) {
+  this.todoList.push(item);
+  this.storageService.setData(todoListStorageKey, this.todoList);
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+### updateItem
+
+Here we want to update an existing item. We'll assume that we hold the original item by reference, and can find it in the list. \(Other implementations may use an item ID to search the list.\) Then we'll replace it with a new version. Finally we'll update the storage.
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
+```typescript
+updateItem(item, changes) {
+  const index = this.todoList.findIndex(item);
+  this.todoList[index] = { ...item, ...changes };
+  this.storageService.setList(todoListStorageKey, this.todoList);
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+So what is going on here?  
+We locate the item in the list. Then in the same place we assign a new object, which is constructed from the original item and the changes made to it. We're using the spread operator for this: a new object is constructed, composed of the original set of keys and values \(`...item`\) which are overridden by the keys and values of `changes`. \(If a key in  `changes`  doesn't exist in `item`, it is added to the new object.\)
+
+### DRY - Don't Repeat Yourself
+
+You may have noticed that we have the same line of code both in `addItem` and in `updateItem`:
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
+```typescript
+this.storageService.setList(todoListStorageKey, this.todoList);
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+We'd like to reduce code repetition, and extract the repeated code into a method. You can use the IDE to help you extract the method. Select the line above, then right click and search for the option to refactor by extracting a method. The extracted method should look like this:
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
+```typescript
+saveList() {
+    this.storageService.setList(todoListStorageKey, this.todoList);
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Now make sure you call `saveList` from within addItem and `updateItem`.
+
+### deleteItem
+
+This method will remove an item from the list. We look for the item in the list, remove it, and save the changes.
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
+```typescript
+deleteItem(item) {
+  const index = this.todoList.findIndex(item);
+  this.todoList.splice(index, 1);
+  this.saveList();
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+`splice(i, n)` removes `n` items starting from index `i`. In our code, we remove only one item \(that's why we use 1 as the second parameter\).
+
+### Final result
+
+Our TodoListService is ready with methods to get and modify the todo list. We can use these methods from the components. 
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
+```typescript
+import { Injectable } from '@angular/core';
+import { TodoItem } from '../interfaces/todo-item';
+import { StorageService } from './storage.service';
+
+const todoListStorageKey = 'Todo_List';
+
+const defaultTodoList = [
+  {title: 'install NodeJS'},
+  {title: 'install Angular CLI'},
+  {title: 'create new app'},
+  {title: 'serve app'},
+  {title: 'develop app'},
+  {title: 'deploy app'},
+];
+
+@Injectable()
+export class TodoListService {
+  todoList: TodoItem[];
+
+  constructor(private storageService: StorageService) {
+    this.todoList = 
+      storageService.getData(todoListStorageKey) || defaultTodoList;
+  }
+
+  saveList() {
+    this.storageService.setList(todoListStorageKey, this.todoList);
+}
+
+  addItem(item: TodoItem) {
+    this.todoList.push(item);
+    this.storageService.setData(todoListStorageKey, this.todoList);
+  }
+  
+  updateItem(item, changes) {
+    const index = this.todoList.findIndex(item);
+    this.todoList[index] = { ...item, ...changes };
+    this.storageService.setList(todoListStorageKey, this.todoList);
+  }
+  
+  deleteItem(item) {
+    const index = this.todoList.findIndex(item);
+    this.todoList.splice(index, 1);
+    this.saveList();
+  }
+
+}
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+## 
 
 ## Almost done!
 
