@@ -9,28 +9,46 @@ We will look at:
 * Editing the todo title so that it responds to the checkbox
 * Adding a new CSS Class
 
-Let's go ahead and add a checkbox into our `item.component.ts` file. Place the following code right before `{{ todoItem.title }}`:
+Let's go ahead and add a checkbox into our `todo-item.component.ts` file. Place the following code right before `{{ item.title }}`:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
 ```markup
-  <input type="checkbox"/>
+<input type="checkbox"/>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-Now, in order for the checkbox to do anything, we need to add a `click` event handler which we will call `completeItem`. Let's do that now:
+Now, in order for the checkbox to do anything, we need to add a `click` event handler which we will call `completeItem`. We'll also add a css-class and wrap the element and the interpolation together for styling. Let's do that now:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
 ```markup
+<div>
   <input type="checkbox"
          class="todo-checkbox"
-         (click)="completeItem()">
+         (click)="completeItem()"/>
+  {{ item.title }}
+</div>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-When we click on the checkbox, it will run the `completeItem` method. Let's talk about what this method needs to accomplish. We want to be able to toggle some CSS styling on the todo title so that when the checkbox is checked, it will have a line through it, and no strikethrough line when unchecked. In order to achieve this, we will toggle a variable to be either true or false to represent checked or unchecked states. Add the following code to the `ItemComponent` class:
+When we click on the checkbox, it will run the `completeItem` method. Let's talk about what this method needs to accomplish. We want to be able to toggle some CSS styling on the item's title so that when the checkbox is checked it will have a  strikethrough. We also want to save the status of the item in the local storage. In order to achieve this, we will emit an update event with the new status of the item and catch it in the parent component.
 
 ```javascript
-isComplete: boolean = false;
+export class TodoItemComponent implements OnInit {
+  @Input() item: TodoItem;
+  @Output() remove: EventEmitter<TodoItem> = new EventEmitter();
+  @Output() update: EventEmitter<any> = new EventEmitter();
 
-completeItem() {
-  this.isComplete = !this.isComplete;
-}
+  // put this method below ngOnInit
+  completeItem() {
+    this.update.emit({
+      item: this.item,
+      changes: {completed: !this.item.completed}
+    };
+  }
 ```
 
 But wait! How is any of this going to affect the todo title when we're only touching the checkbox? Well, Angular has this wonderful directive called NgClass. This directive applies or removes a CSS class based on a boolean \(true or false\) expression. There are many ways to use this directive \(see the [NgClass directive documentation](https://angular.io/api/common/NgClass)\) but we will focus on using it like so:
