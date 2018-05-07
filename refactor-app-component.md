@@ -35,11 +35,12 @@ export class AppComponent {
 {% code-tabs-item title="src/app/list-manager/list-manager.component.ts" %}
 ```typescript
 import { Component, OnInit } from '@angular/core';
+import { TodoItem } from '../interfaces/todo-item';
 
 @Component({
   selector: 'app-list-manager',
   template: `
-    <app-input-button-unit (submit)="addItem($event)"><app-input-button-unit>
+    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
   
     <ul>
       <li *ngFor="let todoItem of todoList">
@@ -81,6 +82,7 @@ export class ListManagerComponent implements OnInit {
     <h1>
       Welcome to {{ title }}!
     </h1>
+    
     <app-list-manager></app-list-manager>
   `,
 ```

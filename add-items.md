@@ -66,11 +66,6 @@ submitValue(newTitle: string) {
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```markup
 template: `
-  <p>
-    input-button-unit works!
-    The title is: {{ title }}
-  </p>
-
   <input #inputElementRef
          [value]="title"
          (keyup.enter)="submitValue($event.target.value)">

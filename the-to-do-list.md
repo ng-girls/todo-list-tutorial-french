@@ -33,7 +33,7 @@ template: `
     Welcome to {{ title }}!
   </h1>
 
-  <app-input-button-unit><app-input-button-unit>
+  <app-input-button-unit></app-input-button-unit>
 
   <ul>
     <li *ngFor="let todoItem of todoList">

@@ -40,6 +40,19 @@ export class InputButtonUnitComponent implements OnInit {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+First let's remove a bit of the template that we don't need. Remove these lines:
+
+{% code-tabs %}
+{% code-tabs-item title="remove this from src/app/input-button-unit/input-button-unit.component.ts" %}
+```markup
+<p>
+  input-button-unit works!
+  The title is: {{ title }}
+</p>
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 Now we want to take the value of the input \(that the user typed\) and change the title when we press the `Save` button.
 
 We already know how to create a button and react to clicking on it. We now need to pass to the method some data from a different element. We want to use the `input` element's value from inside the `button` element.
@@ -50,11 +63,6 @@ Angular helps us do exactly that. **We can store a reference to the element we w
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
 ```markup
 template: `
-  <p>
-    input-button-unit works!
-    The title is: {{ title }}
-  </p>
-
   <input #inputElementRef
          [value]="title"
          (keyup.enter)="changeTitle($event.target.value)">
