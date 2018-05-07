@@ -215,6 +215,8 @@ This method will remove an item from the list. Again, we assume we know the item
 `splice(i, n)` removes `n` items starting from index `i`.  
 In our code, we remove only one item \(that's why we use 1 as the second parameter\).
 
+
+
 ## Use the ListStorageService
 
 We'd like to use the newly created service from within `TodoListService`. 
