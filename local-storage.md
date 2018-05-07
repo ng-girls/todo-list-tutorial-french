@@ -200,10 +200,10 @@ Here we want to update an existing item. We'll assume that we hold the original 
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
-updateItem(item, changes) {
+updateItem(item: TodoItem, changes) {
   const index = this.todoList.findIndex(item);
   this.todoList[index] = { ...item, ...changes };
-  this.storageService.setList(todoListStorageKey, this.todoList);
+  this.storageService.setData(todoListStorageKey, this.todoList);
 }
 ```
 {% endcode-tabs-item %}
@@ -219,7 +219,7 @@ You may have noticed that we have the same line of code both in `addItem` and in
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
-this.storageService.setList(todoListStorageKey, this.todoList);
+this.storageService.setData(todoListStorageKey, this.todoList);
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -230,7 +230,7 @@ We'd like to reduce code repetition, and extract the repeated code into a method
 {% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
 saveList() {
-    this.storageService.setList(todoListStorageKey, this.todoList);
+    this.storageService.setData(todoListStorageKey, this.todoList);
 }
 ```
 {% endcode-tabs-item %}
@@ -245,7 +245,7 @@ This method will remove an item from the list. We look for the item in the list,
 {% code-tabs %}
 {% code-tabs-item title="src/app/services/todo-list.service.ts" %}
 ```typescript
-deleteItem(item) {
+deleteItem(item: TodoItem) {
   const index = this.todoList.findIndex(item);
   this.todoList.splice(index, 1);
   this.saveList();
@@ -313,65 +313,6 @@ export class TodoListService {
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
-
-## 
-
-## Almost done!
-
-Our service is now ready for work!
-
-Now for our app to use the new local storage service, let's open up `todo-list.service.ts` and modify it.
-
-First we need to import the new service:
-
-```typescript
-import { TodoListStorageService } from './todo-list-storage.service';
-```
-
-Then, we need to inject it in the constructor so we will have an instance to work with:
-
-```text
-constructor(private storage:TodoListStorageService) {
-}
-```
-
-This will let us use `this.storage` across the todo-list service.
-
-Let's also modify the current methods:
-
-**Before**
-
-```text
-getTodoList() {
-    return this.todoList;
-}
-
-addItem(item) {
-    this.todoList.push(item);
-}
-```
-
-**After**
-
-```text
-getTodoList() {
-    return this.storage.get();
-}
-
-addItem(item) {
-    return this.storage.post(item);
-}
-```
-
-Now we have one last modification to make. Open up `list-manager.component.ts` and modify the `addItem` method this way:
-
-```text
-addItem(title:string) {
-    this.todoList = this.todoListService.addItem({ title });
-}
-```
-
-The above change will make sure that when we add a new item, our list will also be updated visually.
 
 ## Summary
 
