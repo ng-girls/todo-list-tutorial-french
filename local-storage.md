@@ -6,6 +6,8 @@ We would like to persist the todo list on our computer, so that when accessing o
 
 Local storage, as its name implies, is a tool for storing data locally. Similar to cookies, local storage stores the data on the user's computer, and gives us, as developers, a quick way to access this data for both reading and writing.
 
+> There are libraries you can use that give you a wider range, more generic, robust methods to manage the data in the local storage. Here we will implement a simple solution.
+
 ## Browser support
 
 As local storage was first introduced to us along with HTML5, all browsers that support HTML5 standard will also support local storage.  
@@ -53,7 +55,7 @@ ng g s services/list-storage
 The new file, `list-storage.service.ts`, will be created with the following code:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/storage.service.ts" %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
 import { Injectable } from '@angular/core';
 
@@ -92,7 +94,7 @@ import { ListStorageService } from './services/list-storage.service';
 Let's declare all the public methods we want to expose in this service, which are **get, post, put**, and **destroy**. To each method we'll pass the key \(name\) of the data we want. 
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/storage.ts" %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
 import { Injectable } from '@angular/core';
 
@@ -121,7 +123,7 @@ We will now implement them one by one.
 This method will get and return the list stored in the service under the given key:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/storage.ts" %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
   getList(key) {
     return JSON.parse(localStorage.getItem(key));  
@@ -138,7 +140,7 @@ This method will be responsible for adding a new item to the list.
 It accepts the parameter `item`, which will be the item to add:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/storage.ts" %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
   pushItem(key, item) {
     const list = this.getList(key);
@@ -155,10 +157,8 @@ Here we use the `localStorage` method `setItem`, which takes a key \(the first a
 
 Here we want to update an existing item. We'll assume that we know the index of the item. \(Other implementations may use an item ID to search the list.\)
 
-Now, we can use `Object.assign` to update an existing item:
-
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/storage.ts" %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
   updateItem(key, index, changes) {
     const list = this.getList(key);
@@ -179,7 +179,7 @@ Once again, we fetch the current list from the local storage. We modify the item
 You may have noticed that we have the same line of code both in `pushItem` and in `updateItem`:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/storage.ts" %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
 localStorage.setItem(key, JSON.stringify(list));
 ```
@@ -189,7 +189,7 @@ localStorage.setItem(key, JSON.stringify(list));
 We'd like to reduce code repetition, and extract the repeated code into a method:
 
 {% code-tabs %}
-{% code-tabs-item title="src/app/services/storage.ts" %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
 setList(key, list) {
     localStorage.setItem(key, JSON.stringify(list));
@@ -204,6 +204,8 @@ We can use this method from within the service and from outside. Refactor the `p
 
 This method will remove an item from the list. Again, we assume we know the item's index:
 
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
 ```typescript
   deleteItem(key, index) {
     const list = this.getList(key);
@@ -211,15 +213,83 @@ This method will remove an item from the list. Again, we assume we know the item
     this.setList(key, list);
   }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 `splice(i, n)` removes `n` items starting from index `i`.  
 In our code, we remove only one item \(that's why we use 1 as the second parameter\).
 
+### Final result
 
+After refactoring, reducing some more lines of code \(in updateItem\) and adding parameters types, the service should look like this:
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/list-storage.service.ts" %}
+```typescript
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ListStorageService {
+
+  constructor() {
+  }
+
+  getList(key: string): object[] {
+    return JSON.parse(localStorage.getItem(key));
+  }
+
+  pushItem(key: string, item: object) {
+    const list = this.getList(key);
+    list.push(item);
+    this.setList(key, list);
+  }
+
+  private setList(key: string, list: object[]) {
+    localStorage.setItem(key, JSON.stringify(list));
+  }
+
+  updateItem(key: string, index: number, changes: object) {
+    const list = this.getList(key);
+    list[index] = { ...list[index], ...changes };
+    localStorage.setItem(key, JSON.stringify(list));
+  }
+
+}
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Use the ListStorageService
 
-We'd like to use the newly created service from within `TodoListService`. 
+We'd like to use the newly created service from within `TodoListService`. First we'll inject the `ListStorageService` into the `TodoListService`, just like we injected the latter into `ListManagerComponent`. We'll ask for an instance in the constructor, and make sure the Class is imported. Well also add a constant with the key of our storage.
+
+> A better practice is to use the environments files for storing keys. This way you can manage different keys for each environment - development, production, staging, etc.
+
+{% code-tabs %}
+{% code-tabs-item title="src/app/services/todo-list.service.ts" %}
+```typescript
+import { Injectable } from '@angular/core';
+import { TodoItem } from '../interfaces/todo-item';
+import { ListStorageService } from './list-storage.service';
+
+const todoListStorageKey = 'Todo_List';
+
+@Injectable()
+export class TodoListService {
+  todoList: TodoItem[] = [
+    {title: 'install NodeJS'},
+    {title: 'install Angular CLI'},
+    {title: 'create new app'},
+    {title: 'serve app'},
+    {title: 'develop app'},
+    {title: 'deploy app'},
+  ];
+
+  constructor(private listStorageService: ListStorageService) { }
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Let's assume we want our todo list to always have some default data to start with. We can add it by modifying our service, by adding in the constants section \(after the imports\):
 
