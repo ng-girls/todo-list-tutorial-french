@@ -288,7 +288,7 @@ export class TodoListService {
   }
 
   saveList() {
-    this.storageService.setList(todoListStorageKey, this.todoList);
+    this.storageService.setData(todoListStorageKey, this.todoList);
 }
 
   addItem(item: TodoItem) {
@@ -299,7 +299,7 @@ export class TodoListService {
   updateItem(item, changes) {
     const index = this.todoList.findIndex(item);
     this.todoList[index] = { ...item, ...changes };
-    this.storageService.setList(todoListStorageKey, this.todoList);
+    this.storageService.setData(todoListStorageKey, this.todoList);
   }
   
   deleteItem(item) {
@@ -316,5 +316,5 @@ export class TodoListService {
 
 ## Summary
 
-In this tutorial we learned what local storage is and how to use it. We saw that `localStorage` is a great and a pretty straight-forward tool for developers to store data locally on the users' computers/devices. We then implemented a new service that uses `localStorage` to store the todo-list items, and updated the rest of the components to support this new service.
+In this chapter we learned what local storage is and how to use it. We saw that `localStorage` is a great and a pretty straight-forward tool for developers to store data locally on the users' computers/devices. We then implemented a new service that uses `localStorage` to store data, which our `TodoListService` uses to save the todo-list items.
 
