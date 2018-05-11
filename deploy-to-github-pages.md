@@ -1,5 +1,7 @@
 # Deploy to GitHub Pages
 
+This is an old version - we should check this :\)
+
 To deploy our changes to GitHub pages we will use the angular-cli-ghpages package [https://github.com/angular-buch/angular-cli-ghpages](https://github.com/angular-buch/angular-cli-ghpages)
 
 * You need to have a GitHub user
