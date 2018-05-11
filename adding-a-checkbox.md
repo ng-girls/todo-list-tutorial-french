@@ -47,7 +47,7 @@ export class TodoItemComponent implements OnInit {
     this.update.emit({
       item: this.item,
       changes: {completed: !this.item.completed}
-    };
+    });
   }
 ```
 
