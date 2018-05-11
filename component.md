@@ -47,9 +47,9 @@ Interpolation is one of the strongest, most basic features in Angular. It has ex
 In this component, the expression is simply the member of the component class, `title`. **Let's try to change it.** Try out the following and see the result in the browser. \(With every change you make in the file, the browser will refresh automatically!\)
 
 * Remove the curly braces and keep just the content `title`.
-* Put the curly braces back and replace the content with some mathematical expression, for example: `{% raw %}{{ 2 + 2 }}{% endraw %}`. \(The spaces are not mandatory, they just make the code more readable.\)
-* Write a mathematical expression combined with the `title` member: `{% raw %}{{ title + 10 }}{% endraw %}`
-* Pass an undefined variable to the expression - a variable which was not declared in the component class. For example: `{% raw %}{{ x }}{% endraw %}`
+* Put the curly braces back and replace the content with some mathematical expression, for example: `{{ 2 + 2 }}`. \(The spaces are not mandatory, they just make the code more readable.\)
+* Write a mathematical expression combined with the `title` member: `{{ title + 10 }}`
+* Pass an undefined variable to the expression - a variable which was not declared in the component class. For example: `{{ x }}`
 * Try out anything you'd like. Don't worry - you can't do any harm to the browser or the computer! In the worst case, the browser will run out of memory and will get stuck. \(But you'll have to write something really complicated to make that happen!\)
 
 This is one way that you can bind members of the component's controller to its template. How does Angular know that this is the template of the App component?
