@@ -69,7 +69,7 @@ export class StorageService {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-If something looks unfamiliar or odd to you, please refer to the [Creating a Service chapter](service.md) for more detailed information about services.
+If something looks unfamiliar or odd to you, please refer to the [Creating a Service chapter](creating-a-service.md) for more detailed information about services.
 
 We need to provide the service in our NgModule. Open `app.module.ts` and add the new class to the `providers` list:
 

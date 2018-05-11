@@ -143,7 +143,7 @@ Add the following style to `input-button-unit.component.css`:
 
 How does this stylesheet get attached to the `input-button-unit` component? Look at the file `input-button-unit.component.ts`. One of the properties in the object passed to the `@Component` decorator is `styleUrls`. It's a list of stylesheets to be used by Angular, which encapsulates the style within the component.
 
-The selector :host is applied to the element that holds this component - `<app-input-button-unit>`. This element is not a part of this component's template. It appears in its parent's template. This is how we can control its  style from within the component.
+The selector :host is applied to the element that holds this component - `<app-input-button-unit>`. This element is not a part of this component's template. It appears in its parent's template. This is how we can control its style from within the component.
 
 We need to add the `todo-input` class to the `input` element:
 

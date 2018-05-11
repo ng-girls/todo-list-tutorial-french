@@ -63,7 +63,7 @@ Let's wrap the item title in a `<span>`, then use NgClass to apply the styling:
 
 ```markup
 <span class="todo-title" [ngClass]="{'todo-complete': isComplete}">
-  {{ todoItem.title }}
+  {{ item.title }}
 </span>
 ```
 
