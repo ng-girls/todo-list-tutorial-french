@@ -27,6 +27,8 @@ export class TodoListService {
 
 ## Provide the service
 
+In version 6 of the Angular CLI you don't need to provide the service by yourself - the CLI adds it to the root `NgModule`. But you can keep on reading to understand what happens and what it means.
+
 To start using the service, we first need to _provide_ it in an `NgModule`. We have only one `NgModule` in our app - the `AppModule` located in `/src/app/app.module.ts`. It's an empty class preceded by the `@NgModule` decorator to which we pass a configuration object. One of the properties of this object is a `providers` list which is currently empty. We'll add our new service to the list. 
 
 {% code-tabs %}
