@@ -27,7 +27,7 @@ Make sure that `Output` and `EventEmitter` are added to the import declaration i
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit.component.ts" %}
 ```typescript
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
