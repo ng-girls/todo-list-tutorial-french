@@ -39,8 +39,6 @@ What we pass into the decorator function is used by Angular to decorate the clas
 
 **imports**: a list of other NgModules which are needed for this module. For example, we may use things from `FormsModule` - directives and services, inside the `AppComponent`.
 
-**providers**: a list of services which will be provided at the application root. A service is also a class, and by providing it a single instance \(singleton\) is created for the whole application. We will talk about services later on.
-
 **bootstrap**: this member is relevant only to the root NgModule. You will not find it in the modules in the imports list for example. It tells Angular which component should be used as the root component of the application. Every component can use other components in its template. We have one root component that starts the whole structure. So we actually get a **tree structure** of the components that build our application. In this case, the root component is `AppComponent` \(with the selector `todo-root`\). We saw it used in `index.html` as the only component inside the `<body>`.
 
 How does Angular know that the `AppModule` is the root NgModule? This is defined in the file `main.ts` in the last lines:
