@@ -11,7 +11,7 @@ Ce tutoriel vous montrera comment créer pas à pas votre propre application Tod
 Ce tutoriel est open source et rédigé par la communauté. Envoyez librement toutes vos suggestions et pull requests.
 Un grand merci aux membres d'** Angular AfterHours meetup group **pour avoir initier ce tutoriel pendant un [évenement meetup](http://www.meetup.com/Angular-AfterHours/events/235151422/)!
 
-The tutorial is used in the [ngGirls](http://ng-girls.org) workshops. You are welcome to use it in your own workshop and we'd love to hear about it! Write to us: [info@ng-girls.org](mailto:info@ng-girls.org).
+Ce tutoriel est utilisé lors des ateliers [ngGirls](http://ng-girls.org). Vous pouvez l'utiliser dans vos propres ateliers et nous aimerions recevoir des nouvelles là-dessus ! Ecrivez-nous : [info@ng-girls.org](mailto:info@ng-girls.org).
 
 ![](.gitbook/assets/nggirls-banner-transparent%20%284%29.png)
 
