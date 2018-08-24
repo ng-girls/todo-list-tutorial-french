@@ -4,7 +4,7 @@
 
 ## Création d'une app Todo-List
 
-Ce tutoriel vous montrera comment créer pas à pas votre propre application Todo List en utilisant Angular \(version 2 et supérieures\). Dans ce tutoriel, nous utiliserons Angular CLI, nous sauverons les données en mémoire locale et déploierons le code dans Github.
+Ce tutoriel vous montrera comment créer pas à pas votre propre application Todo List en utilisant Angular \(version 2 et supérieures\). Dans ce tutoriel, nous utiliserons Angular CLI, nous sauverons les données localement et déploierons le code dans Github.
 
 ### [Version StackBlitz - utilise un éditeur en ligne](https://ng-girls.gitbook.io/todo-list-tutorial/v/stackblitz/)
 
