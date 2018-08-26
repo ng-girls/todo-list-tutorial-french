@@ -4,7 +4,7 @@ Angular est bien plus qu'un framework. C'est une plateforme complète pour crée
 
 ![](.gitbook/assets/angular.png)
 
-Dans ce tutiriel vous allez apprendre à développer une application simple avec Angular. Vous allez devoir connaître les éléments fondateurs pour faire fonctionner une application : modules, composants et services. Angular CLI vous aider dans le processus dans de nombreux cas et simplifiera le développement.
+Dans ce tutoriel vous allez apprendre à développer une application simple avec Angular. Vous allez devoir connaître les éléments fondateurs pour faire fonctionner une application : modules, composants et services. Angular CLI vous aider dans le processus dans de nombreux cas et simplifiera le développement.
 
 A la fin de ce tutoriel, vous aurez une application todo-list prête à l'usage, qui vous montrera une liste d'items et vous donnera la possibilité d'ajouter ou supprimer des items. Vous aurez même la possibilité de changer le titre d'un item existant.
 
