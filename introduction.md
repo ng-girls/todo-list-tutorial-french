@@ -4,19 +4,18 @@ Angular est bien plus qu'un framework. C'est une plateforme complète pour crée
 
 ![](.gitbook/assets/angular.png)
 
-In this tutorial you'll learn how to develop a basic application using Angular. You will get to know the building blocks to have a working application: modules, components and services. The Angular CLI will help you in the process in many ways and will simplify the development process.
+Dans ce tutiriel vous allez apprendre à développer une application simple avec Angular. Vous allez devoir connaître les éléments fondateurs pour faire fonctionner une application : modules, composants et services. Angular CLI vous aider dans le processus dans de nombreux cas et simplifiera le développement.
 
-By the end of this tutorial, you'll have a ready todo-list application, that shows a list of items and lets you add or delete items. You will even be able to change the title of an existing item.
+A la fin de ce tutoriel, vous aurez une application todo-list prête à l'usage, qui vous montrera une liste d'items et vous donnera la possibilité d'ajouter ou supprimer des items. Vous aurez même la possibilité de changer le titre d'un item existant.
 
-The list is saved in the browser's local storage. All the changes will remain even when you refresh the browser or even turn off your computer \(as long as you use the same browser on the same computer and not in private mode\).
+La liste est sauvegardé dans la mémoire locale du navigateur. Tous les changements seront conservés même si vous raffraichissez la page de votre navigateur ou éteignez votre ordinateur \(aussi longtemps que vous vous servez du même ordinateur et pas en mode privé\).
 
-You will even publish the application on the Web, so that other could use it!
+Vous pourrez même publier votre application sur le web, et ainsi d'autres personnes pourrons l'utiliser!
 
-After completing this tutorial, we encourage you to continue developing the application and adding your personal touch.
+Après avoir complété ce tutoriel, nous vous encourageons à continier à développer l'application et à y apporter votre touche personnelle.
 
-This tutorial is meant for beginners. As such it tries to address good practices, but due to its simplicity, it's not always possible.
+Ce tutoriel a été pensé pour les débutants. Et donc il essaye de partager des bonnes pratiques, mais en raison de sa simplicité, ce n'est pas toujours possible.
 
-We really hope this tutorial will help you in your first stages of Web development using Angular!
+Nous espérons vraiment que ce tutoriel vous aidera dans les premières étapes de développement web avec Angular!
 
 Enjoy!
-
