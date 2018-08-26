@@ -12,7 +12,7 @@ La liste est sauvegardée dans la mémoire locale du navigateur. Tous les change
 
 Vous pourrez même publier votre application sur le web, et ainsi d'autres personnes pourrons l'utiliser!
 
-Après avoir complété ce tutoriel, nous vous encourageons à continier à développer l'application et à y apporter votre touche personnelle.
+Après avoir complété ce tutoriel, nous vous encourageons à continuer à développer l'application et à y apporter votre touche personnelle.
 
 Ce tutoriel a été pensé pour les débutants. Et donc il essaye de partager des bonnes pratiques, mais en raison de sa simplicité, ce n'est pas toujours possible.
 
