@@ -18,4 +18,4 @@ Ce tutoriel a été pensé pour les débutants. Il donc essaye de partager des b
 
 Nous espérons vraiment que ce tutoriel vous aidera dans les premières étapes de développement web avec Angular!
 
-Enjoy!
+Amusez-vous !
