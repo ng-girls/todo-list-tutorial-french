@@ -8,7 +8,7 @@ Dans ce tutoriel vous allez apprendre à développer une application simple avec
 
 A la fin de ce tutoriel, vous aurez une application todo-list prête à l'usage, qui vous montrera une liste d'items et vous donnera la possibilité d'ajouter ou supprimer des items. Vous aurez même la possibilité de changer le titre d'un item existant.
 
-La liste est sauvegardé dans la mémoire locale du navigateur. Tous les changements seront conservés même si vous raffraichissez la page de votre navigateur ou éteignez votre ordinateur \(aussi longtemps que vous vous servez du même ordinateur et pas en mode privé\).
+La liste est sauvegardée dans la mémoire locale du navigateur. Tous les changements seront conservés même si vous raffraichissez la page de votre navigateur ou éteignez votre ordinateur \(aussi longtemps que vous vous servez du même ordinateur et pas en mode privé\).
 
 Vous pourrez même publier votre application sur le web, et ainsi d'autres personnes pourrons l'utiliser!
 
