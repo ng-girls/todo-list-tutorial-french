@@ -1,6 +1,6 @@
 # Introduction
 
-Angular is much more than a framework. It's a whole platform for creating applications that can run not only on a browser, but anywhere. It gives you tools to advanced capabilities, such as easily creating dynamic components, routes definitions and much more.
+Angular rst bien plus qu'un framework. C'est une plateforme complète pour créer des applications qui ne fonctionnent pas uniquement dans le navigateur, mais partout. Angular vous fournit des outils pour des utilisations avancées, comme créer des composants dynamiques, définir des routes et bien plus.
 
 ![](.gitbook/assets/angular.png)
 
