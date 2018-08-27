@@ -7,11 +7,11 @@ Dans [Service-Oriented Architecture \(SOA\) vs. Component Based Architecture](ht
 
 > Un composant est un object logiciel, dont le but est d'interagir avec d'autres composants, encapsulant certaines fonctionnalités ou un ensemble de fonctionnalités. Un composant a une interface clairemant définie, et se conforme à un comportement prescrit commun à tous les composants à l'intérieur d'une architecture.
 
-In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
+Dans les applications web, **un composant contrôle une partie de l'écran appelée vue**. C'est une partie de ce que vous verrez finalement sur l'écran. Il a un modèle qui définit la structure visuelle. Il a aussi une partie logique qui définit le comportement et les valeurs dynamiques. La partie logique est du code JavaScript et s'apelle le contrôleur.
 
-Here's a diagram of a component in Angular, with the result below.
+Voici un diagramme d'un composant avec le résultat en dessous.
 
-Directives, pipes and services are other building blocks in Angular, which can be used in a component \(in the diagram we see only the usage of a pipe\). We will discuss them later in the tutorial.
+Les directives, les pipes et les services sont d'autres éléments constructeurs en Angular qui peuvent être utilisés dans un composants \(Dans le diagramme nous voyons uniquement l'utilisation de pipe\). Nous en parlerons dans la suite du tutoriel.
 
 Let's take a look at the component that was created by the Angular CLI. All the relevant files exist in the folder `src/app`. Open the file `app.component.ts`.
 
