@@ -1,6 +1,6 @@
-# Component
+# Composant
 
-One approach in Web development \(and software development generally\) is component-based architecture. In the past years it has gained a lot of popularity. What is a component?
+Une approche dans le dévelopement web \(et le développement de logiciel générallement\) est l'architecture orientée composants. Ces dernières années ce type d'architecture a gagné en popularité. Qu'est-ce qu'un composant ?
 
 In [Service-Oriented Architecture \(SOA\) vs. Component Based Architecture](http://petritsch.co.at/download/SOA_vs_component_based.pdf), Helmut Petritsch defines a component as follows:
 
