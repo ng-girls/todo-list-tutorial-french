@@ -2,9 +2,10 @@
 
 Une approche dans le dévelopement web \(et le développement de logiciels générallement\) est l'architecture orientée composants. Ces dernières années ce type d'architecture a gagné en popularité. Qu'est-ce qu'un composant ?
 
-In [Service-Oriented Architecture \(SOA\) vs. Component Based Architecture](http://petritsch.co.at/download/SOA_vs_component_based.pdf), Helmut Petritsch defines a component as follows:
 
-> A component is a software object, meant to interact with other components, encapsulating certain functionality or a set of functionalities. A component has a clearly defined interface and conforms to a prescribed behaviour common to all components within an architecture.
+Dans [Service-Oriented Architecture \(SOA\) vs. Component Based Architecture](http://petritsch.co.at/download/SOA_vs_component_based.pdf), Helmut Petritsch definit un composant comme suit :
+
+> Un composant est un object logiciel, ayant l'intention d'interagir avec d'autres composants, encapsulant certaines fonctionnalités ou un ensemble de fonctionnalités. Un composant a une interface clairemant définie, et se conforme à un comportement prescrit commun à tous les composants à l'intérieur d'une architecture.
 
 In Web applications, **a component controls a patch of screen called a view**. It's a part of what you will eventually see on the screen. It has a template, which defines its visual structure. It also has logic which defines the behavior and the dynamic values. The logic part is JavaScript code and is called the controller.
 
