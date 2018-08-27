@@ -1,6 +1,6 @@
 # Interface
 
-We want to use TypeScript's abilities to know what kind of object we pass as an `item` to the `todo-item` component. We'll make sure that the item is of the right type. But its type is not a simple string, number or boolean. We'll define the item's type using can **interface**. 
+We want to use TypeScript's abilities to know what kind of object we pass as an `item` to the `todo-item` component. We'll make sure that the item is of the right type. But its type is not a simple string, number or boolean. We'll define the item's type using can **interface**.
 
 > We've already seen an interface provided by Angular: the `OnInit` interface which includes the method `ngOnInit`. Every Class that implements this interface should define this method. Otherwise we'll get an error during compile time.
 >

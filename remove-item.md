@@ -79,5 +79,3 @@ removeItem(item) {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-
-

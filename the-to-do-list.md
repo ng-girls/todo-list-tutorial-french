@@ -21,7 +21,7 @@ todoList = [
 
 > Putting info \(resources\) right inside your code is called hardcoding and is considered an especially bad practice. Eventually we'll get the list from an external source, but even if not, it's best to place mock data in their own files. But let's advance step-by-step, so defining items this way is okay for now.
 
-Now you have to tell the browser to display those items. For this, you will use the **Angular built-in directive, **`*ngFor`. It works like an enhanced loop in Java. The `*` notation causes Angular to use the current element as a template when rendering the list.
+Now you have to tell the browser to display those items. For this, you will use the **Angular built-in directive,** `*ngFor`. It works like an enhanced loop in Java. The `*` notation causes Angular to use the current element as a template when rendering the list.
 
 Insert the loop right after `<app-input-button-unit></app-input-button-unit>`, this way:
 

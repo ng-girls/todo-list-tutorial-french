@@ -148,7 +148,7 @@ constructor() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-![lab-icon](.gitbook/assets/lab%20%281%29.jpg) **Playground**: You can try calling the method with different arguments \(the string passed inside the brackets\) from `ngOnInit`. Try calling it before or after assigning a value directly to title. Try calling it a few times from the same method. See the result in the browser.
+![lab-icon](.gitbook/assets/lab-1.jpg) **Playground**: You can try calling the method with different arguments \(the string passed inside the brackets\) from `ngOnInit`. Try calling it before or after assigning a value directly to title. Try calling it a few times from the same method. See the result in the browser.
 
 ## Debugging Tip
 

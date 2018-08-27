@@ -1,21 +1,22 @@
 # Introduction
 
-Angular est bien plus qu'un framework. C'est une plateforme de développement complète qui permet de créer des applications qui ne fonctionnent pas uniquement dans le navigateur, mais partout ailleurs. Angular vous fournit des outils pour une utilisation avancée, comme créer des composants dynamiques, définir des routes et bien plus.
+Angular est beaucoup plus qu'un simple framework. C'est une plateforme complète pour créer des applications universelles, capables de s'exécuter à la fois dans un navigateur mais aussi sur plusieurs environnements \(serveur, mobile...etc\). Angular propose un ensemble d'outils et de solutions permettant la création dynamique des composants, la gestion des définitions des routes et beaucoup plus.
 
 ![](.gitbook/assets/angular.png)
 
-Dans ce tutoriel vous allez apprendre à développer une application simple avec Angular. Vous allez devoir connaître les blocs constructeurs pour faire fonctionner une application : modules, composants et services. Angular CLI va vous aider de nombreuses fois dans le processus et simplifiera le développement.
+Dans ce tutoriel, vous allez apprendre comment développer une application Angular dite "simple". Vous allez apprendre les notions de bases vous permettant d'avoir une application Angular opérationnelle : modules, composants et services. L'outil en ligne de commande d'Angular, appelé Angular CLI, est un outil qui vous aidera énormément dans votre processus de développement : pour la génération des squelettes de vos composants, services, directives...etc, pour lancer les tests, le packaging...etc.
 
-A la fin de ce tutoriel, vous aurez une application todo-list prête à l'usage, qui vous montrera une liste d'items et vous donnera la possibilité d'ajouter ou supprimer des items. Vous aurez même la possibilité de changer le titre d'un item existant.
+A la fin de ce tutoriel, vous allez avoir une application todo-list prête et fonctionnelle, elle affichera la listes de tâches et vous allez pouvoir y ajouter et supprimer des éléments. Vous pourrez également modifier le titre de chaque élément.
 
-La liste est sauvegardée dans la mémoire locale du navigateur. Tous les changements seront conservés même si vous raffraichissez la page de votre navigateur ou éteignez votre ordinateur \(aussi longtemps que vous vous servez du même ordinateur et pas en mode privé\).
+Les données de la liste seront sauvegardées dans votre navigateur, plus précisément dans le Local Storage. Cela permettra de persister les données même si vous rechargez votre page ou éteignez votre ordinateur \(tant que vous utilisez le même navigateur et hors de la navigation privée\).
 
-Vous pourrez même publier votre application sur le web, et ainsi d'autres personnes pourrons l'utiliser !
+Vous allez également pouvoir publier votre application sur le Web afin que tout le monde puisse l'utiliser.
 
-Après avoir complété ce tutoriel, nous vous encourageons à continuer à développer l'application et à y apporter votre touche personnelle.
+Après avoir fini ce tutoriel, nous vous encourageons à continuer de travailler sur votre application et l'enrichir avec vos propres idées.
 
-Ce tutoriel a été pensé pour les débutants. Il essaye donc de partager des bonnes pratiques, mais en raison de sa simplicité, n'y parvient pas toujours.
+Ce tutoriel est prévu pour les personnes débutantes. Nous nous forcerons à respecter les bonnes pratiques d'Angular, dans la limite du possible.
 
-Nous espérons vraiment que ce tutoriel vous aidera dans les premières étapes de développement web avec Angular !
+Nous espérons que ce tutoriel vous aidera dans votre apprentissage du développement Web avec Angular.
 
-Amusez-vous !
+Amusez-vous bien !
+

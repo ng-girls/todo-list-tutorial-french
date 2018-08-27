@@ -1,6 +1,6 @@
 # Table of contents
 
-* [About](README.md)
+* [A propos](README.md)
 * [Introduction](introduction.md)
 * [Installations](installations.md)
 * [Angular kicks in](angular-kicks-in.md)

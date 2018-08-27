@@ -1,7 +1,6 @@
-# Composant
+# Component
 
 Une approche dans le dévelopement web \(et le développement de logiciels générallement\) est l'architecture orientée composants. Ces dernières années ce type d'architecture a gagné en popularité. Qu'est-ce qu'un composant ?
-
 
 Dans [Service-Oriented Architecture \(SOA\) vs. Component Based Architecture](http://petritsch.co.at/download/SOA_vs_component_based.pdf), Helmut Petritsch definit un composant comme suit :
 
@@ -125,7 +124,7 @@ template: ``,
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Notice the **backticks** - **\` **- they are used to define Template Literals, which are new in JavaScript \(ES6\). This way you can define multi-line strings. They have another cool ability: to easily use JavaScript variables and expressions within the string \(with no relation to Angular binding expressions in the template\). Read about it in the [MDN documentation](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
+Notice the **backticks** - **\`** - they are used to define Template Literals, which are new in JavaScript \(ES6\). This way you can define multi-line strings. They have another cool ability: to easily use JavaScript variables and expressions within the string \(with no relation to Angular binding expressions in the template\). Read about it in the [MDN documentation](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
 
 Make sure you replace `templateUrl` with `template`, and don't forget the comma at the end of the line.
 
@@ -153,7 +152,7 @@ Let's configure the Angular CLI to give us inline-template as a default. In the 
 
 If you wish to continue this tutorial with templates in separate HTML files, do not run this command, and use the generated `.html` files for the templates.
 
-> **Note: **You can specify that you'd like to use inline-template throughout the project in several ways:
+> **Note:** You can specify that you'd like to use inline-template throughout the project in several ways:
 >
 > * When generating a project, pass the flag `-it` or `--inline-template` like this: `ng new todo-list -it`
 > * After generating a project, add it to the configuration so that components generated from this point on will have an inline template: `ng set defaults.component.inlineTemplate true`. \(From version 6 you'll need to use the command `ng config projects.YOURPROJECTNAME.schematics.@schematics/angular:component.inlineTemplate true` instead\) This adds the line `inlineTemplate: true` in the Angular CLI configuration file `.angular-cli.json` \(`angular.json` in version 6\). You can also edit the file directly.

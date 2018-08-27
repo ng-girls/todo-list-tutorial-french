@@ -18,7 +18,7 @@ import { Component, OnInit } from '@angular/core';
       input-button-unit works!
       The title is: {{ title }}
     </p>
-    
+
     <input [value]="title">
     <button>Save</button>
   `,  
@@ -64,7 +64,7 @@ template: `
     input-button-unit works!
     The title is: {{ title }}
   </p>
-  
+
   <input [value]="title">
   <button (click)="changeTitle('Button Clicked!')">
     Save
@@ -144,7 +144,7 @@ Now the title will change only when the user hits the Enter key while typing in 
 
 ### Explore the $event
 
- ![lab-icon](.gitbook/assets/lab%20%281%29.jpg)**Playground: **You can change the changeTitle method to log the `$event` object in the console. This way you can explore it and see what properties it has.
+![lab-icon](.gitbook/assets/lab-1.jpg)**Playground:** You can change the changeTitle method to log the `$event` object in the console. This way you can explore it and see what properties it has.
 
 Change the method `changeTitle`:
 
@@ -198,10 +198,10 @@ import { Component, OnInit } from '@angular/core';
       input-button-unit works!
       The title is: {{ title }}
     </p>
-    
+
     <input [value]="title" 
            (keyup.enter)="changeTitle($event.target.value)">
-       
+
     <button (click)="changeTitle('Button Clicked!')">
       Save
     </button>
@@ -215,7 +215,7 @@ export class InputButtonUnitComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   changeTitle(newTitle: string) {
     this.title = newTitle;
   }

@@ -20,7 +20,7 @@ Add the following line inside the `InputButtonUnitComponent` Class, which define
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-The output property is called `submit`. It's of type `EventEmitter` which has the method `emit`. `EventEmitter` is a Generic Type - we pass to it another type which will be used internally, in this case it's `string`. It's the type of the object that will be emitted by the `emit` method. 
+The output property is called `submit`. It's of type `EventEmitter` which has the method `emit`. `EventEmitter` is a Generic Type - we pass to it another type which will be used internally, in this case it's `string`. It's the type of the object that will be emitted by the `emit` method.
 
 Make sure that `Output` and `EventEmitter` are added to the import declaration in the first line of the file:
 
@@ -44,7 +44,7 @@ changeTitle(newTitle: string) {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-We delegate everything to the parent component - even actually changing the title of the item if needed. 
+We delegate everything to the parent component - even actually changing the title of the item if needed.
 
 We pass `newTitle` when we emit the event. Whatever we pass in `emit()` will be available for the parent as `$event`.
 
@@ -104,7 +104,7 @@ addItem(title: string) {
 
 Try it out - enter a new todo item title in the input field and submit it!
 
-**Note:** We're using **ES6 Object Property Value Shorthand**  to construct the todo item object. If we use a variable with the same name of the object's property to which we want to assign the variable's value to, we can use this shorthand notation. In our case, `{ title }` is equivalent to `{ title: title }`.  If the string was stored in a variable with a different name, we couldn't have used the shorthand. For example: 
+**Note:** We're using **ES6 Object Property Value Shorthand** to construct the todo item object. If we use a variable with the same name of the object's property to which we want to assign the variable's value to, we can use this shorthand notation. In our case, `{ title }` is equivalent to `{ title: title }`. If the string was stored in a variable with a different name, we couldn't have used the shorthand. For example:
 
 {% code-tabs %}
 {% code-tabs-item title="code for example" %}

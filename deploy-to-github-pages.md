@@ -47,7 +47,7 @@ ng build --prod --base-href="/[your-repo-name]/"
 angular-cli-ghpages
 ```
 
-Your app will be available at \[[https://\[your-GH-username\].github.io/\[repo-name\]\(https://\[your-GH-username\].github.io/\[repo-name\)\](https://[your-GH-username].github.io/[repo-name]%28https://[your-GH-username].github.io/[repo-name%29\)\]
+Your app will be available at \[\[[https://\[your-GH-username\].github.io/\[repo-name\]\(https://\[your-GH-username\].github.io/\[repo-name\)\]\(https://\[your-GH-username\].github.io/\[repo-name\]\(https://\[your-GH-username\].github.io/\[repo-name\)\)\](https://[your-GH-username].github.io/[repo-name]%28https://[your-GH-username].github.io/[repo-name%29]%28https://[your-GH-username].github.io/[repo-name]%28https://[your-GH-username].github.io/[repo-name%29%29\)\]
 
 For more information see [https://github.com/angular-buch/angular-cli-ghpages](https://github.com/angular-buch/angular-cli-ghpages).
 

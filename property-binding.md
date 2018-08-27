@@ -43,7 +43,7 @@ template: `
     input-button-unit works!
     The title is: {{ title }}
   </p>
-  
+
   <input>
   <button>Save</button>
 `,
@@ -83,7 +83,7 @@ Try this out and see the result in the browser!
 
 The expressions that we can bind to in the template are not limited to class properties. They can be a method call or almost any other valid JavaScript expression.
 
-![lab-icon](.gitbook/assets/lab%20%281%29.jpg) **Playground**: For example, let's bind the input value to a method call that returns a value. First, let's add the method `generateTitle` anywhere inside the class, but not inside any of its methods.
+![lab-icon](.gitbook/assets/lab-1.jpg) **Playground**: For example, let's bind the input value to a method call that returns a value. First, let's add the method `generateTitle` anywhere inside the class, but not inside any of its methods.
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
@@ -111,7 +111,7 @@ Replace one or both of the bindings of the title in the template with the method
 
 Angular has a very efficient change detection mechanism. It looks for bindings in the components' templates, and then updates the value each time the bound expression is changed.
 
-![lab-icon](.gitbook/assets/lab%20%281%29.jpg) **Playground**: To show this, let's change the value of the title after a few seconds and see what happens. Call the `setTimeout` function inside `ngOnInit`:
+![lab-icon](.gitbook/assets/lab-1.jpg) **Playground**: To show this, let's change the value of the title after a few seconds and see what happens. Call the `setTimeout` function inside `ngOnInit`:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
