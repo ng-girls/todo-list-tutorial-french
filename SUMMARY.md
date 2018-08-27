@@ -3,7 +3,7 @@
 * [A propos](README.md)
 * [Introduction](introduction.md)
 * [Installations](installations.md)
-* [Angular kicks in](angular-kicks-in.md)
+* [Démarrage](angular-kicks-in.md)
 * [Component](component.md)
 * [A new component](a-new-component.md)
 * [Class](class.md)
