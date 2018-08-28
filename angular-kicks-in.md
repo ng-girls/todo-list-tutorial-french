@@ -5,7 +5,7 @@ Voir plus de détails sur les fichiers générés par le CLI d'Angular dans l'[A
 
 Si vous avez hâte de commencer la partie technique, vous pouvez passer ce chapitre et y revenir ultérieurement pour mieux comprendre la structure du projet.
 
-Ouvrir le fichier `index.html`. Le contenu qui est affiché dans la fenêtre de votre navigateur est celui de la balise HTML `<body>` .Tout ce que vous pouvez y apercevoir pour le moment est un autre élément ne faisant pas partie du standard HTML : `<app-root></app-root>`. Cet élément est en fait un composant Angular, définit dans le fichier `app/app.component.ts` grâce à la classe **AppComponent**. \(Nous y reviendrons dans le prochain chapitre\).
+Ouvrir le fichier `index.html`. Le contenu qui est affiché dans la fenêtre de votre navigateur est celui de la balise HTML `<body>` .Tout ce que vous pouvez y apercevoir pour le moment est un autre élément ne faisant pas partie du standard HTML : `<app-root></app-root>`. Cet élément est en fait un composant Angular, défini dans le fichier `app/app.component.ts` grâce à la classe **AppComponent**. \(Nous y reviendrons dans le prochain chapitre\).
 
 > Angular peut être utilisé de plusieures manières. Par exemple, grâce à du code JavaScript qui s'exécutera lorsque l'application est interprété par le navigateur. Tout le code que vous allez écrire — composants, modules, services, etc... sera reconnu puis traité par Angular. Par exemple, les composants que vous allez coder et utiliser seront compilés en des fonctions JavaScript. Ces fonctions vont pouvoir insérer le contenu du composant Angular dans le DOM \(Document Object Model\) — qui est la représentation de la structure de votre page dans la mémoire de l'ordinateur et que le navigateur utilise pour afficher \(rendre\) votre application. Voilà comment vous allez visualiser les composants que vous allez créer.
 
@@ -17,7 +17,7 @@ Passons maintenant à l'étape suivante et découvrons une des notions élément
 
 ## NgModule
 
-Angular a besoin que nous lui disions quels sont les éléments qu'il doit traiter et compiler. Pour cela, nous utilisons les Modules, au appelés **NgModules**, qui sont en quelque sorte un package dans lequel nous mettons les choses ayant la même utilité ! Ces packages peuvent inclure des composants, des services, des directives, des pipes ainsi que d'autres NgModules. Nous avons déjà un NgModule racine définit dans le fichier `app/app.module.ts`. Analysons ce fichier.
+Angular a besoin que nous lui disions quels sont les éléments qu'il doit traiter et compiler. Pour cela, nous utilisons les Modules, au appelés **NgModules**, qui sont en quelque sorte un package dans lequel nous mettons les choses ayant la même utilité ! Ces packages peuvent inclure des composants, des services, des directives, des pipes ainsi que d'autres NgModules. Nous avons déjà un NgModule racine défini dans le fichier `app/app.module.ts`. Analysons ce fichier.
 
 La dernière ligne de ce fichier est une class JavaScript :
 
@@ -52,15 +52,19 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-We bootstrap our root NgModule to a renderer. This way we tell Angular what NgModule to use as the starting point of our application. And we also choose a renderer: `platformBrowserDynamic`. It knows how to take our code and add the relevant data \(elements, attributes, etc.\) to the browser's DOM.
+Nous lançons ensuite le NgModule racine grâce à l'un des moteurs de rendu fournis par Angular. De cette manière nous configurons Angular avec le bon NgModule à utiliser comme point de départ de notre application. Nous choissisons également le moteur de rendu `platformBrowserDynamic`. Ce moteur est conçu pour afficher les applications Angular dans un le DOM du navigateur en ajoutant les bons éléments, attributs, etc...
 
-If there's an error, it is caught and logged in the browser's console \(seen only when the browser's dev-tools are open\).
+Dans le cas où une erreur est déclenchée, elle est traitée puis affichée dans la console du navigateur (elle peut être consultée uniquement lorsque les outils de développement sont ouvert).
 
-We can use a different renderer at this point, for example one that renders to Android or iOS native elements! We just need a renderer that knows how to take our templates \(which use HTML notations\) and JavaScript code, and create native mobile application elements. An example to such a renderer is [NativeScript](https://www.nativescript.org/) by Telerik.
+Il est tout à fait possible d'utiliser des moteurs de rendu différents pour afficher notre application dans un environnement différent du navigateur (ne possédant pas de DOM). Par exemple, pour utiliser notre application Angular en tant qu'application native pour Android ou iOS, il suffit d'avoir un moteur de rendu capable d'interpréter les templates HTML et le code JavaScript de notre application et les transformer en une application mobile native. Le moteur [NativeScript](https://www.nativescript.org/) de Telerik est un très bon exemple d'un tel moteur de rendu.
 
-There are even renderers to Arduino, with which you can connect sensors, buttons, LEDs and other hardware to your application! You can see a great example for this here: [Building Simon with Angular2-IoT](https://medium.com/@urish/building-simon-with-angular2-iot-fceb78bb18e5#.430qu216w).
+Il existe même des moteurs de rendu pour Arduino, avec lesquels vous pouvez connecter, à votre application, des capteurs, boutons, LEDs et autre composants électroniques ! Voici un très bon exemple d'un de ces moteurs détaillé dans cet article : You can see a great example for this here: [Building Simon with Angular2-IoT](https://medium.com/@urish/building-simon-with-angular2-iot-fceb78bb18e5#.430qu216w).
 
-We've seen how we tell Angular where and how to start its work, how we define the root module and the root component, and how we use the root component.
+De même, pour permettre à Angular d'exécuter votre application côté serveur; il existe une solution officielle proposée par l'équipe Angular. Cette solution a été détaillée dans [cet article](https://medium.com/google-developer-experts/angular-universal-for-the-rest-of-us-922ca8bac84).
 
-In the next chapter we'll see how a component is defined in Angular.
+
+Nous venons de voir comment est géré le processus de démarrage d'une application Angular; Comment configurer Angular pour exécuter notre application dans un navigateur ainsi que comment définir le module racine et le composant de base. 
+
+
+Dans le chapitre suivant, nous découvrirons comment définir et créer des composants en Angular.
 
