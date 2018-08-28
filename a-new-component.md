@@ -1,27 +1,24 @@
-# Un nouveau composant
+# A new component
 
-Dans ce chapitre, nous allons écrire notre premier composant Angular. Le rôle de ce composant sera de nous permettre d'ajouter des entrées dans notre liste des choses à faire. Ce composant contiendra les éléments HTML `input` et `button`. Nous l'appellerons Input-Button-Unit.
+In this chapter we will write a whole new component. It will allow us to add an item to the todo list. It will be composed of the HTML elements `input` and `button`. We will call it Input-Button-Unit.
 
-Nous utiliserons le CLI d'Angular pour générer automatiquement le squelette des fichiers nécessaires. Si votre terminal est déjà ouvert et que la commande `ng serve` est déjà lancée, il vous suffit d'ouvrir une nouvelle fenêtre du terminal pour lancer la commande qui va générer le composant. Les changements apportés par le CLI seront reflétés immédiatement dans le navigateur.
+We'll use the Angular CLI to generate all the needed files and boilerplate for us. The Angular CLI takes commands in a terminal window. This doesn't mean that we have to stop the process `ng serve`. Instead, we can open another terminal window or tab and run the additional commands from there. The changes will be reflected immediately in the browser.
 
-Ouvrez un nouvel onglet dans votre terminal puis exécutez :
+Open another terminal tab and run:
 
 ```text
 ng g c input-button-unit
 ```
 
-Comme mentionné précédement, `ng` est la commande utilisée par le CLI d'Angular :
-* `g` est une option et est le raccourci de `generate`.
-* `c` est une autre option et est le raccourci de `component`.
-* `input-button-unit` est le nom de notre future composant.
+As we've seen before, `ng` is the command for using the Angular CLI. `g` is a shorthand for `generate`. `c` is a shorthand for `component`. `input-button-unit` is the name we give to the component.
 
-Cette commande est la version raccourci de (ne l'exécutez pas !):
+So the long version of the command is \(don't run it\):
 
 ```text
 ng generate component input-button-unit
 ```
 
-Regardons maintenant ce que le CLI d'Angular a généré.
+Let's take a look of what the Angular CLI created for us.
 
 It created a new folder called `src/app/input-button-unit`. There are three files there \(or four if you're not using inline-template\):
 
