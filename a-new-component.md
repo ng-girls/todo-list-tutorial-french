@@ -23,14 +23,14 @@ ng generate component input-button-unit
 
 Regardons maintenant ce que le CLI d'Angular a généré.
 
-It created a new folder called `src/app/input-button-unit`. There are three files there \(or four if you're not using inline-template\):
+Le CLI a créé un nouveau répertoire nommé `src/app/input-button-unit`. Il y a trois fichiers \(ou quatres si vous n'utilisez pas les templates intégrées "inline-template"\):
 
-* `input-button-unit.component.css` - this is where the style that's specific to the component will be placed.
-* `input-button-unit.component.spec.ts` - this is a file for testing the component. We will not deal with it in this tutorial.
-* `input-button-unit.component.ts` - this is the component file where we will define its logic.
-* `input-button-unit.component.html` - this is the HTML template file, if you're not using inline-template.
+* `input-button-unit.component.css` - ceci est le fichier contenant les styles CSS dédiés au composant.
+* `input-button-unit.component.spec.ts` - ce fichier contient le squelette des tests unitaires du composnat généré. Nous n'allons couvrir les tests unitaires dans ce tutoriel.
+* `input-button-unit.component.ts` - ce fichier contient la logique du composant.
+* `input-button-unit.component.html` - ceci est le template HTML (la vue) du composant, si vous n'utilisez pas les templates intégrées "inline-template".
 
-Open the file `input-button-unit.component.ts`. You can see that the Angular CLI has generated the component's configuration for us, including its selector, which is the name we gave preceded by the prefix `app`, and a default template:
+Ouvrez le fichier `input-button-unit.component.ts`. Vous pouvez constater que le CLI d'Angular a généré la configuration du composant, y compris son sélecteur, qui correspond au nom que nous avons donné à notre composant, préfixé par `app`; le CLI a également généré un template par défaut :
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
@@ -48,13 +48,16 @@ Open the file `input-button-unit.component.ts`. You can see that the Angular CLI
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-> The prefix `app` will be added to the component selector of all the components you will generate. This is to avoid name conflicts with other components and HTML elements. For instance, if you create a component named input it will not conflict with HTML's `<input />` element, since its selector will be `app-input`.
+> Le préfixe `app` sera ajouté à tous les sélecteurs de tous les composants que vous allez générer. Cela est dans le but d'éviter des conflits de nommage avec d'autres composants ou éléments HTML. Par exemple, si vous générez un composant nommé "input", cela ne rentrera pas en conflit avec l'élément HTML standard `<input />`, car le composant sera appelé `app-input`.
+
 >
-> `app` is the default prefix, which is good for your main application. However, if you're writing a library of components to be used in other projects, you should choose a different prefix. For example, the [Angular Material](https://material.angular.io/) library uses the prefix `mat`. You can create a project stating the prefix of your choice using the flag `--prefix`, or change it afterwards in the file `.angular-cli.json`.
+> `app` est est le préfixe par défaut, ce qui est suffisant pour une simple application Angular. Cependant, si vous développez une librairie de composants Angular destinés à être utilisés au sein d'autres projets, nous vous recommandons d'utiliser un autre préfixe. Par exemple, la librairie [Angular Material](https://material.angular.io/) utilise le préfix `mat`. Vous pouvez soit définir un préfixe dès la création d'un projet Angular (avec le CLI) en utilisant l'option `--prefix`, ou bien vous pouvez changer le préfixe dans le fichier de configuration du CLI `angular-cli.json`.
 
-We can use this component as-is and see the result!
+Utilisons le composant tel quel et regardons le résultat.
 
-Open the root component file, `app.component.ts` and add the app-input-button-unit tag inside the template \(remember we refactored the root component to have an inline template\):
+
+Ouvrez le composant racine, `app.component.ts` et ajoutez dans son template l'élément `app-input-button-unit` \(rappelez-vous que nous avions modifié le composant racine en y intégrant directement le template, aussi appelé "inline template"\) :
+
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.component.ts" %}
@@ -70,9 +73,10 @@ template: `
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Check what's new in the browser!
+Vérifiez les nouvelles modifications dans le navigateur !
 
-Let's add some content in our new component. First, add a `title` member which we will use as the todo item title:
+Ajoutons maintenant un peu de contenu dans notre nouveau composant. D'abord, ajoutez une propriété `title` qui va représenter le titre de l'élément de notre liste :
+
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
@@ -83,9 +87,10 @@ export class InputButtonUnitComponent implements OnInit {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-It will not interfere with the `app-root` component's `title`, since each component's content is encapsulated within it.
 
-Next, add an interpolation of the title member in the template:
+Cette nouvelle propriété `title` n'interfèrera pas avec celle du composant `app-root` puisque le contenu de chaque composant est encapsulé (renfermé) au sein de ce dernier.
+
+Ensuite, ajoutez une evalution de `title` dans le template. Ce processus est appelé "interpolation" dans le jargon Angular : 
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
@@ -100,7 +105,7 @@ template: `
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Check out the result!
+Vérifiez le résultat !
 
-This component doesn't do much at this point. In the following chapters, we will learn about the component class, and then implement the component's logic.
 
+Ce composant ne fait rien de spécial pour le moment. Dans les chapitres suivants, nous allons introduire la notion de classe et coder la logique de notre composant.
