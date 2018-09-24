@@ -1,6 +1,7 @@
 # Class
 
-A class is a special programmatic structure. It is defined with **members** which can be **properties** \(variables\) and **methods** \(functions\). Then instances of the class are created, usually by calling the `new` operator on the class: `let myInstance = new myClass();`. The instance created is an object on which you can call the class methods and get and set the values of its properties. Multiple instances can be created from one class.
+Une classe est une structure spécifique en programmation. Elle se définie avec des **membres** qui peuvent être des **propriétés** \(variables\) et des **méthodes** \(fonctions\). Des instances de classes sont alors créées, généralement en   se servant de l'opérateur `new` sur la classe : `let myInstance = new myClass();`. L'instance créée est un objet sur lequel on peut appeler la méthode de la classe et donner et fixer les valeurs de ses propriétés. Plusieurs instances peuvent être créées à partir d'un objet.
+
 
 ## In Angular...
 
