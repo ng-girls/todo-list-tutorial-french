@@ -5,9 +5,9 @@ Une classe est une structure spécifique en programmation. Elle se définie avec
 
 ## In Angular...
 
-Angular takes care of creating instances of the classes you define - if they are recognized as Angular building blocks. The decorators make that connection with Angular.
+Angular fait attention à créer des instances des classes que vous définissez - si elles sont reconnues en tant que bloc de construction Angular. Les décorateurs fonc cette connection avec Angular.
 
-Each time you use a component in a template, a new instance of it is created. For example, here three instances of the InputButtonUnitComponent class will be created:
+Chaque fois que vous utilisez un composant dans un template, une nouvelle instance de la classe est créée. Dans l'exemple ci-dessus trois instances de la classe InputButtonUnitComponent sont créées :
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.component.ts" %}
@@ -23,11 +23,11 @@ template: `
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Let's take a look at the class `InputButtonUnitComponent`.
+Examinons la classe `InputButtonUnitComponent`.
 
 ## implements OnInit
 
-First, you see something was added to the class declaration:
+Tout d'abord, vous pouvez voir que quelque chose a été ajouté dans la déclaration de la classe :
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/input-button-unit/input-button-unit.component.ts" %}
