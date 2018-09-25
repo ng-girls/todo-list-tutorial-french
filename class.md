@@ -39,7 +39,7 @@ export class InputButtonUnitComponent implements OnInit {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-`OnInit` is an **interface** - a structure defined but not implemented as a class. It defines which properties and/or methods should exist on the class that implements it. In this case, `OnInit` is an interface for Angular Components which implement the method `ngOnInit`. This method is a **component life-cycle method**. Angular will call this method after the component instance has been created.
+`OnInit` est une **interface** - une structure définie mais pas implémentée en tant que classe. Elle définie quelle propriété et/ou structure devrait être intégrée dans la classe qui implémente l'interface. Dans ce cas, `OnInit` est une interface pour les composants angular qui implémentent la méthode`ngOnInit`. Cette méthode est **composant cycle-de-vie méthode**. Angular va apeller cette méthode après que l'instance du composant a été créée.
 
 The Angular CLI adds this statement to remind us that it's best to initialize things on the component through the `ngOnInit` method. You can see it also added the method in the body of the class:
 
