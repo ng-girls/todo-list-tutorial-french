@@ -1,18 +1,18 @@
 # Refactor App Component
 
-We're going to perform a small refactoring. The `app-root` shouldn't have such a large template and all this logic. It should just call another component that will deal with that.
+Nous allons faire un petit refactoring. Le `app-root` ne devrait pas avoir un aussi gros template ni toute cette logique métier. Il devrait juste appeler un autre composant qui devrait s'en occuper.
 
-* Create a new component called `list-manager`: 
+* Création d'un nouveau composant appelé `list-manager`:
 
 ```bash
 ng g c list-manager
 ```
 
-* Move all the code from `app-root` to `list-manager`.  
-* You can keep the title in app-root, and give it a nice value.
-* Be careful not to change the list manager component's class name!
+* Déplacer tout le code de `app-root` dans `list-manager`
+* Vous pouvez garder la variable `title` dans `app-root` et lui attribuer une valeur
+* Faites attention de ne pas changer le nom de la classe du composant list manager!
 
-{% code-tabs %}
+% code-tabs %}
 {% code-tabs-item title="src/app/app.component.ts" %}
 ```typescript
 @Component({
@@ -73,7 +73,7 @@ export class ListManagerComponent implements OnInit {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-* Call the new component from the `app-root` template:
+* Appelez le nouveau composant depuis le template `app-root`:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.component.ts" %}
@@ -89,5 +89,4 @@ export class ListManagerComponent implements OnInit {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-That's it! Now we can go on.
-
+C'est tout! Maintenant nous pouvons passer à la suite.

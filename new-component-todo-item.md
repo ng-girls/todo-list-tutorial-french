@@ -1,16 +1,15 @@
-# New component: todo-item
+# Nouveau composant: todo-item
 
-We will create a new component which will be used for each todo item that is displayed on the list. It will be a simple component at first, but it will grow later on. What's important is that **it will get the todo item as an input from its parent component**. This way it can be a reusable component, and not rely directly on the application's data and state.
+Nous allons créer un nouveau composant qui sera utilisé pour chaque élément de la todo liste. Ce sera un composant simple pour commencer, que nous allons étoffer par la suite. L'important c'est qu'**il prendra l'élément comme input depuis son composant parent**. Ainsi ce composant sera réutilisable et ne reposera pas directement sur les données et l'état de l'application.
 
-Create a new component called `todo-item`:
+Créer un nouveau composant nommé `todo-item`:
 
 ```text
 ng g c todo-item
 ```
+Comme vous pouvez le voir, un nouveau dossier se créer - `src/app/todo-item`, contenant les fichiers du composant.
 
-You can see a new folder was created - `src/app/todo-item`, with the component files inside.
-
-Use the new component in the template of `app-root` component - inside the `<li>` element:
+Utilisez le nouveau composant dans le template du composant `app-root` - dans l'élément `<li>`:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.component.ts" %}
@@ -24,15 +23,15 @@ Use the new component in the template of `app-root` component - inside the `<li>
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Check out the result in the browser. What do you see? Why?
+Regardez le résultat dans le navigateur. Que voyez-vous? Pourquoi?
 
 ## @Input\(\)
 
-We want to display the title of each item within the `todo-item` component. We need to pass the current item in the loop to the `todo-item` component.
+Nous souhaitons afficher le titre de chaque élément de la liste dans le composant `todo-item`. Nous avons besoin de passer l'élément courant dans la boucle au composant `todo-item`.
 
-Again, Angular makes it really easy for us, by providing the `Input` decorator.
+Encore une fois, Angular nous facilite la tâche en nous fournissant le décorateur `Input`.
 
-Inside the newly generated `TodoItemComponent` class in `todo-item.component.ts` add the line:
+Dans la classe `TodoItemComponent` nouvellement générée dans `todo-item.component.ts`, ajoutez la ligne:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
@@ -42,9 +41,9 @@ Inside the newly generated `TodoItemComponent` class in `todo-item.component.ts`
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-It tells the component to expect an input and to assign it to the class member called `item`. Make sure that `Input` is added to the `import` statement in the first line in the file. Now we can use it inside the `todo-item` template and extract the item's title with interpolation: `{{ item.title }}`
+Ce code dit au composant de s'attendre à un input et de l'assigner à l'attribut `item` de la classe. Assurez-vous que `Input` soit ajouté à l'`import` dans la première ligne du fichier. Nous pouvons maintenant l'utiliser dans le template de `todo-item` et extraire le titre de l'élément en utilisant: `{{ item.title }}`
 
-The component should look like this now:
+Le composant devrait maintenant ressembler à ça:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/todo-item/todo-item.component.ts" %}
@@ -71,7 +70,7 @@ export class TodoItemComponent implements OnInit {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now we need to pass an item where we use the component. Go back to `app-root` component and pass the item title to the `todo-item`:
+Nous devons maintenant passer un élément où nous utilisons le composant. Retournez dans le composant `app-root` et passez le titre de l'élément à `todo-item`:
 
 {% code-tabs %}
 {% code-tabs-item title="src/app/app.component.ts" %}
@@ -85,7 +84,6 @@ Now we need to pass an item where we use the component. Go back to `app-root` co
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-The `item` here in square brackets is the same as declared as the component's `@Input`.
+L'`item` ici entre crochet est le même que celui déclaré avec `@Input` dans le composant.
 
-We used property binding on an element we created ourselves! And now we can actually see and understand that property binding binds to an actual property of the component. Soon we'll see how this list can be dynamic.
-
+Nous avons utilisé les propriétés de binding sur un élément que nous avons crée nous-même! Nous pouvons maintenant voir et comprendre que cette propriété binding est liée à une propriété du composant. Nous allons bientôt voir comment cette liste peut être dynamique.
